@@ -1,0 +1,27 @@
+{
+    "name": "lw_app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "fullcanvas.js",
+    "scripts": {
+        "build": "webpack --watch",
+        "run": "npm run build & serve -o static"
+    },
+    "author": "",
+    "license": "ISC",
+    "jshintConfig": {
+        "esversion": 6
+    },
+    "devDependencies": {
+        "jshint": "^2.9.5",
+        "raw-loader": "^0.5.1",
+        "serve": "^6.0.2",
+        "webpack": "^3.1.0"
+    },
+    "dependencies": {
+        "geodist": "^0.2.1",
+        "pick-random": "^2.0.0",
+        "rxjs": "^5.4.2",
+        "tinygradient": "^0.3.1"
+    }
+}

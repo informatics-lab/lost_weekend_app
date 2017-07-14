@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Web Map</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://mapzen.com/js/mapzen.css">
+    <script src="https://mapzen.com/js/mapzen.min.js"></script>
+    <script src="lib/L.CanvasLayer.js"></script>
+    <style>
+        #map,
+        #fog {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        
+        #fog {
+            z-index: -1;
+            background: rgba(50, 50, 50, 1)
+        }
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fog"></div>
+    <div id="map"></div>
+    <script src="app.bundle.js"></script>
+</body>
+
+</html>
