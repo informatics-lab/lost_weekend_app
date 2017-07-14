@@ -22501,9 +22501,7 @@ function createPowerUpCallback(type) {
 
 
 //TODO: remove these short cuts:
-window.range = powerUpRange
-powerUpRange()
-powerUpRange()
+window.range = powerUpRange;
 
 /***/ }),
 /* 360 */

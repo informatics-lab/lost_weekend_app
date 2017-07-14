@@ -15,6 +15,4 @@ function createPowerUpCallback(type) {
 export { playerAttributes, createPowerUpCallback }
 
 //TODO: remove these short cuts:
-window.range = powerUpRange
-powerUpRange()
-powerUpRange()
+window.range = powerUpRange;
