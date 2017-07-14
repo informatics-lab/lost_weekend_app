@@ -62,7 +62,7 @@ let fog = {
                 // ctx.closePath();
 
                 ctx.beginPath();
-                ctx.arc(dot.x, dot.y, (range / meterPerPixel) / 2, 0, Math.PI * 2);
+                ctx.arc(dot.x, dot.y, range / meterPerPixel, 0, Math.PI * 2);
                 ctx.fill()
                 ctx.closePath();
 

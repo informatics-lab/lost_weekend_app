@@ -1,5 +1,5 @@
 let playerAttributes = {
-    range: 10
+    range: 7
 }
 
 function powerUpRange() {
@@ -8,7 +8,7 @@ function powerUpRange() {
 }
 
 function createPowerUpCallback(type) {
-    // TODO: Check type
+    // TODO: Check type 
     return powerUpRange
 }
 

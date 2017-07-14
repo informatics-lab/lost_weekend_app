@@ -3462,7 +3462,7 @@ let fog = {
                 // ctx.closePath();
 
                 ctx.beginPath();
-                ctx.arc(dot.x, dot.y, (range / meterPerPixel) / 2, 0, Math.PI * 2);
+                ctx.arc(dot.x, dot.y, range / meterPerPixel, 0, Math.PI * 2);
                 ctx.fill()
                 ctx.closePath();
 
@@ -22485,7 +22485,7 @@ module.exports = getDistance;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return playerAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createPowerUpCallback; });
 let playerAttributes = {
-    range: 10
+    range: 7
 }
 
 function powerUpRange() {
@@ -22494,7 +22494,7 @@ function powerUpRange() {
 }
 
 function createPowerUpCallback(type) {
-    // TODO: Check type
+    // TODO: Check type 
     return powerUpRange
 }
 
