@@ -8,7 +8,14 @@
     <script src="https://mapzen.com/js/mapzen.min.js"></script>
     <script src="lib/L.CanvasLayer.js"></script>
     <style>
+        #notInAreaBanner {
+            z-index: 1000;
+            background: wheat;
+            display: none;
+        }
+        
         #map,
+        #notInAreaBanner,
         #fog {
             height: 100%;
             width: 100%;
@@ -31,6 +38,9 @@
 <body>
     <div id="fog"></div>
     <div id="map"></div>
+    <div id="notInAreaBanner">
+        You are not in the Exeter area or location permissions are unavaliable or disabled.
+    </div>
     <script src="app.bundle.js"></script>
 </body>
 

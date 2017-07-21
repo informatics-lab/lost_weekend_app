@@ -1,6 +1,7 @@
 import { addFog } from './fog'
 import { addEvents } from './events'
-
+import { lat_lon } from './loc';
+import { monitor } from './inArea';
 L.Mapzen.apiKey = 'odes-NxcRKWE';
 
 // Base map
@@ -9,8 +10,9 @@ var map = L.Mapzen.map('map', {
         scene: 'map-style/style.yaml'
     }
 });
-map.setView([50.7184, -3.5339], 19);
+map.setView(lat_lon, 19);
 
 
 addFog(map);
 addEvents(map);
+monitor();

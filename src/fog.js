@@ -11,7 +11,7 @@ function updateFog(pos) {
     var point = { lat: pos[0], lon: pos[1] }
     if (points.length > 0) {
         var last = points[points.length - 1]
-        if (Math.abs(last.lon - point.lon) < THRESHOLD && Math.abs(last.lat - point.lat) < THRESHOLD) {
+        if (Math.abs(last.lon - point.lon) < THRESHOLD && Math.abs(last.lat - point.lat) < THRESHOLD) { // TODO: Move to location stream
             return;
         }
     }
@@ -26,57 +26,38 @@ let fog = {
         var ctx = info.canvas.getContext('2d');
         ctx.clearRect(0, 0, info.canvas.width, info.canvas.height);
 
+        // Draw path/sight
         if (points.length >= 1) {
             // TODO: calc only on zoom change?
             // Get the y,x dimensions of the map
             var y = info.layer._map.getSize().y,
                 x = info.layer._map.getSize().x;
-            // calculate the distance the one side of the map to the other using the haversine formula
+
             var maxMeters = info.layer._map.containerPointToLatLng([0, y]).distanceTo(info.layer._map.containerPointToLatLng([x, y]));
-            // calculate how many meters each pixel represents
             var meterPerPixel = maxMeters / x;
 
-            // var first = info.layer._map.latLngToContainerPoint(points[0].point);
-            // var last = info.layer._map.latLngToContainerPoint(points[points.length - 1].point);
-
             ctx.globalCompositeOperation = "source-over";
-            //ctx.beginPath();
             ctx.fillStyle = "rgba(0,0,222, 1)";
-            //ctx.strokeStyle = "rgba(0,222,222, 1)";
-            ///ctx.lineWidth = 23;
 
-            // ctx.beginPath();
-            // ctx.arc(first.x, first.y, markerSize / 2, 0, Math.PI * 2);
-            // ctx.fill()
-            // ctx.closePath();
-
-            // ctx.beginPath();
-            // ctx.moveTo(first.x, first.y);
             for (var i = 0; i < points.length; i++) {
                 let p = points[i].point;
                 let range = points[i].range;
                 let dot = info.layer._map.latLngToContainerPoint(p);
-
-                // ctx.lineTo(dot.x, dot.y);
-                // ctx.stroke();
-                // ctx.closePath();
 
                 ctx.beginPath();
                 ctx.arc(dot.x, dot.y, range / meterPerPixel, 0, Math.PI * 2);
                 ctx.fill()
                 ctx.closePath();
 
-                // ctx.beginPath();
-                // ctx.moveTo(dot.x, dot.y);
             }
-            // ctx.closePath();
+
         }
 
-
+        // subtract full screen rectangle from path to create reveal in the fog. 
         ctx.globalCompositeOperation = "xor"
         ctx.beginPath();
         ctx.rect(0, 0, info.canvas.width, info.canvas.height);
-        ctx.fillStyle = "rgba(32,32,32, 1)";
+        ctx.fillStyle = "rgba(32,32,32, 0.5)";
         ctx.fill();
     }
 };
@@ -118,4 +99,4 @@ function showTiles() {
     }
 }
 
-export { addFog, points as visited }
+export { addFog, points as visited, hideTiles, showTiles }

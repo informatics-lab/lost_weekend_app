@@ -1,7 +1,8 @@
 import Rx from 'rxjs/Rx';
 
 const STEP = 0.00005;
-let lat_lon = [50.7184, -3.5339];
+//let lat_lon = [50.7184, -3.5339];
+let lat_lon = [-3.539, 50.719];
 
 let keyPress = Rx.Observable.fromEvent(document, 'keydown')
     .map(evt => String.fromCharCode(evt.keyCode || evt.which))
@@ -32,4 +33,4 @@ function getLocationStream(map) {
     return locationStream
 }
 //location.subscribe(console.log);
-export { getLocationStream };
+export { getLocationStream, lat_lon };
