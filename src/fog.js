@@ -2,9 +2,7 @@ import { getLocationStream } from './loc'
 import { playerAttributes } from './player';
 
 
-var points = [
-    { point: new L.LatLng(50.7184, -3.5339), range: playerAttributes.range }
-]
+var points = [];
 
 function updateFog(pos) {
     var THRESHOLD = 0.0001;
@@ -28,8 +26,6 @@ let fog = {
 
         // Draw path/sight
         if (points.length >= 1) {
-            // TODO: calc only on zoom change?
-            // Get the y,x dimensions of the map
             var y = info.layer._map.getSize().y,
                 x = info.layer._map.getSize().x;
 
@@ -37,7 +33,7 @@ let fog = {
             var meterPerPixel = maxMeters / x;
 
             ctx.globalCompositeOperation = "source-over";
-            ctx.fillStyle = "rgba(0,0,222, 1)";
+            ctx.fillStyle = "rgba(255,255,255, 1)";
 
             for (var i = 0; i < points.length; i++) {
                 let p = points[i].point;
@@ -57,7 +53,7 @@ let fog = {
         ctx.globalCompositeOperation = "xor"
         ctx.beginPath();
         ctx.rect(0, 0, info.canvas.width, info.canvas.height);
-        ctx.fillStyle = "rgba(32,32,32, 0.5)";
+        ctx.fillStyle = "rgba(0,0,0, 1)";
         ctx.fill();
     }
 };
@@ -78,7 +74,7 @@ function addFog(map) {
     map.on('zoomstart', hideTiles);
     map.on('zoomend', showTiles);
 
-    let locationStream = getLocationStream(map);
+    let locationStream = getLocationStream();
     locationStream.subscribe(updateFog);
     locationStream.subscribe(() => fogLayer.needRedraw());
 

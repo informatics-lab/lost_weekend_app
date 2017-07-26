@@ -15,6 +15,18 @@ const bbox = {
     }
 }
 
+const bounds = L.bounds([bbox.lat.max, bbox.lon.max], [bbox.lat.min, bbox.lon.min]);
+
+const DIAGONAL_SIZE = new L.LatLng(bbox.lat.min, bbox.lon.min).distanceTo(new L.LatLng(bbox.lat.max, bbox.lon.max));
+
+
+function randomInside() {
+    return {
+        lat: Math.random() * (bbox.lat.max - bbox.lat.min) + bbox.lat.min,
+        lon: Math.random() * (bbox.lon.max - bbox.lon.min) + bbox.lon.min
+    }
+}
+
 function show() {
     if (!isShown) {
         container.style.display = 'block';
@@ -32,7 +44,8 @@ function hide() {
 }
 
 function showHideInAreaBanner(point) {
-    if ([point[0] > bbox.lon.min, point[0] < bbox.lon.max, point[1] > bbox.lat.min, point[1] < bbox.lat.max].every(i => i)) {
+    // TODO: us leflet http: //leafletjs.com/reference-1.1.0.html#latlngbounds?
+    if (bounds.contains(point)) {
         hide();
     } else {
         show();
@@ -41,8 +54,9 @@ function showHideInAreaBanner(point) {
 
 function monitor() {
     container = document.getElementById("notInAreaBanner");
+    isShown = container.style.display === 'none';
     show()
-    getLocationStream().subscribe(showHideInAreaBanner)
+    getLocationStream().subscribe(showHideInAreaBanner) // TODO: check every so often not constantly on move?
 }
 
-export { monitor }
+export { monitor, DIAGONAL_SIZE, randomInside, bounds }
