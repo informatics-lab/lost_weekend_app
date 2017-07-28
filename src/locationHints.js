@@ -48,17 +48,20 @@ let locationEcho = {
         this.meterPerPixel = maxMeters / x;
         ctx.clearRect(0, 0, info.canvas.width, info.canvas.height);
 
-        hints = hints.filter(hint => hint.pulseCount < hint.dieAfterNPulses);
+        hints = hints
+            .filter(hint => hint.pulseCount < hint.dieAfterNPulses)
+            .filter(hint => !hint.event.found);
         hints.forEach(hint => this.drawHint(ctx, hint, info.layer._map), this);
     }
 };
 
-function newHint(latLon) {
+function newHint(event) {
     hints.push({
-        loc: latLon,
+        loc: event.geo,
+        event: event,
         radius: 0,
         tLast: (new Date()).getTime(),
-        dieAfterNPulses: 5,
+        dieAfterNPulses: 50,
         pulseCount: 0,
         speed: 0.5,
         colorStr: toRGBStr(randomColour())
@@ -70,7 +73,7 @@ function addRandomHint() {
         return;
     }
     let event = pickRandom(hiddenEvents)[0];
-    newHint(event.geo);
+    newHint(event);
 }
 
 let maxWait = 20; // Time in seconds between showing a new hint

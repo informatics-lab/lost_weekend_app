@@ -29,3 +29,9 @@ eventDetails = {"eventList":[event for event in (eventToObject(e) for e in event
 print("Found %s events with lat an lon" % len(eventDetails['eventList']))
 with open(os.path.join(os.path.dirname(__file__), '..', 'src', 'eventDetailsAuto.js'), 'w') as fp:
     fp.write('module.exports = ' + json.dumps(eventDetails, sort_keys=True, indent=4))
+
+
+
+noGeo = [event for event in (eventToObject(e) for e in events) if not event.get('geo', None)]
+print("and %s without:" % len(noGeo))
+print('\n'.join(i['url'] for i in noGeo))

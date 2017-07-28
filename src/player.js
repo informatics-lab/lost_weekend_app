@@ -1,10 +1,10 @@
 const query = require('query-string').parse(location.search);
 
 let playerAttributes = {
-    range: 7,
+    range: 14,
     hints: {
-        minDelay: 10,
-        maxDelay: 30,
+        minDelay: 20,
+        maxDelay: 60,
         max: 1
     }
 };

@@ -135,6 +135,7 @@ function updateVisable(limit) {
                 hiddenEvents.splice(eventIdx, 1);
                 event.marker = markerToMap(event);
                 visableEvents.push(event);
+                event.found = true;
                 break;
             }
         }
