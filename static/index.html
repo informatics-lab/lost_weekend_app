@@ -5,43 +5,29 @@
     <title>My Web Map</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://mapzen.com/js/mapzen.css">
-    <script src="https://mapzen.com/js/mapzen.min.js"></script>
-    <script src="lib/L.CanvasLayer.js"></script>
-    <style>
-        #notInAreaBanner {
-            z-index: 1000;
-            background: wheat;
-            display: none;
-        }
-        
-        #map,
-        #notInAreaBanner,
-        #fog {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
-        
-        #fog {
-            z-index: -1;
-            background: rgba(50, 50, 50, 1)
-        }
-        
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+    <div id="welcome">
+        <img class="logo" src="circle_graphic.svg" alt="Lost Weekend"></img>
+
+    </div>
+
     <div id="fog"></div>
     <div id="map"></div>
     <div id="notInAreaBanner">
         <p>This experence is for enjoying Exeter's Lost Weekend. It requires access to your current location and for you to be in central exeter. </p>
         <p> text will disapear once the above conditions are met (might take a half a minute for GPS to locate).</p>
     </div>
+
+
+
+
+
+    <script src="https://mapzen.com/js/mapzen.min.js"></script>
+    <script src="lib/L.CanvasLayer.js"></script>
     <script src="app.bundle.js"></script>
 </body>
 

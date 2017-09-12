@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 73);
+/******/ 	return __webpack_require__(__webpack_require__.s = 77);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,10 +70,10 @@
 "use strict";
 
 var root_1 = __webpack_require__(7);
-var toSubscriber_1 = __webpack_require__(75);
+var toSubscriber_1 = __webpack_require__(79);
 var observable_1 = __webpack_require__(23);
 /**
- * A representation of any set of values over any amount of time. This the most basic building block
+ * A representation of any set of values over any amount of time. This is the most basic building block
  * of RxJS.
  *
  * @class Observable<T>
@@ -81,7 +81,7 @@ var observable_1 = __webpack_require__(23);
 var Observable = (function () {
     /**
      * @constructor
-     * @param {Function} subscribe the function that is  called when the Observable is
+     * @param {Function} subscribe the function that is called when the Observable is
      * initially subscribed to. This function is given a Subscriber, to which new values
      * can be `next`ed, or an `error` method can be called to raise an error, or
      * `complete` can be called to notify of a successful completion.
@@ -110,7 +110,7 @@ var Observable = (function () {
      *
      * <span class="informal">Use it when you have all these Observables, but still nothing is happening.</span>
      *
-     * `subscribe` is not a regular operator, but a method that calls Observables internal `subscribe` function. It
+     * `subscribe` is not a regular operator, but a method that calls Observable's internal `subscribe` function. It
      * might be for example a function that you passed to a {@link create} static factory, but most of the time it is
      * a library implementation, which defines what and when will be emitted by an Observable. This means that calling
      * `subscribe` is actually the moment when Observable starts its work, not when it is created, as it is often
@@ -152,7 +152,7 @@ var Observable = (function () {
      *     console.log('Adding: ' + value);
      *     this.sum = this.sum + value;
      *   },
-     *   error() { // We actually could just remote this method,
+     *   error() { // We actually could just remove this method,
      *   },        // since we do not really care about errors right now.
      *   complete() {
      *     console.log('Sum equals: ' + this.sum);
@@ -207,7 +207,7 @@ var Observable = (function () {
      * // Logs:
      * // 0 after 1s
      * // 1 after 2s
-     * // "unsubscribed!" after 2,5s
+     * // "unsubscribed!" after 2.5s
      *
      *
      * @param {Observer|Function} observerOrNext (optional) Either an observer with methods to be called,
@@ -338,7 +338,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var isFunction_1 = __webpack_require__(21);
 var Subscription_1 = __webpack_require__(4);
-var Observer_1 = __webpack_require__(42);
+var Observer_1 = __webpack_require__(45);
 var rxSubscriber_1 = __webpack_require__(22);
 /**
  * Implements the {@link Observer} interface and extends the
@@ -638,12 +638,12 @@ exports.OuterSubscriber = OuterSubscriber;
 "use strict";
 
 var root_1 = __webpack_require__(7);
-var isArrayLike_1 = __webpack_require__(44);
-var isPromise_1 = __webpack_require__(45);
-var isObject_1 = __webpack_require__(40);
+var isArrayLike_1 = __webpack_require__(47);
+var isPromise_1 = __webpack_require__(48);
+var isObject_1 = __webpack_require__(43);
 var Observable_1 = __webpack_require__(0);
-var iterator_1 = __webpack_require__(15);
-var InnerSubscriber_1 = __webpack_require__(84);
+var iterator_1 = __webpack_require__(16);
+var InnerSubscriber_1 = __webpack_require__(88);
 var observable_1 = __webpack_require__(23);
 function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
     var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
@@ -722,11 +722,11 @@ exports.subscribeToResult = subscribeToResult;
 "use strict";
 
 var isArray_1 = __webpack_require__(10);
-var isObject_1 = __webpack_require__(40);
+var isObject_1 = __webpack_require__(43);
 var isFunction_1 = __webpack_require__(21);
 var tryCatch_1 = __webpack_require__(8);
 var errorObject_1 = __webpack_require__(6);
-var UnsubscriptionError_1 = __webpack_require__(41);
+var UnsubscriptionError_1 = __webpack_require__(44);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
  * Subscription has one important method, `unsubscribe`, that takes no argument
@@ -929,7 +929,7 @@ var Observable_1 = __webpack_require__(0);
 var Subscriber_1 = __webpack_require__(1);
 var Subscription_1 = __webpack_require__(4);
 var ObjectUnsubscribedError_1 = __webpack_require__(24);
-var SubjectSubscription_1 = __webpack_require__(43);
+var SubjectSubscription_1 = __webpack_require__(46);
 var rxSubscriber_1 = __webpack_require__(22);
 /**
  * @class SubjectSubscriber<T>
@@ -1122,7 +1122,7 @@ exports.root = _root;
     }
 })();
 //# sourceMappingURL=root.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(39)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(42)))
 
 /***/ }),
 /* 8 */
@@ -1155,8 +1155,8 @@ exports.tryCatch = tryCatch;
 
 "use strict";
 
-var AsyncAction_1 = __webpack_require__(17);
-var AsyncScheduler_1 = __webpack_require__(18);
+var AsyncAction_1 = __webpack_require__(18);
+var AsyncScheduler_1 = __webpack_require__(19);
 /**
  *
  * Async Scheduler
@@ -1235,7 +1235,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(0);
-var ScalarObservable_1 = __webpack_require__(32);
+var ScalarObservable_1 = __webpack_require__(33);
 var EmptyObservable_1 = __webpack_require__(13);
 var isScheduler_1 = __webpack_require__(11);
 /**
@@ -1444,7 +1444,7 @@ exports.EmptyObservable = EmptyObservable;
 
 "use strict";
 
-var ConnectableObservable_1 = __webpack_require__(59);
+var ConnectableObservable_1 = __webpack_require__(62);
 /* tslint:enable:max-line-length */
 /**
  * Returns an Observable that emits the results of invoking a specified selector on items
@@ -1503,6 +1503,99 @@ exports.MulticastOperator = MulticastOperator;
 
 /***/ }),
 /* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return setMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getLocationStream; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return lat_lon; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__inArea__ = __webpack_require__(31);
+
+
+
+const query = __webpack_require__(74).parse(location.search);
+
+
+const STEP = 0.00005;
+let lat_lon = [50.7184, -3.5339];
+let map; // Must call init before can be accessed.
+let stream; // Must call init before can be accessed.
+let translate_by = [0, 0];
+// let lat_lon = [ 50.719, -3.539];
+
+
+
+function wdsaStream() {
+    let keyPress = __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default.a.Observable.fromEvent(document, 'keydown')
+        .map(evt => String.fromCharCode(evt.keyCode || evt.which))
+
+
+    let goNorth = keyPress.filter(key => key == 'W').map(() => [STEP, 0]);
+    let goSouth = keyPress.filter(key => key == 'S').map(() => [-STEP, 0]);
+    let goEast = keyPress.filter(key => key == 'D').map(() => [0, STEP]);
+    let goWest = keyPress.filter(key => key == 'A').map(() => [0, -STEP]);
+
+    let locationStream = __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default.a.Observable.merge(goNorth, goSouth, goEast, goWest).map((diff) => {
+        lat_lon = [lat_lon[0] + diff[0], lat_lon[1] + diff[1]];
+        return lat_lon;
+    });
+    return locationStream;
+}
+
+function locStream() {
+    let geoStream = __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default.a.Observable.fromEvent(map, 'locationfound');
+    var locator = L.Mapzen.locator({
+        position: 'bottomright',
+        drawCircle: (!query.translate) ? true : false,
+        setView: (!query.translate) ? 'untilPan' : false,
+        drawMarker: (!query.translate) ? true : false,
+        keepCurrentZoomLevel: true,
+        locateOptions: {
+            watch: true,
+            enableHighAccuracy: true
+        },
+        markerStyle: {
+            opacity: 0.8
+        }
+    });
+    geoStream.subscribe(console.log);
+    locator.addTo(map).start();
+    geoStream = geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng]);
+    geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng])
+    if (query.translate) {
+        geoStream.first().subscribe(updateTranslate);
+        geoStream = geoStream.map(translate);
+    }
+    return geoStream;
+}
+
+function updateTranslate(centerOn) {
+    let falseCenter = __WEBPACK_IMPORTED_MODULE_1__inArea__["b" /* bounds */].getCenter();
+    translate_by = [centerOn[0] - falseCenter.x, centerOn[1] - falseCenter.y];
+    if (map) {
+        map.setView(new L.LatLng(falseCenter.x, falseCenter.y));
+    }
+}
+
+function translate(latLon) {
+    return [latLon[0] - translate_by[0], latLon[1] - translate_by[1]];
+}
+
+function getLocationStream(map) {
+    return stream;
+}
+
+function setMap(gameMap) {
+    map = gameMap;
+    stream = (query.wsda) ? wdsaStream() : locStream(map);
+}
+
+
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1546,7 +1639,7 @@ exports.$$iterator = exports.iterator;
 //# sourceMappingURL=iterator.js.map
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1679,7 +1772,7 @@ exports.Notification = Notification;
 //# sourceMappingURL=Notification.js.map
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1690,7 +1783,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var root_1 = __webpack_require__(7);
-var Action_1 = __webpack_require__(115);
+var Action_1 = __webpack_require__(120);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -1827,7 +1920,7 @@ exports.AsyncAction = AsyncAction;
 //# sourceMappingURL=AsyncAction.js.map
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1837,7 +1930,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Scheduler_1 = __webpack_require__(116);
+var Scheduler_1 = __webpack_require__(121);
 var AsyncScheduler = (function (_super) {
     __extends(AsyncScheduler, _super);
     function AsyncScheduler() {
@@ -1884,7 +1977,7 @@ exports.AsyncScheduler = AsyncScheduler;
 //# sourceMappingURL=AsyncScheduler.js.map
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1916,99 +2009,6 @@ var ArgumentOutOfRangeError = (function (_super) {
 }(Error));
 exports.ArgumentOutOfRangeError = ArgumentOutOfRangeError;
 //# sourceMappingURL=ArgumentOutOfRangeError.js.map
-
-/***/ }),
-/* 20 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return setMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getLocationStream; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return lat_lon; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__inArea__ = __webpack_require__(72);
-
-
-
-const query = __webpack_require__(364).parse(location.search);
-
-
-const STEP = 0.00005;
-let lat_lon = [50.7184, -3.5339];
-let map; // Must call init before can be accessed.
-let stream; // Must call init before can be accessed.
-let translate_by = [0, 0];
-// let lat_lon = [ 50.719, -3.539];
-
-
-
-function wdsaStream() {
-    let keyPress = __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default.a.Observable.fromEvent(document, 'keydown')
-        .map(evt => String.fromCharCode(evt.keyCode || evt.which))
-
-
-    let goNorth = keyPress.filter(key => key == 'W').map(() => [STEP, 0]);
-    let goSouth = keyPress.filter(key => key == 'S').map(() => [-STEP, 0]);
-    let goEast = keyPress.filter(key => key == 'D').map(() => [0, STEP]);
-    let goWest = keyPress.filter(key => key == 'A').map(() => [0, -STEP]);
-
-    let locationStream = __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default.a.Observable.merge(goNorth, goSouth, goEast, goWest).map((diff) => {
-        lat_lon = [lat_lon[0] + diff[0], lat_lon[1] + diff[1]];
-        return lat_lon;
-    });
-    return locationStream;
-}
-
-function locStream() {
-    let geoStream = __WEBPACK_IMPORTED_MODULE_0_rxjs_Rx___default.a.Observable.fromEvent(map, 'locationfound');
-    var locator = L.Mapzen.locator({
-        position: 'bottomright',
-        drawCircle: (!query.translate) ? true : false,
-        setView: (!query.translate) ? 'untilPan' : false,
-        drawMarker: (!query.translate) ? true : false,
-        keepCurrentZoomLevel: true,
-        locateOptions: {
-            watch: true,
-            enableHighAccuracy: true
-        },
-        markerStyle: {
-            opacity: 0.8
-        }
-    });
-    geoStream.subscribe(console.log);
-    locator.addTo(map).start();
-    geoStream = geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng]);
-    geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng])
-    if (query.translate) {
-        geoStream.first().subscribe(updateTranslate);
-        geoStream = geoStream.map(translate);
-    }
-    return geoStream;
-}
-
-function updateTranslate(centerOn) {
-    let falseCenter = __WEBPACK_IMPORTED_MODULE_1__inArea__["b" /* bounds */].getCenter();
-    translate_by = [centerOn[0] - falseCenter.x, centerOn[1] - falseCenter.y];
-    if (map) {
-        map.setView(new L.LatLng(falseCenter.x, falseCenter.y));
-    }
-}
-
-function translate(latLon) {
-    return [latLon[0] - translate_by[0], latLon[1] - translate_by[1]];
-}
-
-function getLocationStream(map) {
-    return stream;
-}
-
-function setMap(gameMap) {
-    map = gameMap;
-    stream = (query.wsda) ? wdsaStream() : locStream(map);
-}
-
-
 
 /***/ }),
 /* 21 */
@@ -2321,11 +2321,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subject_1 = __webpack_require__(5);
-var queue_1 = __webpack_require__(53);
+var queue_1 = __webpack_require__(56);
 var Subscription_1 = __webpack_require__(4);
-var observeOn_1 = __webpack_require__(35);
+var observeOn_1 = __webpack_require__(36);
 var ObjectUnsubscribedError_1 = __webpack_require__(24);
-var SubjectSubscription_1 = __webpack_require__(43);
+var SubjectSubscription_1 = __webpack_require__(46);
 /**
  * @class ReplaySubject<T>
  */
@@ -2456,12 +2456,86 @@ exports.EmptyError = EmptyError;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return monitor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DIAGONAL_SIZE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return randomInside; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return bounds; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__loc__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fog__ = __webpack_require__(32);
+
+
+
+let isShown = false;
+let container;
+
+const bbox = {
+    lon: {
+        min: -3.5414834194,
+        max: -3.5217404366
+    },
+    lat: {
+        min: 50.7160938261,
+        max: 50.7262963402
+    }
+}
+
+const bounds = L.bounds([bbox.lat.max, bbox.lon.max], [bbox.lat.min, bbox.lon.min]);
+
+const DIAGONAL_SIZE = new L.LatLng(bbox.lat.min, bbox.lon.min).distanceTo(new L.LatLng(bbox.lat.max, bbox.lon.max));
+
+
+function randomInside() {
+    return {
+        lat: Math.random() * (bbox.lat.max - bbox.lat.min) + bbox.lat.min,
+        lon: Math.random() * (bbox.lon.max - bbox.lon.min) + bbox.lon.min
+    }
+}
+
+function show() {
+    if (!isShown) {
+        container.style.display = 'block';
+        Object(__WEBPACK_IMPORTED_MODULE_1__fog__["b" /* hideTiles */])();
+        isShown = true;
+    }
+}
+
+function hide() {
+    if (isShown) {
+        container.style.display = 'none';
+        Object(__WEBPACK_IMPORTED_MODULE_1__fog__["c" /* showTiles */])();
+        isShown = false;
+    }
+}
+
+function showHideInAreaBanner(point) {
+    // TODO: us leflet http: //leafletjs.com/reference-1.1.0.html#latlngbounds?
+    if (bounds.contains(point)) {
+        hide();
+    } else {
+        show();
+    }
+}
+
+function monitor() {
+    container = document.getElementById("notInAreaBanner");
+    isShown = container.style.display === 'none';
+    show()
+    Object(__WEBPACK_IMPORTED_MODULE_0__loc__["a" /* getLocationStream */])().subscribe(showHideInAreaBanner) // TODO: check every so often not constantly on move?
+}
+
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addFog; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return points; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return hideTiles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return showTiles; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__loc__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__player__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__loc__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__player__ = __webpack_require__(40);
 
 
 
@@ -2538,7 +2612,7 @@ function addFog(map) {
     map.on('zoomstart', hideTiles);
     map.on('zoomend', showTiles);
 
-    let locationStream = __WEBPACK_IMPORTED_MODULE_0__loc__["a" /* getLocationStream */]();
+    let locationStream = Object(__WEBPACK_IMPORTED_MODULE_0__loc__["a" /* getLocationStream */])();
     locationStream.subscribe(updateFog);
     locationStream.subscribe(() => fogLayer.needRedraw());
 
@@ -2562,7 +2636,7 @@ function showTiles() {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2626,7 +2700,7 @@ exports.ScalarObservable = ScalarObservable;
 //# sourceMappingURL=ScalarObservable.js.map
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2784,7 +2858,7 @@ exports.CombineLatestSubscriber = CombineLatestSubscriber;
 //# sourceMappingURL=combineLatest.js.map
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2964,7 +3038,7 @@ exports.concatStatic = concatStatic;
 //# sourceMappingURL=concat.js.map
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2975,7 +3049,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(1);
-var Notification_1 = __webpack_require__(16);
+var Notification_1 = __webpack_require__(17);
 /**
  *
  * Re-emits all notifications from source Observable with specified scheduler.
@@ -3083,7 +3157,7 @@ exports.ObserveOnMessage = ObserveOnMessage;
 //# sourceMappingURL=observeOn.js.map
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3098,7 +3172,7 @@ var isArray_1 = __webpack_require__(10);
 var Subscriber_1 = __webpack_require__(1);
 var OuterSubscriber_1 = __webpack_require__(2);
 var subscribeToResult_1 = __webpack_require__(3);
-var iterator_1 = __webpack_require__(15);
+var iterator_1 = __webpack_require__(16);
 /* tslint:enable:max-line-length */
 /**
  * @param observables
@@ -3368,7 +3442,7 @@ var ZipBufferIterator = (function (_super) {
 //# sourceMappingURL=zip.js.map
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3461,7 +3535,7 @@ var MapSubscriber = (function (_super) {
 //# sourceMappingURL=map.js.map
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3593,7 +3667,114 @@ exports.ReduceSubscriber = ReduceSubscriber;
 //# sourceMappingURL=reduce.js.map
 
 /***/ }),
-/* 39 */
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return playerAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createPowerUpCallback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return INC_RANGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return INC_HINT; });
+const query = __webpack_require__(74).parse(location.search);
+
+let playerAttributes = {
+    range: 14,
+    hints: {
+        minDelay: 20,
+        maxDelay: 60,
+        max: 1
+    }
+};
+
+// TODO: Keep or remove?
+if (query.range) { playerAttributes.range = parseFloat(query.range); }
+if (query.hintMinDelay) { playerAttributes.hints.minDelay = parseInt(query.hintMinDelay); }
+if (query.hintMaxDelay) { playerAttributes.hints.maxDelay = parseInt(query.hintMaxDelay); }
+if (query.hintMax) { playerAttributes.hints.max = parseInt(query.hintMax); }
+
+const INC_RANGE = "inc-range";
+const INC_HINT = "inc-hint";
+
+function powerUpRange() {
+    playerAttributes.range += 10;
+    console.log("Powered up range!!");
+}
+
+function powerUpHint() {
+    let minDelay = playerAttributes.hints.minDelay - 2;
+    let maxDelay = playerAttributes.hints.maxDelay - 5;
+    let max = playerAttributes.hints.max + 1;
+
+    minDelay = (minDelay < 1) ? 1 : minDelay;
+    maxDelay = (maxDelay < minDelay) ? minDelay : maxDelay;
+
+
+    playerAttributes.hints.minDelay = minDelay;
+    playerAttributes.hints.maxDelay = maxDelay;
+    playerAttributes.hints.max = max;
+    console.log("Powered up hints!!");
+}
+
+let callBacks = {};
+callBacks[INC_HINT] = powerUpHint;
+callBacks[INC_RANGE] = powerUpRange;
+
+function createPowerUpCallback(type) {
+    return callBacks[type];
+}
+
+
+
+//TODO: remove these short cuts:
+
+window.range = powerUpRange;
+window.hint = powerUpHint;
+window.boosh = () => {
+    powerUpRange();
+    powerUpRange();
+    powerUpRange();
+    powerUpRange();
+    powerUpRange();
+    powerUpRange();
+    powerUpRange();
+    powerUpHint();
+    powerUpHint();
+    powerUpHint();
+    powerUpHint();
+};
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = (data, opts) => {
+	opts = Object.assign({count: 1}, opts);
+	data = data.slice();
+
+	let count = opts.count;
+
+	if (!Array.isArray(data)) {
+		throw new TypeError('Expected an Array as the first argument');
+	}
+
+	if (count > data.length) {
+		throw new Error('Count must be lower or the same as the number of picks');
+	}
+
+	const ret = [];
+
+	while (count--) {
+		ret.push(data.splice(Math.floor(Math.random() * data.length), 1)[0]);
+	}
+
+	return ret;
+};
+
+
+/***/ }),
+/* 42 */
 /***/ (function(module, exports) {
 
 var g;
@@ -3620,7 +3801,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3632,7 +3813,7 @@ exports.isObject = isObject;
 //# sourceMappingURL=isObject.js.map
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3663,7 +3844,7 @@ exports.UnsubscriptionError = UnsubscriptionError;
 //# sourceMappingURL=UnsubscriptionError.js.map
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3677,7 +3858,7 @@ exports.empty = {
 //# sourceMappingURL=Observer.js.map
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3723,7 +3904,7 @@ exports.SubjectSubscription = SubjectSubscription;
 //# sourceMappingURL=SubjectSubscription.js.map
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3732,7 +3913,7 @@ exports.isArrayLike = (function (x) { return x && typeof x.length === 'number'; 
 //# sourceMappingURL=isArrayLike.js.map
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3744,7 +3925,7 @@ exports.isPromise = isPromise;
 //# sourceMappingURL=isPromise.js.map
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3755,15 +3936,15 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var isArray_1 = __webpack_require__(10);
-var isArrayLike_1 = __webpack_require__(44);
-var isPromise_1 = __webpack_require__(45);
-var PromiseObservable_1 = __webpack_require__(47);
-var IteratorObservable_1 = __webpack_require__(97);
+var isArrayLike_1 = __webpack_require__(47);
+var isPromise_1 = __webpack_require__(48);
+var PromiseObservable_1 = __webpack_require__(50);
+var IteratorObservable_1 = __webpack_require__(101);
 var ArrayObservable_1 = __webpack_require__(12);
-var ArrayLikeObservable_1 = __webpack_require__(98);
-var iterator_1 = __webpack_require__(15);
+var ArrayLikeObservable_1 = __webpack_require__(102);
+var iterator_1 = __webpack_require__(16);
 var Observable_1 = __webpack_require__(0);
-var observeOn_1 = __webpack_require__(35);
+var observeOn_1 = __webpack_require__(36);
 var observable_1 = __webpack_require__(23);
 /**
  * We need this JSDoc comment for affecting ESDoc.
@@ -3872,7 +4053,7 @@ exports.FromObservable = FromObservable;
 //# sourceMappingURL=FromObservable.js.map
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3999,7 +4180,7 @@ function dispatchError(arg) {
 //# sourceMappingURL=PromiseObservable.js.map
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4150,7 +4331,7 @@ exports.mergeStatic = mergeStatic;
 //# sourceMappingURL=merge.js.map
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4267,7 +4448,7 @@ exports.RaceSubscriber = RaceSubscriber;
 //# sourceMappingURL=race.js.map
 
 /***/ }),
-/* 50 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4278,7 +4459,7 @@ exports.noop = noop;
 //# sourceMappingURL=noop.js.map
 
 /***/ }),
-/* 51 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4288,7 +4469,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var FromObservable_1 = __webpack_require__(46);
+var FromObservable_1 = __webpack_require__(49);
 var isArray_1 = __webpack_require__(10);
 var OuterSubscriber_1 = __webpack_require__(2);
 var subscribeToResult_1 = __webpack_require__(3);
@@ -4313,7 +4494,7 @@ var subscribeToResult_1 = __webpack_require__(3);
  * be happening until there is no more Observables left in the series, at which point returned Observable will
  * complete - even if the last subscribed stream ended with an error.
  *
- * `onErrorResumeNext` can be therefore though of as version of {@link concat} operator, which is more permissive
+ * `onErrorResumeNext` can be therefore thought of as version of {@link concat} operator, which is more permissive
  * when it comes to the errors emitted by its input Observables. While `concat` subscribes to the next Observable
  * in series only if previous one successfully completed, `onErrorResumeNext` subscribes even if it ended with
  * an error.
@@ -4421,7 +4602,7 @@ var OnErrorResumeNextSubscriber = (function (_super) {
 //# sourceMappingURL=onErrorResumeNext.js.map
 
 /***/ }),
-/* 52 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4436,7 +4617,7 @@ var tryCatch_1 = __webpack_require__(8);
 var errorObject_1 = __webpack_require__(6);
 var Observable_1 = __webpack_require__(0);
 var Subscriber_1 = __webpack_require__(1);
-var map_1 = __webpack_require__(37);
+var map_1 = __webpack_require__(38);
 function getCORSRequest() {
     if (root_1.root.XMLHttpRequest) {
         return new root_1.root.XMLHttpRequest();
@@ -4842,13 +5023,13 @@ exports.AjaxTimeoutError = AjaxTimeoutError;
 //# sourceMappingURL=AjaxObservable.js.map
 
 /***/ }),
-/* 53 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var QueueAction_1 = __webpack_require__(148);
-var QueueScheduler_1 = __webpack_require__(149);
+var QueueAction_1 = __webpack_require__(155);
+var QueueScheduler_1 = __webpack_require__(156);
 /**
  *
  * Queue Scheduler
@@ -4914,7 +5095,7 @@ exports.queue = new QueueScheduler_1.QueueScheduler(QueueAction_1.QueueAction);
 //# sourceMappingURL=queue.js.map
 
 /***/ }),
-/* 54 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5091,7 +5272,7 @@ exports.MergeMapSubscriber = MergeMapSubscriber;
 //# sourceMappingURL=mergeMap.js.map
 
 /***/ }),
-/* 55 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5252,7 +5433,7 @@ exports.MergeMapToSubscriber = MergeMapToSubscriber;
 //# sourceMappingURL=mergeMapTo.js.map
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5366,7 +5547,7 @@ var DistinctUntilChangedSubscriber = (function (_super) {
 //# sourceMappingURL=distinctUntilChanged.js.map
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5443,7 +5624,6 @@ var FilterSubscriber = (function (_super) {
         this.predicate = predicate;
         this.thisArg = thisArg;
         this.count = 0;
-        this.predicate = predicate;
     }
     // the try catch block below is left specifically for
     // optimization and perf reasons. a tryCatcher is not necessary here.
@@ -5465,7 +5645,7 @@ var FilterSubscriber = (function (_super) {
 //# sourceMappingURL=filter.js.map
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5572,7 +5752,7 @@ exports.FindValueSubscriber = FindValueSubscriber;
 //# sourceMappingURL=find.js.map
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5747,7 +5927,7 @@ var RefCountSubscriber = (function (_super) {
 //# sourceMappingURL=ConnectableObservable.js.map
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5802,13 +5982,13 @@ exports.BehaviorSubject = BehaviorSubject;
 //# sourceMappingURL=BehaviorSubject.js.map
 
 /***/ }),
-/* 61 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var AsapAction_1 = __webpack_require__(300);
-var AsapScheduler_1 = __webpack_require__(304);
+var AsapAction_1 = __webpack_require__(307);
+var AsapScheduler_1 = __webpack_require__(311);
 /**
  *
  * Asap Scheduler
@@ -5847,7 +6027,7 @@ exports.asap = new AsapScheduler_1.AsapScheduler(AsapAction_1.AsapAction);
 //# sourceMappingURL=asap.js.map
 
 /***/ }),
-/* 62 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -5900,13 +6080,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(302);
+__webpack_require__(309);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 63 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6054,7 +6234,7 @@ var ThrottleSubscriber = (function (_super) {
 //# sourceMappingURL=throttle.js.map
 
 /***/ }),
-/* 64 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6119,7 +6299,7 @@ var TimeIntervalSubscriber = (function (_super) {
 //# sourceMappingURL=timeInterval.js.map
 
 /***/ }),
-/* 65 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6150,7 +6330,7 @@ exports.TimeoutError = TimeoutError;
 //# sourceMappingURL=TimeoutError.js.map
 
 /***/ }),
-/* 66 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6206,12 +6386,12 @@ var TimestampSubscriber = (function (_super) {
 //# sourceMappingURL=timestamp.js.map
 
 /***/ }),
-/* 67 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var SubscriptionLog_1 = __webpack_require__(68);
+var SubscriptionLog_1 = __webpack_require__(71);
 var SubscriptionLoggable = (function () {
     function SubscriptionLoggable() {
         this.subscriptions = [];
@@ -6231,7 +6411,7 @@ exports.SubscriptionLoggable = SubscriptionLoggable;
 //# sourceMappingURL=SubscriptionLoggable.js.map
 
 /***/ }),
-/* 68 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6248,7 +6428,7 @@ exports.SubscriptionLog = SubscriptionLog;
 //# sourceMappingURL=SubscriptionLog.js.map
 
 /***/ }),
-/* 69 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6267,7 +6447,7 @@ exports.applyMixins = applyMixins;
 //# sourceMappingURL=applyMixins.js.map
 
 /***/ }),
-/* 70 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6277,8 +6457,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var AsyncAction_1 = __webpack_require__(17);
-var AsyncScheduler_1 = __webpack_require__(18);
+var AsyncAction_1 = __webpack_require__(18);
+var AsyncScheduler_1 = __webpack_require__(19);
 var VirtualTimeScheduler = (function (_super) {
     __extends(VirtualTimeScheduler, _super);
     function VirtualTimeScheduler(SchedulerAction, maxFrames) {
@@ -6386,168 +6566,408 @@ exports.VirtualAction = VirtualAction;
 //# sourceMappingURL=VirtualTimeScheduler.js.map
 
 /***/ }),
-/* 71 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return playerAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createPowerUpCallback; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return INC_RANGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return INC_HINT; });
-const query = __webpack_require__(364).parse(location.search);
 
-let playerAttributes = {
-    range: 14,
-    hints: {
-        minDelay: 20,
-        maxDelay: 60,
-        max: 1
-    }
+var strictUriEncode = __webpack_require__(361);
+var objectAssign = __webpack_require__(362);
+var decodeComponent = __webpack_require__(363);
+
+function encoderForArrayFormat(opts) {
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, index) {
+				return value === null ? [
+					encode(key, opts),
+					'[',
+					index,
+					']'
+				].join('') : [
+					encode(key, opts),
+					'[',
+					encode(index, opts),
+					']=',
+					encode(value, opts)
+				].join('');
+			};
+
+		case 'bracket':
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'[]=',
+					encode(value, opts)
+				].join('');
+			};
+
+		default:
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'=',
+					encode(value, opts)
+				].join('');
+			};
+	}
+}
+
+function parserForArrayFormat(opts) {
+	var result;
+
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, accumulator) {
+				result = /\[(\d*)\]$/.exec(key);
+
+				key = key.replace(/\[\d*\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				}
+
+				if (accumulator[key] === undefined) {
+					accumulator[key] = {};
+				}
+
+				accumulator[key][result[1]] = value;
+			};
+
+		case 'bracket':
+			return function (key, value, accumulator) {
+				result = /(\[\])$/.exec(key);
+				key = key.replace(/\[\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				} else if (accumulator[key] === undefined) {
+					accumulator[key] = [value];
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+
+		default:
+			return function (key, value, accumulator) {
+				if (accumulator[key] === undefined) {
+					accumulator[key] = value;
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+	}
+}
+
+function encode(value, opts) {
+	if (opts.encode) {
+		return opts.strict ? strictUriEncode(value) : encodeURIComponent(value);
+	}
+
+	return value;
+}
+
+function keysSorter(input) {
+	if (Array.isArray(input)) {
+		return input.sort();
+	} else if (typeof input === 'object') {
+		return keysSorter(Object.keys(input)).sort(function (a, b) {
+			return Number(a) - Number(b);
+		}).map(function (key) {
+			return input[key];
+		});
+	}
+
+	return input;
+}
+
+exports.extract = function (str) {
+	return str.split('?')[1] || '';
 };
 
-// TODO: Keep or remove?
-if (query.range) { playerAttributes.range = parseFloat(query.range); }
-if (query.hintMinDelay) { playerAttributes.hints.minDelay = parseInt(query.hintMinDelay); }
-if (query.hintMaxDelay) { playerAttributes.hints.maxDelay = parseInt(query.hintMaxDelay); }
-if (query.hintMax) { playerAttributes.hints.max = parseInt(query.hintMax); }
+exports.parse = function (str, opts) {
+	opts = objectAssign({arrayFormat: 'none'}, opts);
 
-const INC_RANGE = "inc-range";
-const INC_HINT = "inc-hint";
+	var formatter = parserForArrayFormat(opts);
 
-function powerUpRange() {
-    playerAttributes.range += 10;
-    console.log("Powered up range!!");
-}
+	// Create an object with no prototype
+	// https://github.com/sindresorhus/query-string/issues/47
+	var ret = Object.create(null);
 
-function powerUpHint() {
-    let minDelay = playerAttributes.hints.minDelay - 2;
-    let maxDelay = playerAttributes.hints.maxDelay - 5;
-    let max = playerAttributes.hints.max + 1;
+	if (typeof str !== 'string') {
+		return ret;
+	}
 
-    minDelay = (minDelay < 1) ? 1 : minDelay;
-    maxDelay = (maxDelay < minDelay) ? minDelay : maxDelay;
+	str = str.trim().replace(/^(\?|#|&)/, '');
 
+	if (!str) {
+		return ret;
+	}
 
-    playerAttributes.hints.minDelay = minDelay;
-    playerAttributes.hints.maxDelay = maxDelay;
-    playerAttributes.hints.max = max;
-    console.log("Powered up hints!!");
-}
+	str.split('&').forEach(function (param) {
+		var parts = param.replace(/\+/g, ' ').split('=');
+		// Firefox (pre 40) decodes `%3D` to `=`
+		// https://github.com/sindresorhus/query-string/pull/37
+		var key = parts.shift();
+		var val = parts.length > 0 ? parts.join('=') : undefined;
 
-let callBacks = {};
-callBacks[INC_HINT] = powerUpHint;
-callBacks[INC_RANGE] = powerUpRange;
+		// missing `=` should be `null`:
+		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+		val = val === undefined ? null : decodeComponent(val);
 
-function createPowerUpCallback(type) {
-    return callBacks[type];
-}
+		formatter(decodeComponent(key), val, ret);
+	});
 
+	return Object.keys(ret).sort().reduce(function (result, key) {
+		var val = ret[key];
+		if (Boolean(val) && typeof val === 'object' && !Array.isArray(val)) {
+			// Sort object keys, not values
+			result[key] = keysSorter(val);
+		} else {
+			result[key] = val;
+		}
 
-
-//TODO: remove these short cuts:
-
-window.range = powerUpRange;
-window.hint = powerUpHint;
-window.boosh = () => {
-    powerUpRange();
-    powerUpRange();
-    powerUpRange();
-    powerUpRange();
-    powerUpRange();
-    powerUpRange();
-    powerUpRange();
-    powerUpHint();
-    powerUpHint();
-    powerUpHint();
-    powerUpHint();
+		return result;
+	}, Object.create(null));
 };
+
+exports.stringify = function (obj, opts) {
+	var defaults = {
+		encode: true,
+		strict: true,
+		arrayFormat: 'none'
+	};
+
+	opts = objectAssign(defaults, opts);
+
+	var formatter = encoderForArrayFormat(opts);
+
+	return obj ? Object.keys(obj).sort().map(function (key) {
+		var val = obj[key];
+
+		if (val === undefined) {
+			return '';
+		}
+
+		if (val === null) {
+			return encode(key, opts);
+		}
+
+		if (Array.isArray(val)) {
+			var result = [];
+
+			val.slice().forEach(function (val2) {
+				if (val2 === undefined) {
+					return;
+				}
+
+				result.push(formatter(key, val2, result.length));
+			});
+
+			return result.join('&');
+		}
+
+		return encode(key, opts) + '=' + encode(val, opts);
+	}).filter(function (x) {
+		return x.length > 0;
+	}).join('&') : '';
+};
+
 
 /***/ }),
-/* 72 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return monitor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DIAGONAL_SIZE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return randomInside; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return bounds; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__loc__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fog__ = __webpack_require__(31);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addEvents; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return hiddenEvents; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__colours__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fog__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__player__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inArea__ = __webpack_require__(31);
+const markerSvg = __webpack_require__(364);
+const doneMarkerSvg = __webpack_require__(365);
+const events = __webpack_require__(366);
+const pickRandom = __webpack_require__(41);
 
 
+const geodist = __webpack_require__(369);
 
-let isShown = false;
-let container;
 
-const bbox = {
-    lon: {
-        min: -3.5414834194,
-        max: -3.5217404366
-    },
-    lat: {
-        min: 50.7160938261,
-        max: 50.7262963402
-    }
+const NOTHING = 'nothing';
+
+let hiddenEvents = events.eventList;
+let visableEvents = [];
+let map;
+
+function activatedIcon() {
+    return L.divIcon({
+        iconAnchor: [12, 12],
+        labelAnchor: [12, 12],
+        popupAnchor: [0, -12],
+        html: doneMarkerSvg.replace(/fill="[^"]*"/, 'fill="' + Object(__WEBPACK_IMPORTED_MODULE_0__colours__["a" /* randomColour */])() + '"'),
+        className: "activated_marker"
+    });
 }
 
-const bounds = L.bounds([bbox.lat.max, bbox.lon.max], [bbox.lat.min, bbox.lon.min]);
+function unactivatedIcon() {
+    return L.divIcon({
+        iconAnchor: [12, 12],
+        labelAnchor: [12, 12],
+        popupAnchor: [0, -12],
+        html: markerSvg.replace(/fill="[^"]*"/, 'fill="' + Object(__WEBPACK_IMPORTED_MODULE_0__colours__["a" /* randomColour */])() + '"'),
+        className: "not_activated_marker"
+    });
+}
 
-const DIAGONAL_SIZE = new L.LatLng(bbox.lat.min, bbox.lon.min).distanceTo(new L.LatLng(bbox.lat.max, bbox.lon.max));
-
-
-function randomInside() {
+function gitterGeo(geo) {
+    // Randommly offset the location a litle to prevent identical locations overlaying.
+    // TODO: Somthing more intelligant rather than random.
+    let scale = 0.0003
     return {
-        lat: Math.random() * (bbox.lat.max - bbox.lat.min) + bbox.lat.min,
-        lon: Math.random() * (bbox.lon.max - bbox.lon.min) + bbox.lon.min
+        lat: geo.lat + scale * Math.random() - scale / 2,
+        lon: geo.lon + scale * Math.random() - scale / 2
     }
 }
 
-function show() {
-    if (!isShown) {
-        container.style.display = 'block';
-        __WEBPACK_IMPORTED_MODULE_1__fog__["b" /* hideTiles */]();
-        isShown = true;
-    }
+function makeGameEventMarker(evt) {
+    return (evt.details === NOTHING) ? makeEmptyMarker(evt) : makePowerUpMarker(evt)
 }
 
-function hide() {
-    if (isShown) {
-        container.style.display = 'none';
-        __WEBPACK_IMPORTED_MODULE_1__fog__["c" /* showTiles */]();
-        isShown = false;
+function makeEventMarker(evt) {
+    // TODO: What if not jpeg or multiple images/attachemtns?
+    let imgurl = evt["attach;fmttype=image/jpeg"];
+    let imgtag = (imgurl) ? `<a target="_blank" href="${evt.url}"><img src="${imgurl}" alt="${evt.summary}" style="width:100%;" /></a>` : "";
+    let description = evt.description;
+    let maxlen = 300;
+    if (description.length > maxlen) {
+        description = description.substring(0, maxlen);
+        description += `<a target="_blank" href="${evt.url}" title="Read more">...</a>`;
     }
+
+    return L.marker(gitterGeo(evt.geo), { icon: unactivatedIcon() }).bindPopup(`
+            ${imgtag}
+            <h3><a target="_blank" href="${evt.url}">${evt.summary}</a></h3>
+            <p>${description}<p>
+    `)
 }
 
-function showHideInAreaBanner(point) {
-    // TODO: us leflet http: //leafletjs.com/reference-1.1.0.html#latlngbounds?
-    if (bounds.contains(point)) {
-        hide();
-    } else {
-        show();
-    }
+function makePowerUpMarker(evt) {
+    let callback = Object(__WEBPACK_IMPORTED_MODULE_2__player__["c" /* createPowerUpCallback */])(evt.details);
+    let text = (evt.details === __WEBPACK_IMPORTED_MODULE_2__player__["b" /* INC_RANGE */]) ? "Vision range increased." : "Hint frequency increased.";
+    let marker = L.marker(evt.geo, { icon: unactivatedIcon() }).bindPopup(text);
+    marker.once('click', callback);
+    return marker;
 }
 
-function monitor() {
-    container = document.getElementById("notInAreaBanner");
-    isShown = container.style.display === 'none';
-    show()
-    __WEBPACK_IMPORTED_MODULE_0__loc__["a" /* getLocationStream */]().subscribe(showHideInAreaBanner) // TODO: check every so often not constantly on move?
+
+function makeEmptyMarker(evt) {
+    let marker = L.marker(evt.geo, { icon: unactivatedIcon() }).bindPopup("Sorry nothing here...");
+    marker.once('click', () => {
+        setTimeout(() => {
+            map.removeLayer(marker)
+        }, 3000);
+    });
+    return marker;
+}
+
+function markerToMap(evt) {
+    let marker = {
+        "event": makeEventMarker,
+        "gameevent": makeGameEventMarker
+    }[evt.type](evt);
+
+    if (marker) {
+        marker.addTo(map);
+        let markAsClicked = () => marker.setIcon(activatedIcon());
+        marker.once('click', markAsClicked);
+    }
+    return marker;
+}
+
+function randomGameEvent() {
+    let details = [__WEBPACK_IMPORTED_MODULE_2__player__["a" /* INC_HINT */], __WEBPACK_IMPORTED_MODULE_2__player__["b" /* INC_RANGE */], NOTHING];
+    return {
+        'type': 'gameevent',
+        'details': pickRandom(details)[0],
+        'geo': Object(__WEBPACK_IMPORTED_MODULE_3__inArea__["d" /* randomInside */])()
+    };
+}
+
+function addEvents(eventMap) {
+    map = eventMap;
+    let count = hiddenEvents.length;
+    for (let i = 0; i < count; i++) { // TODO: Half the events are game actions. Is this the correct ratio.
+        hiddenEvents.push(randomGameEvent());
+    }
+    //TODO: add random powerups and 'nothing' events.
+    setInterval(updateRecentlyVisable, 333);
+    setInterval(updateVisable, 5000); //TODO: Batch in to 'sets' of 50-300 points so don't inturup UI?
+}
+
+
+function updateRecentlyVisable() {
+    updateVisable(50);
+}
+// TODO: Reduce complexity?
+function updateVisable(limit) {
+    limit = limit || 0; // Limit to `limit` number of recent location events.
+    limit = __WEBPACK_IMPORTED_MODULE_1__fog__["d" /* visited */].length - 1 - limit;
+    limit = (limit < 0) ? 0 : limit;
+    for (var eventIdx = hiddenEvents.length - 1; eventIdx >= 0; eventIdx--) { // Loop from end since we will be removing items
+        let event = hiddenEvents[eventIdx];
+        for (var pointIdx = __WEBPACK_IMPORTED_MODULE_1__fog__["d" /* visited */].length - 1; pointIdx >= limit; pointIdx--) { // Start at most recent data
+            let point = __WEBPACK_IMPORTED_MODULE_1__fog__["d" /* visited */][pointIdx];
+            if (geodist(point.point, event.geo, { exact: true, unit: 'meters', limit: point.range })) {
+                hiddenEvents.splice(eventIdx, 1);
+                event.marker = markerToMap(event);
+                visableEvents.push(event);
+                event.found = true;
+                break;
+            }
+        }
+    }
 }
 
 
 
 /***/ }),
-/* 73 */
+/* 76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return randomColour; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return toRGBStr; });
+const gradient = __webpack_require__(367);
+const pickRandom = __webpack_require__(41);
+
+let colours = gradient('#ffff00', '#ff00ec').rgb(15);
+
+function randomColour() {
+    return pickRandom(colours)[0];
+}
+
+function toRGBStr(colour) {
+    return Math.round(colour._r) + "," + Math.round(colour._g) + "," + Math.round(colour._b);
+}
+
+
+/***/ }),
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fog__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__events__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loc__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inArea__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__locationHints__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fullscreen__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fog__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__events__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loc__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inArea__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__locationHints__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fullscreen__ = __webpack_require__(371);
 
 
 
@@ -6568,12 +6988,12 @@ var map = L.Mapzen.map('map', {
 });
 map.setView(__WEBPACK_IMPORTED_MODULE_2__loc__["b" /* lat_lon */], 19);
 
-__WEBPACK_IMPORTED_MODULE_2__loc__["c" /* setMap */](map);
-__WEBPACK_IMPORTED_MODULE_0__fog__["a" /* addFog */](map);
-__WEBPACK_IMPORTED_MODULE_1__events__["a" /* addEvents */](map);
-__WEBPACK_IMPORTED_MODULE_4__locationHints__["a" /* showHints */](map);
-__WEBPACK_IMPORTED_MODULE_3__inArea__["c" /* monitor */]();
-__WEBPACK_IMPORTED_MODULE_5__fullscreen__["a" /* addFullScreen */](map);
+Object(__WEBPACK_IMPORTED_MODULE_2__loc__["c" /* setMap */])(map);
+Object(__WEBPACK_IMPORTED_MODULE_0__fog__["a" /* addFog */])(map);
+Object(__WEBPACK_IMPORTED_MODULE_1__events__["a" /* addEvents */])(map);
+Object(__WEBPACK_IMPORTED_MODULE_4__locationHints__["a" /* showHints */])(map);
+Object(__WEBPACK_IMPORTED_MODULE_3__inArea__["c" /* monitor */])();
+Object(__WEBPACK_IMPORTED_MODULE_5__fullscreen__["a" /* addFullScreen */])(map);
 
 
 // TODO: Remove
@@ -6589,7 +7009,7 @@ __WEBPACK_IMPORTED_MODULE_5__fullscreen__["a" /* addFullScreen */](map);
 // range()
 
 /***/ }),
-/* 74 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6606,137 +7026,137 @@ var Observable_1 = __webpack_require__(0);
 exports.Observable = Observable_1.Observable;
 // statics
 /* tslint:disable:no-use-before-declare */
-__webpack_require__(76);
-__webpack_require__(79);
-__webpack_require__(82);
-__webpack_require__(85);
-__webpack_require__(87);
-__webpack_require__(90);
-__webpack_require__(92);
-__webpack_require__(95);
+__webpack_require__(80);
+__webpack_require__(83);
+__webpack_require__(86);
+__webpack_require__(89);
+__webpack_require__(91);
+__webpack_require__(94);
+__webpack_require__(96);
 __webpack_require__(99);
-__webpack_require__(102);
-__webpack_require__(105);
-__webpack_require__(107);
+__webpack_require__(103);
+__webpack_require__(106);
 __webpack_require__(109);
-__webpack_require__(112);
+__webpack_require__(111);
+__webpack_require__(114);
 __webpack_require__(117);
-__webpack_require__(119);
-__webpack_require__(120);
-__webpack_require__(123);
-__webpack_require__(125);
+__webpack_require__(122);
+__webpack_require__(124);
 __webpack_require__(126);
 __webpack_require__(129);
-__webpack_require__(132);
-__webpack_require__(135);
-__webpack_require__(138);
-__webpack_require__(141);
-//dom
-__webpack_require__(143);
+__webpack_require__(131);
+__webpack_require__(133);
+__webpack_require__(136);
+__webpack_require__(139);
+__webpack_require__(142);
 __webpack_require__(145);
+__webpack_require__(148);
+//dom
+__webpack_require__(150);
+__webpack_require__(152);
 //operators
-__webpack_require__(151);
-__webpack_require__(153);
-__webpack_require__(155);
-__webpack_require__(157);
-__webpack_require__(159);
-__webpack_require__(161);
-__webpack_require__(163);
-__webpack_require__(165);
+__webpack_require__(158);
+__webpack_require__(160);
+__webpack_require__(162);
+__webpack_require__(164);
 __webpack_require__(166);
-__webpack_require__(167);
-__webpack_require__(169);
-__webpack_require__(171);
+__webpack_require__(168);
+__webpack_require__(170);
+__webpack_require__(172);
 __webpack_require__(173);
-__webpack_require__(175);
-__webpack_require__(177);
-__webpack_require__(179);
-__webpack_require__(181);
-__webpack_require__(183);
-__webpack_require__(185);
-__webpack_require__(187);
+__webpack_require__(174);
+__webpack_require__(176);
+__webpack_require__(178);
+__webpack_require__(180);
+__webpack_require__(182);
+__webpack_require__(184);
+__webpack_require__(186);
+__webpack_require__(188);
 __webpack_require__(190);
-__webpack_require__(191);
-__webpack_require__(193);
-__webpack_require__(195);
+__webpack_require__(192);
+__webpack_require__(194);
 __webpack_require__(197);
-__webpack_require__(199);
-__webpack_require__(201);
-__webpack_require__(203);
+__webpack_require__(198);
+__webpack_require__(200);
+__webpack_require__(202);
 __webpack_require__(204);
 __webpack_require__(206);
-__webpack_require__(207);
-__webpack_require__(209);
+__webpack_require__(208);
+__webpack_require__(210);
 __webpack_require__(211);
+__webpack_require__(213);
+__webpack_require__(214);
 __webpack_require__(216);
 __webpack_require__(218);
-__webpack_require__(220);
-__webpack_require__(222);
-__webpack_require__(224);
-__webpack_require__(226);
-__webpack_require__(228);
-__webpack_require__(230);
+__webpack_require__(223);
+__webpack_require__(225);
+__webpack_require__(227);
+__webpack_require__(229);
 __webpack_require__(231);
 __webpack_require__(233);
 __webpack_require__(235);
 __webpack_require__(237);
 __webpack_require__(238);
-__webpack_require__(239);
 __webpack_require__(240);
-__webpack_require__(241);
-__webpack_require__(243);
+__webpack_require__(242);
+__webpack_require__(244);
 __webpack_require__(245);
 __webpack_require__(246);
 __webpack_require__(247);
 __webpack_require__(248);
 __webpack_require__(250);
+__webpack_require__(252);
 __webpack_require__(253);
+__webpack_require__(254);
 __webpack_require__(255);
 __webpack_require__(257);
-__webpack_require__(259);
-__webpack_require__(261);
-__webpack_require__(263);
+__webpack_require__(260);
+__webpack_require__(262);
 __webpack_require__(264);
-__webpack_require__(265);
-__webpack_require__(267);
-__webpack_require__(269);
+__webpack_require__(266);
+__webpack_require__(268);
+__webpack_require__(270);
 __webpack_require__(271);
-__webpack_require__(273);
-__webpack_require__(275);
-__webpack_require__(277);
-__webpack_require__(279);
-__webpack_require__(281);
-__webpack_require__(283);
-__webpack_require__(285);
-__webpack_require__(287);
-__webpack_require__(289);
-__webpack_require__(291);
-__webpack_require__(293);
-__webpack_require__(295);
-__webpack_require__(297);
-__webpack_require__(305);
-__webpack_require__(307);
-__webpack_require__(309);
-__webpack_require__(311);
-__webpack_require__(313);
-__webpack_require__(315);
-__webpack_require__(317);
-__webpack_require__(319);
+__webpack_require__(272);
+__webpack_require__(274);
+__webpack_require__(276);
+__webpack_require__(278);
+__webpack_require__(280);
+__webpack_require__(282);
+__webpack_require__(284);
+__webpack_require__(286);
+__webpack_require__(288);
+__webpack_require__(290);
+__webpack_require__(292);
+__webpack_require__(294);
+__webpack_require__(296);
+__webpack_require__(298);
+__webpack_require__(300);
+__webpack_require__(302);
+__webpack_require__(304);
+__webpack_require__(312);
+__webpack_require__(314);
+__webpack_require__(316);
+__webpack_require__(318);
 __webpack_require__(320);
 __webpack_require__(322);
-__webpack_require__(323);
-__webpack_require__(325);
+__webpack_require__(324);
+__webpack_require__(326);
 __webpack_require__(327);
-__webpack_require__(328);
+__webpack_require__(329);
 __webpack_require__(330);
 __webpack_require__(332);
 __webpack_require__(334);
-__webpack_require__(336);
-__webpack_require__(338);
-__webpack_require__(340);
-__webpack_require__(342);
-__webpack_require__(344);
+__webpack_require__(335);
+__webpack_require__(337);
+__webpack_require__(339);
+__webpack_require__(341);
+__webpack_require__(343);
 __webpack_require__(345);
+__webpack_require__(347);
+__webpack_require__(349);
+__webpack_require__(351);
+__webpack_require__(352);
 /* tslint:disable:no-unused-variable */
 var Subscription_1 = __webpack_require__(4);
 exports.Subscription = Subscription_1.Subscription;
@@ -6746,40 +7166,40 @@ var AsyncSubject_1 = __webpack_require__(25);
 exports.AsyncSubject = AsyncSubject_1.AsyncSubject;
 var ReplaySubject_1 = __webpack_require__(29);
 exports.ReplaySubject = ReplaySubject_1.ReplaySubject;
-var BehaviorSubject_1 = __webpack_require__(60);
+var BehaviorSubject_1 = __webpack_require__(63);
 exports.BehaviorSubject = BehaviorSubject_1.BehaviorSubject;
-var ConnectableObservable_1 = __webpack_require__(59);
+var ConnectableObservable_1 = __webpack_require__(62);
 exports.ConnectableObservable = ConnectableObservable_1.ConnectableObservable;
-var Notification_1 = __webpack_require__(16);
+var Notification_1 = __webpack_require__(17);
 exports.Notification = Notification_1.Notification;
 var EmptyError_1 = __webpack_require__(30);
 exports.EmptyError = EmptyError_1.EmptyError;
-var ArgumentOutOfRangeError_1 = __webpack_require__(19);
+var ArgumentOutOfRangeError_1 = __webpack_require__(20);
 exports.ArgumentOutOfRangeError = ArgumentOutOfRangeError_1.ArgumentOutOfRangeError;
 var ObjectUnsubscribedError_1 = __webpack_require__(24);
 exports.ObjectUnsubscribedError = ObjectUnsubscribedError_1.ObjectUnsubscribedError;
-var TimeoutError_1 = __webpack_require__(65);
+var TimeoutError_1 = __webpack_require__(68);
 exports.TimeoutError = TimeoutError_1.TimeoutError;
-var UnsubscriptionError_1 = __webpack_require__(41);
+var UnsubscriptionError_1 = __webpack_require__(44);
 exports.UnsubscriptionError = UnsubscriptionError_1.UnsubscriptionError;
-var timeInterval_1 = __webpack_require__(64);
+var timeInterval_1 = __webpack_require__(67);
 exports.TimeInterval = timeInterval_1.TimeInterval;
-var timestamp_1 = __webpack_require__(66);
+var timestamp_1 = __webpack_require__(69);
 exports.Timestamp = timestamp_1.Timestamp;
-var TestScheduler_1 = __webpack_require__(347);
+var TestScheduler_1 = __webpack_require__(354);
 exports.TestScheduler = TestScheduler_1.TestScheduler;
-var VirtualTimeScheduler_1 = __webpack_require__(70);
+var VirtualTimeScheduler_1 = __webpack_require__(73);
 exports.VirtualTimeScheduler = VirtualTimeScheduler_1.VirtualTimeScheduler;
-var AjaxObservable_1 = __webpack_require__(52);
+var AjaxObservable_1 = __webpack_require__(55);
 exports.AjaxResponse = AjaxObservable_1.AjaxResponse;
 exports.AjaxError = AjaxObservable_1.AjaxError;
 exports.AjaxTimeoutError = AjaxObservable_1.AjaxTimeoutError;
-var asap_1 = __webpack_require__(61);
+var asap_1 = __webpack_require__(64);
 var async_1 = __webpack_require__(9);
-var queue_1 = __webpack_require__(53);
-var animationFrame_1 = __webpack_require__(350);
+var queue_1 = __webpack_require__(56);
+var animationFrame_1 = __webpack_require__(357);
 var rxSubscriber_1 = __webpack_require__(22);
-var iterator_1 = __webpack_require__(15);
+var iterator_1 = __webpack_require__(16);
 var observable_1 = __webpack_require__(23);
 /* tslint:enable:no-unused-variable */
 /**
@@ -6824,14 +7244,14 @@ exports.Symbol = Symbol;
 //# sourceMappingURL=Rx.js.map
 
 /***/ }),
-/* 75 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Subscriber_1 = __webpack_require__(1);
 var rxSubscriber_1 = __webpack_require__(22);
-var Observer_1 = __webpack_require__(42);
+var Observer_1 = __webpack_require__(45);
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
         if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -6850,28 +7270,28 @@ exports.toSubscriber = toSubscriber;
 //# sourceMappingURL=toSubscriber.js.map
 
 /***/ }),
-/* 76 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var bindCallback_1 = __webpack_require__(77);
+var bindCallback_1 = __webpack_require__(81);
 Observable_1.Observable.bindCallback = bindCallback_1.bindCallback;
 //# sourceMappingURL=bindCallback.js.map
 
 /***/ }),
-/* 77 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var BoundCallbackObservable_1 = __webpack_require__(78);
+var BoundCallbackObservable_1 = __webpack_require__(82);
 exports.bindCallback = BoundCallbackObservable_1.BoundCallbackObservable.create;
 //# sourceMappingURL=bindCallback.js.map
 
 /***/ }),
-/* 78 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7145,28 +7565,28 @@ function dispatchError(arg) {
 //# sourceMappingURL=BoundCallbackObservable.js.map
 
 /***/ }),
-/* 79 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var bindNodeCallback_1 = __webpack_require__(80);
+var bindNodeCallback_1 = __webpack_require__(84);
 Observable_1.Observable.bindNodeCallback = bindNodeCallback_1.bindNodeCallback;
 //# sourceMappingURL=bindNodeCallback.js.map
 
 /***/ }),
-/* 80 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var BoundNodeCallbackObservable_1 = __webpack_require__(81);
+var BoundNodeCallbackObservable_1 = __webpack_require__(85);
 exports.bindNodeCallback = BoundNodeCallbackObservable_1.BoundNodeCallbackObservable.create;
 //# sourceMappingURL=bindNodeCallback.js.map
 
 /***/ }),
-/* 81 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7435,18 +7855,18 @@ function dispatchError(arg) {
 //# sourceMappingURL=BoundNodeCallbackObservable.js.map
 
 /***/ }),
-/* 82 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var combineLatest_1 = __webpack_require__(83);
+var combineLatest_1 = __webpack_require__(87);
 Observable_1.Observable.combineLatest = combineLatest_1.combineLatest;
 //# sourceMappingURL=combineLatest.js.map
 
 /***/ }),
-/* 83 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7454,7 +7874,7 @@ Observable_1.Observable.combineLatest = combineLatest_1.combineLatest;
 var isScheduler_1 = __webpack_require__(11);
 var isArray_1 = __webpack_require__(10);
 var ArrayObservable_1 = __webpack_require__(12);
-var combineLatest_1 = __webpack_require__(33);
+var combineLatest_1 = __webpack_require__(34);
 /* tslint:enable:max-line-length */
 /**
  * Combines multiple Observables to create an Observable whose values are
@@ -7588,7 +8008,7 @@ exports.combineLatest = combineLatest;
 //# sourceMappingURL=combineLatest.js.map
 
 /***/ }),
-/* 84 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7630,49 +8050,49 @@ exports.InnerSubscriber = InnerSubscriber;
 //# sourceMappingURL=InnerSubscriber.js.map
 
 /***/ }),
-/* 85 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var concat_1 = __webpack_require__(86);
+var concat_1 = __webpack_require__(90);
 Observable_1.Observable.concat = concat_1.concat;
 //# sourceMappingURL=concat.js.map
 
 /***/ }),
-/* 86 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var concat_1 = __webpack_require__(34);
+var concat_1 = __webpack_require__(35);
 exports.concat = concat_1.concatStatic;
 //# sourceMappingURL=concat.js.map
 
 /***/ }),
-/* 87 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var defer_1 = __webpack_require__(88);
+var defer_1 = __webpack_require__(92);
 Observable_1.Observable.defer = defer_1.defer;
 //# sourceMappingURL=defer.js.map
 
 /***/ }),
-/* 88 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var DeferObservable_1 = __webpack_require__(89);
+var DeferObservable_1 = __webpack_require__(93);
 exports.defer = DeferObservable_1.DeferObservable.create;
 //# sourceMappingURL=defer.js.map
 
 /***/ }),
-/* 89 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7777,18 +8197,18 @@ var DeferSubscriber = (function (_super) {
 //# sourceMappingURL=DeferObservable.js.map
 
 /***/ }),
-/* 90 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var empty_1 = __webpack_require__(91);
+var empty_1 = __webpack_require__(95);
 Observable_1.Observable.empty = empty_1.empty;
 //# sourceMappingURL=empty.js.map
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7798,28 +8218,28 @@ exports.empty = EmptyObservable_1.EmptyObservable.create;
 //# sourceMappingURL=empty.js.map
 
 /***/ }),
-/* 92 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var forkJoin_1 = __webpack_require__(93);
+var forkJoin_1 = __webpack_require__(97);
 Observable_1.Observable.forkJoin = forkJoin_1.forkJoin;
 //# sourceMappingURL=forkJoin.js.map
 
 /***/ }),
-/* 93 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ForkJoinObservable_1 = __webpack_require__(94);
+var ForkJoinObservable_1 = __webpack_require__(98);
 exports.forkJoin = ForkJoinObservable_1.ForkJoinObservable.create;
 //# sourceMappingURL=forkJoin.js.map
 
 /***/ }),
-/* 94 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7937,28 +8357,28 @@ var ForkJoinSubscriber = (function (_super) {
 //# sourceMappingURL=ForkJoinObservable.js.map
 
 /***/ }),
-/* 95 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var from_1 = __webpack_require__(96);
+var from_1 = __webpack_require__(100);
 Observable_1.Observable.from = from_1.from;
 //# sourceMappingURL=from.js.map
 
 /***/ }),
-/* 96 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var FromObservable_1 = __webpack_require__(46);
+var FromObservable_1 = __webpack_require__(49);
 exports.from = FromObservable_1.FromObservable.create;
 //# sourceMappingURL=from.js.map
 
 /***/ }),
-/* 97 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7970,7 +8390,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var root_1 = __webpack_require__(7);
 var Observable_1 = __webpack_require__(0);
-var iterator_1 = __webpack_require__(15);
+var iterator_1 = __webpack_require__(16);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -8127,7 +8547,7 @@ function sign(value) {
 //# sourceMappingURL=IteratorObservable.js.map
 
 /***/ }),
-/* 98 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8138,7 +8558,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(0);
-var ScalarObservable_1 = __webpack_require__(32);
+var ScalarObservable_1 = __webpack_require__(33);
 var EmptyObservable_1 = __webpack_require__(13);
 /**
  * We need this JSDoc comment for affecting ESDoc.
@@ -8203,28 +8623,28 @@ exports.ArrayLikeObservable = ArrayLikeObservable;
 //# sourceMappingURL=ArrayLikeObservable.js.map
 
 /***/ }),
-/* 99 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var fromEvent_1 = __webpack_require__(100);
+var fromEvent_1 = __webpack_require__(104);
 Observable_1.Observable.fromEvent = fromEvent_1.fromEvent;
 //# sourceMappingURL=fromEvent.js.map
 
 /***/ }),
-/* 100 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var FromEventObservable_1 = __webpack_require__(101);
+var FromEventObservable_1 = __webpack_require__(105);
 exports.fromEvent = FromEventObservable_1.FromEventObservable.create;
 //# sourceMappingURL=fromEvent.js.map
 
 /***/ }),
-/* 101 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8370,28 +8790,28 @@ exports.FromEventObservable = FromEventObservable;
 //# sourceMappingURL=FromEventObservable.js.map
 
 /***/ }),
-/* 102 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var fromEventPattern_1 = __webpack_require__(103);
+var fromEventPattern_1 = __webpack_require__(107);
 Observable_1.Observable.fromEventPattern = fromEventPattern_1.fromEventPattern;
 //# sourceMappingURL=fromEventPattern.js.map
 
 /***/ }),
-/* 103 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var FromEventPatternObservable_1 = __webpack_require__(104);
+var FromEventPatternObservable_1 = __webpack_require__(108);
 exports.fromEventPattern = FromEventPatternObservable_1.FromEventPatternObservable.create;
 //# sourceMappingURL=fromEventPattern.js.map
 
 /***/ }),
-/* 104 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8510,39 +8930,49 @@ exports.FromEventPatternObservable = FromEventPatternObservable;
 //# sourceMappingURL=FromEventPatternObservable.js.map
 
 /***/ }),
-/* 105 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var fromPromise_1 = __webpack_require__(106);
+var fromPromise_1 = __webpack_require__(110);
 Observable_1.Observable.fromPromise = fromPromise_1.fromPromise;
 //# sourceMappingURL=fromPromise.js.map
 
 /***/ }),
-/* 106 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var PromiseObservable_1 = __webpack_require__(47);
+var PromiseObservable_1 = __webpack_require__(50);
 exports.fromPromise = PromiseObservable_1.PromiseObservable.create;
 //# sourceMappingURL=fromPromise.js.map
 
 /***/ }),
-/* 107 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var GenerateObservable_1 = __webpack_require__(108);
-Observable_1.Observable.generate = GenerateObservable_1.GenerateObservable.create;
+var generate_1 = __webpack_require__(112);
+Observable_1.Observable.generate = generate_1.generate;
 //# sourceMappingURL=generate.js.map
 
 /***/ }),
-/* 108 */
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var GenerateObservable_1 = __webpack_require__(113);
+exports.generate = GenerateObservable_1.GenerateObservable.create;
+//# sourceMappingURL=generate.js.map
+
+/***/ }),
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8683,28 +9113,28 @@ exports.GenerateObservable = GenerateObservable;
 //# sourceMappingURL=GenerateObservable.js.map
 
 /***/ }),
-/* 109 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var if_1 = __webpack_require__(110);
+var if_1 = __webpack_require__(115);
 Observable_1.Observable.if = if_1._if;
 //# sourceMappingURL=if.js.map
 
 /***/ }),
-/* 110 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var IfObservable_1 = __webpack_require__(111);
+var IfObservable_1 = __webpack_require__(116);
 exports._if = IfObservable_1.IfObservable.create;
 //# sourceMappingURL=if.js.map
 
 /***/ }),
-/* 111 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8771,28 +9201,28 @@ var IfSubscriber = (function (_super) {
 //# sourceMappingURL=IfObservable.js.map
 
 /***/ }),
-/* 112 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var interval_1 = __webpack_require__(113);
+var interval_1 = __webpack_require__(118);
 Observable_1.Observable.interval = interval_1.interval;
 //# sourceMappingURL=interval.js.map
 
 /***/ }),
-/* 113 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var IntervalObservable_1 = __webpack_require__(114);
+var IntervalObservable_1 = __webpack_require__(119);
 exports.interval = IntervalObservable_1.IntervalObservable.create;
 //# sourceMappingURL=interval.js.map
 
 /***/ }),
-/* 114 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8886,7 +9316,7 @@ exports.IntervalObservable = IntervalObservable;
 //# sourceMappingURL=IntervalObservable.js.map
 
 /***/ }),
-/* 115 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8936,7 +9366,7 @@ exports.Action = Action;
 //# sourceMappingURL=Action.js.map
 
 /***/ }),
-/* 116 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8991,60 +9421,70 @@ exports.Scheduler = Scheduler;
 //# sourceMappingURL=Scheduler.js.map
 
 /***/ }),
-/* 117 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var merge_1 = __webpack_require__(118);
+var merge_1 = __webpack_require__(123);
 Observable_1.Observable.merge = merge_1.merge;
 //# sourceMappingURL=merge.js.map
 
 /***/ }),
-/* 118 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var merge_1 = __webpack_require__(48);
+var merge_1 = __webpack_require__(51);
 exports.merge = merge_1.mergeStatic;
 //# sourceMappingURL=merge.js.map
 
 /***/ }),
-/* 119 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var race_1 = __webpack_require__(49);
-Observable_1.Observable.race = race_1.raceStatic;
+var race_1 = __webpack_require__(125);
+Observable_1.Observable.race = race_1.race;
 //# sourceMappingURL=race.js.map
 
 /***/ }),
-/* 120 */
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var race_1 = __webpack_require__(52);
+exports.race = race_1.raceStatic;
+//# sourceMappingURL=race.js.map
+
+/***/ }),
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var never_1 = __webpack_require__(121);
+var never_1 = __webpack_require__(127);
 Observable_1.Observable.never = never_1.never;
 //# sourceMappingURL=never.js.map
 
 /***/ }),
-/* 121 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var NeverObservable_1 = __webpack_require__(122);
+var NeverObservable_1 = __webpack_require__(128);
 exports.never = NeverObservable_1.NeverObservable.create;
 //# sourceMappingURL=never.js.map
 
 /***/ }),
-/* 122 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9055,7 +9495,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(0);
-var noop_1 = __webpack_require__(50);
+var noop_1 = __webpack_require__(53);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -9109,18 +9549,18 @@ exports.NeverObservable = NeverObservable;
 //# sourceMappingURL=NeverObservable.js.map
 
 /***/ }),
-/* 123 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var of_1 = __webpack_require__(124);
+var of_1 = __webpack_require__(130);
 Observable_1.Observable.of = of_1.of;
 //# sourceMappingURL=of.js.map
 
 /***/ }),
-/* 124 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9130,39 +9570,49 @@ exports.of = ArrayObservable_1.ArrayObservable.of;
 //# sourceMappingURL=of.js.map
 
 /***/ }),
-/* 125 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var onErrorResumeNext_1 = __webpack_require__(51);
-Observable_1.Observable.onErrorResumeNext = onErrorResumeNext_1.onErrorResumeNextStatic;
+var onErrorResumeNext_1 = __webpack_require__(132);
+Observable_1.Observable.onErrorResumeNext = onErrorResumeNext_1.onErrorResumeNext;
 //# sourceMappingURL=onErrorResumeNext.js.map
 
 /***/ }),
-/* 126 */
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var onErrorResumeNext_1 = __webpack_require__(54);
+exports.onErrorResumeNext = onErrorResumeNext_1.onErrorResumeNextStatic;
+//# sourceMappingURL=onErrorResumeNext.js.map
+
+/***/ }),
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var pairs_1 = __webpack_require__(127);
+var pairs_1 = __webpack_require__(134);
 Observable_1.Observable.pairs = pairs_1.pairs;
 //# sourceMappingURL=pairs.js.map
 
 /***/ }),
-/* 127 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var PairsObservable_1 = __webpack_require__(128);
+var PairsObservable_1 = __webpack_require__(135);
 exports.pairs = PairsObservable_1.PairsObservable.create;
 //# sourceMappingURL=pairs.js.map
 
 /***/ }),
-/* 128 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9253,28 +9703,28 @@ exports.PairsObservable = PairsObservable;
 //# sourceMappingURL=PairsObservable.js.map
 
 /***/ }),
-/* 129 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var range_1 = __webpack_require__(130);
+var range_1 = __webpack_require__(137);
 Observable_1.Observable.range = range_1.range;
 //# sourceMappingURL=range.js.map
 
 /***/ }),
-/* 130 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var RangeObservable_1 = __webpack_require__(131);
+var RangeObservable_1 = __webpack_require__(138);
 exports.range = RangeObservable_1.RangeObservable.create;
 //# sourceMappingURL=range.js.map
 
 /***/ }),
-/* 131 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9376,28 +9826,28 @@ exports.RangeObservable = RangeObservable;
 //# sourceMappingURL=RangeObservable.js.map
 
 /***/ }),
-/* 132 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var using_1 = __webpack_require__(133);
+var using_1 = __webpack_require__(140);
 Observable_1.Observable.using = using_1.using;
 //# sourceMappingURL=using.js.map
 
 /***/ }),
-/* 133 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var UsingObservable_1 = __webpack_require__(134);
+var UsingObservable_1 = __webpack_require__(141);
 exports.using = UsingObservable_1.UsingObservable.create;
 //# sourceMappingURL=using.js.map
 
 /***/ }),
-/* 134 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9464,28 +9914,28 @@ var UsingSubscriber = (function (_super) {
 //# sourceMappingURL=UsingObservable.js.map
 
 /***/ }),
-/* 135 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var throw_1 = __webpack_require__(136);
+var throw_1 = __webpack_require__(143);
 Observable_1.Observable.throw = throw_1._throw;
 //# sourceMappingURL=throw.js.map
 
 /***/ }),
-/* 136 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ErrorObservable_1 = __webpack_require__(137);
+var ErrorObservable_1 = __webpack_require__(144);
 exports._throw = ErrorObservable_1.ErrorObservable.create;
 //# sourceMappingURL=throw.js.map
 
 /***/ }),
-/* 137 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9574,28 +10024,28 @@ exports.ErrorObservable = ErrorObservable;
 //# sourceMappingURL=ErrorObservable.js.map
 
 /***/ }),
-/* 138 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var timer_1 = __webpack_require__(139);
+var timer_1 = __webpack_require__(146);
 Observable_1.Observable.timer = timer_1.timer;
 //# sourceMappingURL=timer.js.map
 
 /***/ }),
-/* 139 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var TimerObservable_1 = __webpack_require__(140);
+var TimerObservable_1 = __webpack_require__(147);
 exports.timer = TimerObservable_1.TimerObservable.create;
 //# sourceMappingURL=timer.js.map
 
 /***/ }),
-/* 140 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9708,70 +10158,70 @@ exports.TimerObservable = TimerObservable;
 //# sourceMappingURL=TimerObservable.js.map
 
 /***/ }),
-/* 141 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var zip_1 = __webpack_require__(142);
+var zip_1 = __webpack_require__(149);
 Observable_1.Observable.zip = zip_1.zip;
 //# sourceMappingURL=zip.js.map
 
 /***/ }),
-/* 142 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var zip_1 = __webpack_require__(36);
+var zip_1 = __webpack_require__(37);
 exports.zip = zip_1.zipStatic;
 //# sourceMappingURL=zip.js.map
 
 /***/ }),
-/* 143 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var ajax_1 = __webpack_require__(144);
+var ajax_1 = __webpack_require__(151);
 Observable_1.Observable.ajax = ajax_1.ajax;
 //# sourceMappingURL=ajax.js.map
 
 /***/ }),
-/* 144 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var AjaxObservable_1 = __webpack_require__(52);
+var AjaxObservable_1 = __webpack_require__(55);
 exports.ajax = AjaxObservable_1.AjaxObservable.create;
 //# sourceMappingURL=ajax.js.map
 
 /***/ }),
-/* 145 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var webSocket_1 = __webpack_require__(146);
+var webSocket_1 = __webpack_require__(153);
 Observable_1.Observable.webSocket = webSocket_1.webSocket;
 //# sourceMappingURL=webSocket.js.map
 
 /***/ }),
-/* 146 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var WebSocketSubject_1 = __webpack_require__(147);
+var WebSocketSubject_1 = __webpack_require__(154);
 exports.webSocket = WebSocketSubject_1.WebSocketSubject.create;
 //# sourceMappingURL=webSocket.js.map
 
 /***/ }),
-/* 147 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9789,7 +10239,7 @@ var root_1 = __webpack_require__(7);
 var ReplaySubject_1 = __webpack_require__(29);
 var tryCatch_1 = __webpack_require__(8);
 var errorObject_1 = __webpack_require__(6);
-var assign_1 = __webpack_require__(150);
+var assign_1 = __webpack_require__(157);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -10027,7 +10477,7 @@ exports.WebSocketSubject = WebSocketSubject;
 //# sourceMappingURL=WebSocketSubject.js.map
 
 /***/ }),
-/* 148 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10037,7 +10487,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var AsyncAction_1 = __webpack_require__(17);
+var AsyncAction_1 = __webpack_require__(18);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -10082,7 +10532,7 @@ exports.QueueAction = QueueAction;
 //# sourceMappingURL=QueueAction.js.map
 
 /***/ }),
-/* 149 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10092,7 +10542,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var AsyncScheduler_1 = __webpack_require__(18);
+var AsyncScheduler_1 = __webpack_require__(19);
 var QueueScheduler = (function (_super) {
     __extends(QueueScheduler, _super);
     function QueueScheduler() {
@@ -10104,7 +10554,7 @@ exports.QueueScheduler = QueueScheduler;
 //# sourceMappingURL=QueueScheduler.js.map
 
 /***/ }),
-/* 150 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10136,18 +10586,18 @@ exports.assign = getAssign(root_1.root);
 //# sourceMappingURL=assign.js.map
 
 /***/ }),
-/* 151 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var buffer_1 = __webpack_require__(152);
+var buffer_1 = __webpack_require__(159);
 Observable_1.Observable.prototype.buffer = buffer_1.buffer;
 //# sourceMappingURL=buffer.js.map
 
 /***/ }),
-/* 152 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10229,18 +10679,18 @@ var BufferSubscriber = (function (_super) {
 //# sourceMappingURL=buffer.js.map
 
 /***/ }),
-/* 153 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var bufferCount_1 = __webpack_require__(154);
+var bufferCount_1 = __webpack_require__(161);
 Observable_1.Observable.prototype.bufferCount = bufferCount_1.bufferCount;
 //# sourceMappingURL=bufferCount.js.map
 
 /***/ }),
-/* 154 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10386,18 +10836,18 @@ var BufferSkipCountSubscriber = (function (_super) {
 //# sourceMappingURL=bufferCount.js.map
 
 /***/ }),
-/* 155 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var bufferTime_1 = __webpack_require__(156);
+var bufferTime_1 = __webpack_require__(163);
 Observable_1.Observable.prototype.bufferTime = bufferTime_1.bufferTime;
 //# sourceMappingURL=bufferTime.js.map
 
 /***/ }),
-/* 156 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10602,18 +11052,18 @@ function dispatchBufferClose(arg) {
 //# sourceMappingURL=bufferTime.js.map
 
 /***/ }),
-/* 157 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var bufferToggle_1 = __webpack_require__(158);
+var bufferToggle_1 = __webpack_require__(165);
 Observable_1.Observable.prototype.bufferToggle = bufferToggle_1.bufferToggle;
 //# sourceMappingURL=bufferToggle.js.map
 
 /***/ }),
-/* 158 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10771,18 +11221,18 @@ var BufferToggleSubscriber = (function (_super) {
 //# sourceMappingURL=bufferToggle.js.map
 
 /***/ }),
-/* 159 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var bufferWhen_1 = __webpack_require__(160);
+var bufferWhen_1 = __webpack_require__(167);
 Observable_1.Observable.prototype.bufferWhen = bufferWhen_1.bufferWhen;
 //# sourceMappingURL=bufferWhen.js.map
 
 /***/ }),
-/* 160 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10910,19 +11360,19 @@ var BufferWhenSubscriber = (function (_super) {
 //# sourceMappingURL=bufferWhen.js.map
 
 /***/ }),
-/* 161 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var catch_1 = __webpack_require__(162);
+var catch_1 = __webpack_require__(169);
 Observable_1.Observable.prototype.catch = catch_1._catch;
 Observable_1.Observable.prototype._catch = catch_1._catch;
 //# sourceMappingURL=catch.js.map
 
 /***/ }),
-/* 162 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11044,23 +11494,23 @@ var CatchSubscriber = (function (_super) {
 //# sourceMappingURL=catch.js.map
 
 /***/ }),
-/* 163 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var combineAll_1 = __webpack_require__(164);
+var combineAll_1 = __webpack_require__(171);
 Observable_1.Observable.prototype.combineAll = combineAll_1.combineAll;
 //# sourceMappingURL=combineAll.js.map
 
 /***/ }),
-/* 164 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var combineLatest_1 = __webpack_require__(33);
+var combineLatest_1 = __webpack_require__(34);
 /**
  * Converts a higher-order Observable into a first-order Observable by waiting
  * for the outer Observable to complete, then applying {@link combineLatest}.
@@ -11108,40 +11558,40 @@ exports.combineAll = combineAll;
 //# sourceMappingURL=combineAll.js.map
 
 /***/ }),
-/* 165 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var combineLatest_1 = __webpack_require__(33);
+var combineLatest_1 = __webpack_require__(34);
 Observable_1.Observable.prototype.combineLatest = combineLatest_1.combineLatest;
 //# sourceMappingURL=combineLatest.js.map
 
 /***/ }),
-/* 166 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var concat_1 = __webpack_require__(34);
+var concat_1 = __webpack_require__(35);
 Observable_1.Observable.prototype.concat = concat_1.concat;
 //# sourceMappingURL=concat.js.map
 
 /***/ }),
-/* 167 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var concatAll_1 = __webpack_require__(168);
+var concatAll_1 = __webpack_require__(175);
 Observable_1.Observable.prototype.concatAll = concatAll_1.concatAll;
 //# sourceMappingURL=concatAll.js.map
 
 /***/ }),
-/* 168 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11203,23 +11653,23 @@ exports.concatAll = concatAll;
 //# sourceMappingURL=concatAll.js.map
 
 /***/ }),
-/* 169 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var concatMap_1 = __webpack_require__(170);
+var concatMap_1 = __webpack_require__(177);
 Observable_1.Observable.prototype.concatMap = concatMap_1.concatMap;
 //# sourceMappingURL=concatMap.js.map
 
 /***/ }),
-/* 170 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var mergeMap_1 = __webpack_require__(54);
+var mergeMap_1 = __webpack_require__(57);
 /* tslint:enable:max-line-length */
 /**
  * Projects each source value to an Observable which is merged in the output
@@ -11287,23 +11737,23 @@ exports.concatMap = concatMap;
 //# sourceMappingURL=concatMap.js.map
 
 /***/ }),
-/* 171 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var concatMapTo_1 = __webpack_require__(172);
+var concatMapTo_1 = __webpack_require__(179);
 Observable_1.Observable.prototype.concatMapTo = concatMapTo_1.concatMapTo;
 //# sourceMappingURL=concatMapTo.js.map
 
 /***/ }),
-/* 172 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var mergeMapTo_1 = __webpack_require__(55);
+var mergeMapTo_1 = __webpack_require__(58);
 /* tslint:enable:max-line-length */
 /**
  * Projects each source value to the same Observable which is merged multiple
@@ -11368,18 +11818,18 @@ exports.concatMapTo = concatMapTo;
 //# sourceMappingURL=concatMapTo.js.map
 
 /***/ }),
-/* 173 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var count_1 = __webpack_require__(174);
+var count_1 = __webpack_require__(181);
 Observable_1.Observable.prototype.count = count_1.count;
 //# sourceMappingURL=count.js.map
 
 /***/ }),
-/* 174 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11496,18 +11946,18 @@ var CountSubscriber = (function (_super) {
 //# sourceMappingURL=count.js.map
 
 /***/ }),
-/* 175 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var dematerialize_1 = __webpack_require__(176);
+var dematerialize_1 = __webpack_require__(183);
 Observable_1.Observable.prototype.dematerialize = dematerialize_1.dematerialize;
 //# sourceMappingURL=dematerialize.js.map
 
 /***/ }),
-/* 176 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11588,18 +12038,18 @@ var DeMaterializeSubscriber = (function (_super) {
 //# sourceMappingURL=dematerialize.js.map
 
 /***/ }),
-/* 177 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var debounce_1 = __webpack_require__(178);
+var debounce_1 = __webpack_require__(185);
 Observable_1.Observable.prototype.debounce = debounce_1.debounce;
 //# sourceMappingURL=debounce.js.map
 
 /***/ }),
-/* 178 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11732,18 +12182,18 @@ var DebounceSubscriber = (function (_super) {
 //# sourceMappingURL=debounce.js.map
 
 /***/ }),
-/* 179 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var debounceTime_1 = __webpack_require__(180);
+var debounceTime_1 = __webpack_require__(187);
 Observable_1.Observable.prototype.debounceTime = debounceTime_1.debounceTime;
 //# sourceMappingURL=debounceTime.js.map
 
 /***/ }),
-/* 180 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11865,18 +12315,18 @@ function dispatchNext(subscriber) {
 //# sourceMappingURL=debounceTime.js.map
 
 /***/ }),
-/* 181 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var defaultIfEmpty_1 = __webpack_require__(182);
+var defaultIfEmpty_1 = __webpack_require__(189);
 Observable_1.Observable.prototype.defaultIfEmpty = defaultIfEmpty_1.defaultIfEmpty;
 //# sourceMappingURL=defaultIfEmpty.js.map
 
 /***/ }),
-/* 182 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11959,18 +12409,18 @@ var DefaultIfEmptySubscriber = (function (_super) {
 //# sourceMappingURL=defaultIfEmpty.js.map
 
 /***/ }),
-/* 183 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var delay_1 = __webpack_require__(184);
+var delay_1 = __webpack_require__(191);
 Observable_1.Observable.prototype.delay = delay_1.delay;
 //# sourceMappingURL=delay.js.map
 
 /***/ }),
-/* 184 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11983,7 +12433,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var async_1 = __webpack_require__(9);
 var isDate_1 = __webpack_require__(28);
 var Subscriber_1 = __webpack_require__(1);
-var Notification_1 = __webpack_require__(16);
+var Notification_1 = __webpack_require__(17);
 /**
  * Delays the emission of items from the source Observable by a given timeout or
  * until a given Date.
@@ -12111,18 +12561,18 @@ var DelayMessage = (function () {
 //# sourceMappingURL=delay.js.map
 
 /***/ }),
-/* 185 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var delayWhen_1 = __webpack_require__(186);
+var delayWhen_1 = __webpack_require__(193);
 Observable_1.Observable.prototype.delayWhen = delayWhen_1.delayWhen;
 //# sourceMappingURL=delayWhen.js.map
 
 /***/ }),
-/* 186 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12320,18 +12770,18 @@ var SubscriptionDelaySubscriber = (function (_super) {
 //# sourceMappingURL=delayWhen.js.map
 
 /***/ }),
-/* 187 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var distinct_1 = __webpack_require__(188);
+var distinct_1 = __webpack_require__(195);
 Observable_1.Observable.prototype.distinct = distinct_1.distinct;
 //# sourceMappingURL=distinct.js.map
 
 /***/ }),
-/* 188 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12343,7 +12793,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var OuterSubscriber_1 = __webpack_require__(2);
 var subscribeToResult_1 = __webpack_require__(3);
-var Set_1 = __webpack_require__(189);
+var Set_1 = __webpack_require__(196);
 /**
  * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items.
  *
@@ -12457,7 +12907,7 @@ exports.DistinctSubscriber = DistinctSubscriber;
 //# sourceMappingURL=distinct.js.map
 
 /***/ }),
-/* 189 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12496,34 +12946,34 @@ exports.Set = root_1.root.Set || minimalSetImpl();
 //# sourceMappingURL=Set.js.map
 
 /***/ }),
-/* 190 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var distinctUntilChanged_1 = __webpack_require__(56);
+var distinctUntilChanged_1 = __webpack_require__(59);
 Observable_1.Observable.prototype.distinctUntilChanged = distinctUntilChanged_1.distinctUntilChanged;
 //# sourceMappingURL=distinctUntilChanged.js.map
 
 /***/ }),
-/* 191 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var distinctUntilKeyChanged_1 = __webpack_require__(192);
+var distinctUntilKeyChanged_1 = __webpack_require__(199);
 Observable_1.Observable.prototype.distinctUntilKeyChanged = distinctUntilKeyChanged_1.distinctUntilKeyChanged;
 //# sourceMappingURL=distinctUntilKeyChanged.js.map
 
 /***/ }),
-/* 192 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var distinctUntilChanged_1 = __webpack_require__(56);
+var distinctUntilChanged_1 = __webpack_require__(59);
 /* tslint:enable:max-line-length */
 /**
  * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item,
@@ -12594,19 +13044,19 @@ exports.distinctUntilKeyChanged = distinctUntilKeyChanged;
 //# sourceMappingURL=distinctUntilKeyChanged.js.map
 
 /***/ }),
-/* 193 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var do_1 = __webpack_require__(194);
+var do_1 = __webpack_require__(201);
 Observable_1.Observable.prototype.do = do_1._do;
 Observable_1.Observable.prototype._do = do_1._do;
 //# sourceMappingURL=do.js.map
 
 /***/ }),
-/* 194 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12725,18 +13175,18 @@ var DoSubscriber = (function (_super) {
 //# sourceMappingURL=do.js.map
 
 /***/ }),
-/* 195 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var exhaust_1 = __webpack_require__(196);
+var exhaust_1 = __webpack_require__(203);
 Observable_1.Observable.prototype.exhaust = exhaust_1.exhaust;
 //# sourceMappingURL=exhaust.js.map
 
 /***/ }),
-/* 196 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12831,18 +13281,18 @@ var SwitchFirstSubscriber = (function (_super) {
 //# sourceMappingURL=exhaust.js.map
 
 /***/ }),
-/* 197 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var exhaustMap_1 = __webpack_require__(198);
+var exhaustMap_1 = __webpack_require__(205);
 Observable_1.Observable.prototype.exhaustMap = exhaustMap_1.exhaustMap;
 //# sourceMappingURL=exhaustMap.js.map
 
 /***/ }),
-/* 198 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12986,18 +13436,18 @@ var SwitchFirstMapSubscriber = (function (_super) {
 //# sourceMappingURL=exhaustMap.js.map
 
 /***/ }),
-/* 199 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var expand_1 = __webpack_require__(200);
+var expand_1 = __webpack_require__(207);
 Observable_1.Observable.prototype.expand = expand_1.expand;
 //# sourceMappingURL=expand.js.map
 
 /***/ }),
-/* 200 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13154,18 +13604,18 @@ exports.ExpandSubscriber = ExpandSubscriber;
 //# sourceMappingURL=expand.js.map
 
 /***/ }),
-/* 201 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var elementAt_1 = __webpack_require__(202);
+var elementAt_1 = __webpack_require__(209);
 Observable_1.Observable.prototype.elementAt = elementAt_1.elementAt;
 //# sourceMappingURL=elementAt.js.map
 
 /***/ }),
-/* 202 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13176,7 +13626,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(1);
-var ArgumentOutOfRangeError_1 = __webpack_require__(19);
+var ArgumentOutOfRangeError_1 = __webpack_require__(20);
 /**
  * Emits the single value at the specified `index` in a sequence of emissions
  * from the source Observable.
@@ -13271,30 +13721,30 @@ var ElementAtSubscriber = (function (_super) {
 //# sourceMappingURL=elementAt.js.map
 
 /***/ }),
-/* 203 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var filter_1 = __webpack_require__(57);
+var filter_1 = __webpack_require__(60);
 Observable_1.Observable.prototype.filter = filter_1.filter;
 //# sourceMappingURL=filter.js.map
 
 /***/ }),
-/* 204 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var finally_1 = __webpack_require__(205);
+var finally_1 = __webpack_require__(212);
 Observable_1.Observable.prototype.finally = finally_1._finally;
 Observable_1.Observable.prototype._finally = finally_1._finally;
 //# sourceMappingURL=finally.js.map
 
 /***/ }),
-/* 205 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13343,34 +13793,34 @@ var FinallySubscriber = (function (_super) {
 //# sourceMappingURL=finally.js.map
 
 /***/ }),
-/* 206 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var find_1 = __webpack_require__(58);
+var find_1 = __webpack_require__(61);
 Observable_1.Observable.prototype.find = find_1.find;
 //# sourceMappingURL=find.js.map
 
 /***/ }),
-/* 207 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var findIndex_1 = __webpack_require__(208);
+var findIndex_1 = __webpack_require__(215);
 Observable_1.Observable.prototype.findIndex = findIndex_1.findIndex;
 //# sourceMappingURL=findIndex.js.map
 
 /***/ }),
-/* 208 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var find_1 = __webpack_require__(58);
+var find_1 = __webpack_require__(61);
 /**
  * Emits only the index of the first value emitted by the source Observable that
  * meets some condition.
@@ -13412,18 +13862,18 @@ exports.findIndex = findIndex;
 //# sourceMappingURL=findIndex.js.map
 
 /***/ }),
-/* 209 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var first_1 = __webpack_require__(210);
+var first_1 = __webpack_require__(217);
 Observable_1.Observable.prototype.first = first_1.first;
 //# sourceMappingURL=first.js.map
 
 /***/ }),
-/* 210 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13581,18 +14031,18 @@ var FirstSubscriber = (function (_super) {
 //# sourceMappingURL=first.js.map
 
 /***/ }),
-/* 211 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var groupBy_1 = __webpack_require__(212);
+var groupBy_1 = __webpack_require__(219);
 Observable_1.Observable.prototype.groupBy = groupBy_1.groupBy;
 //# sourceMappingURL=groupBy.js.map
 
 /***/ }),
-/* 212 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13606,8 +14056,8 @@ var Subscriber_1 = __webpack_require__(1);
 var Subscription_1 = __webpack_require__(4);
 var Observable_1 = __webpack_require__(0);
 var Subject_1 = __webpack_require__(5);
-var Map_1 = __webpack_require__(213);
-var FastMap_1 = __webpack_require__(215);
+var Map_1 = __webpack_require__(220);
+var FastMap_1 = __webpack_require__(222);
 /* tslint:enable:max-line-length */
 /**
  * Groups the items emitted by an Observable according to a specified criterion,
@@ -13872,18 +14322,18 @@ var InnerRefCountSubscription = (function (_super) {
 //# sourceMappingURL=groupBy.js.map
 
 /***/ }),
-/* 213 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var root_1 = __webpack_require__(7);
-var MapPolyfill_1 = __webpack_require__(214);
+var MapPolyfill_1 = __webpack_require__(221);
 exports.Map = root_1.root.Map || (function () { return MapPolyfill_1.MapPolyfill; })();
 //# sourceMappingURL=Map.js.map
 
 /***/ }),
-/* 214 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13936,7 +14386,7 @@ exports.MapPolyfill = MapPolyfill;
 //# sourceMappingURL=MapPolyfill.js.map
 
 /***/ }),
-/* 215 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13973,18 +14423,18 @@ exports.FastMap = FastMap;
 //# sourceMappingURL=FastMap.js.map
 
 /***/ }),
-/* 216 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var ignoreElements_1 = __webpack_require__(217);
+var ignoreElements_1 = __webpack_require__(224);
 Observable_1.Observable.prototype.ignoreElements = ignoreElements_1.ignoreElements;
 //# sourceMappingURL=ignoreElements.js.map
 
 /***/ }),
-/* 217 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13995,7 +14445,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(1);
-var noop_1 = __webpack_require__(50);
+var noop_1 = __webpack_require__(53);
 /**
  * Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
  *
@@ -14037,18 +14487,18 @@ var IgnoreElementsSubscriber = (function (_super) {
 //# sourceMappingURL=ignoreElements.js.map
 
 /***/ }),
-/* 218 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var isEmpty_1 = __webpack_require__(219);
+var isEmpty_1 = __webpack_require__(226);
 Observable_1.Observable.prototype.isEmpty = isEmpty_1.isEmpty;
 //# sourceMappingURL=isEmpty.js.map
 
 /***/ }),
-/* 219 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14106,18 +14556,18 @@ var IsEmptySubscriber = (function (_super) {
 //# sourceMappingURL=isEmpty.js.map
 
 /***/ }),
-/* 220 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var audit_1 = __webpack_require__(221);
+var audit_1 = __webpack_require__(228);
 Observable_1.Observable.prototype.audit = audit_1.audit;
 //# sourceMappingURL=audit.js.map
 
 /***/ }),
-/* 221 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14239,18 +14689,18 @@ var AuditSubscriber = (function (_super) {
 //# sourceMappingURL=audit.js.map
 
 /***/ }),
-/* 222 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var auditTime_1 = __webpack_require__(223);
+var auditTime_1 = __webpack_require__(230);
 Observable_1.Observable.prototype.auditTime = auditTime_1.auditTime;
 //# sourceMappingURL=auditTime.js.map
 
 /***/ }),
-/* 223 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14360,18 +14810,18 @@ function dispatchNext(subscriber) {
 //# sourceMappingURL=auditTime.js.map
 
 /***/ }),
-/* 224 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var last_1 = __webpack_require__(225);
+var last_1 = __webpack_require__(232);
 Observable_1.Observable.prototype.last = last_1.last;
 //# sourceMappingURL=last.js.map
 
 /***/ }),
-/* 225 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14496,19 +14946,19 @@ var LastSubscriber = (function (_super) {
 //# sourceMappingURL=last.js.map
 
 /***/ }),
-/* 226 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var let_1 = __webpack_require__(227);
+var let_1 = __webpack_require__(234);
 Observable_1.Observable.prototype.let = let_1.letProto;
 Observable_1.Observable.prototype.letBind = let_1.letProto;
 //# sourceMappingURL=let.js.map
 
 /***/ }),
-/* 227 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14526,18 +14976,18 @@ exports.letProto = letProto;
 //# sourceMappingURL=let.js.map
 
 /***/ }),
-/* 228 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var every_1 = __webpack_require__(229);
+var every_1 = __webpack_require__(236);
 Observable_1.Observable.prototype.every = every_1.every;
 //# sourceMappingURL=every.js.map
 
 /***/ }),
-/* 229 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14617,29 +15067,29 @@ var EverySubscriber = (function (_super) {
 //# sourceMappingURL=every.js.map
 
 /***/ }),
-/* 230 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var map_1 = __webpack_require__(37);
+var map_1 = __webpack_require__(38);
 Observable_1.Observable.prototype.map = map_1.map;
 //# sourceMappingURL=map.js.map
 
 /***/ }),
-/* 231 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var mapTo_1 = __webpack_require__(232);
+var mapTo_1 = __webpack_require__(239);
 Observable_1.Observable.prototype.mapTo = mapTo_1.mapTo;
 //# sourceMappingURL=mapTo.js.map
 
 /***/ }),
-/* 232 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14708,18 +15158,18 @@ var MapToSubscriber = (function (_super) {
 //# sourceMappingURL=mapTo.js.map
 
 /***/ }),
-/* 233 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var materialize_1 = __webpack_require__(234);
+var materialize_1 = __webpack_require__(241);
 Observable_1.Observable.prototype.materialize = materialize_1.materialize;
 //# sourceMappingURL=materialize.js.map
 
 /***/ }),
-/* 234 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14730,7 +15180,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(1);
-var Notification_1 = __webpack_require__(16);
+var Notification_1 = __webpack_require__(17);
 /**
  * Represents all of the notifications from the source Observable as `next`
  * emissions marked with their original types within {@link Notification}
@@ -14815,23 +15265,23 @@ var MaterializeSubscriber = (function (_super) {
 //# sourceMappingURL=materialize.js.map
 
 /***/ }),
-/* 235 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var max_1 = __webpack_require__(236);
+var max_1 = __webpack_require__(243);
 Observable_1.Observable.prototype.max = max_1.max;
 //# sourceMappingURL=max.js.map
 
 /***/ }),
-/* 236 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var reduce_1 = __webpack_require__(38);
+var reduce_1 = __webpack_require__(39);
 /**
  * The Max operator operates on an Observable that emits numbers (or items that can be compared with a provided function),
  * and when source Observable completes it emits a single item: the item with the largest value.
@@ -14873,18 +15323,18 @@ exports.max = max;
 //# sourceMappingURL=max.js.map
 
 /***/ }),
-/* 237 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var merge_1 = __webpack_require__(48);
+var merge_1 = __webpack_require__(51);
 Observable_1.Observable.prototype.merge = merge_1.merge;
 //# sourceMappingURL=merge.js.map
 
 /***/ }),
-/* 238 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14895,42 +15345,42 @@ Observable_1.Observable.prototype.mergeAll = mergeAll_1.mergeAll;
 //# sourceMappingURL=mergeAll.js.map
 
 /***/ }),
-/* 239 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var mergeMap_1 = __webpack_require__(54);
+var mergeMap_1 = __webpack_require__(57);
 Observable_1.Observable.prototype.mergeMap = mergeMap_1.mergeMap;
 Observable_1.Observable.prototype.flatMap = mergeMap_1.mergeMap;
 //# sourceMappingURL=mergeMap.js.map
 
 /***/ }),
-/* 240 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var mergeMapTo_1 = __webpack_require__(55);
+var mergeMapTo_1 = __webpack_require__(58);
 Observable_1.Observable.prototype.flatMapTo = mergeMapTo_1.mergeMapTo;
 Observable_1.Observable.prototype.mergeMapTo = mergeMapTo_1.mergeMapTo;
 //# sourceMappingURL=mergeMapTo.js.map
 
 /***/ }),
-/* 241 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var mergeScan_1 = __webpack_require__(242);
+var mergeScan_1 = __webpack_require__(249);
 Observable_1.Observable.prototype.mergeScan = mergeScan_1.mergeScan;
 //# sourceMappingURL=mergeScan.js.map
 
 /***/ }),
-/* 242 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15065,23 +15515,23 @@ exports.MergeScanSubscriber = MergeScanSubscriber;
 //# sourceMappingURL=mergeScan.js.map
 
 /***/ }),
-/* 243 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var min_1 = __webpack_require__(244);
+var min_1 = __webpack_require__(251);
 Observable_1.Observable.prototype.min = min_1.min;
 //# sourceMappingURL=min.js.map
 
 /***/ }),
-/* 244 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var reduce_1 = __webpack_require__(38);
+var reduce_1 = __webpack_require__(39);
 /**
  * The Min operator operates on an Observable that emits numbers (or items that can be compared with a provided function),
  * and when source Observable completes it emits a single item: the item with the smallest value.
@@ -15123,7 +15573,7 @@ exports.min = min;
 //# sourceMappingURL=min.js.map
 
 /***/ }),
-/* 245 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15134,40 +15584,40 @@ Observable_1.Observable.prototype.multicast = multicast_1.multicast;
 //# sourceMappingURL=multicast.js.map
 
 /***/ }),
-/* 246 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var observeOn_1 = __webpack_require__(35);
+var observeOn_1 = __webpack_require__(36);
 Observable_1.Observable.prototype.observeOn = observeOn_1.observeOn;
 //# sourceMappingURL=observeOn.js.map
 
 /***/ }),
-/* 247 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var onErrorResumeNext_1 = __webpack_require__(51);
+var onErrorResumeNext_1 = __webpack_require__(54);
 Observable_1.Observable.prototype.onErrorResumeNext = onErrorResumeNext_1.onErrorResumeNext;
 //# sourceMappingURL=onErrorResumeNext.js.map
 
 /***/ }),
-/* 248 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var pairwise_1 = __webpack_require__(249);
+var pairwise_1 = __webpack_require__(256);
 Observable_1.Observable.prototype.pairwise = pairwise_1.pairwise;
 //# sourceMappingURL=pairwise.js.map
 
 /***/ }),
-/* 249 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15250,24 +15700,24 @@ var PairwiseSubscriber = (function (_super) {
 //# sourceMappingURL=pairwise.js.map
 
 /***/ }),
-/* 250 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var partition_1 = __webpack_require__(251);
+var partition_1 = __webpack_require__(258);
 Observable_1.Observable.prototype.partition = partition_1.partition;
 //# sourceMappingURL=partition.js.map
 
 /***/ }),
-/* 251 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var not_1 = __webpack_require__(252);
-var filter_1 = __webpack_require__(57);
+var not_1 = __webpack_require__(259);
+var filter_1 = __webpack_require__(60);
 /**
  * Splits the source Observable into two, one with values that satisfy a
  * predicate, and another with values that don't satisfy the predicate.
@@ -15319,7 +15769,7 @@ exports.partition = partition;
 //# sourceMappingURL=partition.js.map
 
 /***/ }),
-/* 252 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15336,23 +15786,23 @@ exports.not = not;
 //# sourceMappingURL=not.js.map
 
 /***/ }),
-/* 253 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var pluck_1 = __webpack_require__(254);
+var pluck_1 = __webpack_require__(261);
 Observable_1.Observable.prototype.pluck = pluck_1.pluck;
 //# sourceMappingURL=pluck.js.map
 
 /***/ }),
-/* 254 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var map_1 = __webpack_require__(37);
+var map_1 = __webpack_require__(38);
 /**
  * Maps each source value (an object) to its specified nested property.
  *
@@ -15410,18 +15860,18 @@ function plucker(props, length) {
 //# sourceMappingURL=pluck.js.map
 
 /***/ }),
-/* 255 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var publish_1 = __webpack_require__(256);
+var publish_1 = __webpack_require__(263);
 Observable_1.Observable.prototype.publish = publish_1.publish;
 //# sourceMappingURL=publish.js.map
 
 /***/ }),
-/* 256 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15450,23 +15900,23 @@ exports.publish = publish;
 //# sourceMappingURL=publish.js.map
 
 /***/ }),
-/* 257 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var publishBehavior_1 = __webpack_require__(258);
+var publishBehavior_1 = __webpack_require__(265);
 Observable_1.Observable.prototype.publishBehavior = publishBehavior_1.publishBehavior;
 //# sourceMappingURL=publishBehavior.js.map
 
 /***/ }),
-/* 258 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var BehaviorSubject_1 = __webpack_require__(60);
+var BehaviorSubject_1 = __webpack_require__(63);
 var multicast_1 = __webpack_require__(14);
 /**
  * @param value
@@ -15481,18 +15931,18 @@ exports.publishBehavior = publishBehavior;
 //# sourceMappingURL=publishBehavior.js.map
 
 /***/ }),
-/* 259 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var publishReplay_1 = __webpack_require__(260);
+var publishReplay_1 = __webpack_require__(267);
 Observable_1.Observable.prototype.publishReplay = publishReplay_1.publishReplay;
 //# sourceMappingURL=publishReplay.js.map
 
 /***/ }),
-/* 260 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15516,18 +15966,18 @@ exports.publishReplay = publishReplay;
 //# sourceMappingURL=publishReplay.js.map
 
 /***/ }),
-/* 261 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var publishLast_1 = __webpack_require__(262);
+var publishLast_1 = __webpack_require__(269);
 Observable_1.Observable.prototype.publishLast = publishLast_1.publishLast;
 //# sourceMappingURL=publishLast.js.map
 
 /***/ }),
-/* 262 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15546,40 +15996,40 @@ exports.publishLast = publishLast;
 //# sourceMappingURL=publishLast.js.map
 
 /***/ }),
-/* 263 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var race_1 = __webpack_require__(49);
+var race_1 = __webpack_require__(52);
 Observable_1.Observable.prototype.race = race_1.race;
 //# sourceMappingURL=race.js.map
 
 /***/ }),
-/* 264 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var reduce_1 = __webpack_require__(38);
+var reduce_1 = __webpack_require__(39);
 Observable_1.Observable.prototype.reduce = reduce_1.reduce;
 //# sourceMappingURL=reduce.js.map
 
 /***/ }),
-/* 265 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var repeat_1 = __webpack_require__(266);
+var repeat_1 = __webpack_require__(273);
 Observable_1.Observable.prototype.repeat = repeat_1.repeat;
 //# sourceMappingURL=repeat.js.map
 
 /***/ }),
-/* 266 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15655,18 +16105,18 @@ var RepeatSubscriber = (function (_super) {
 //# sourceMappingURL=repeat.js.map
 
 /***/ }),
-/* 267 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var repeatWhen_1 = __webpack_require__(268);
+var repeatWhen_1 = __webpack_require__(275);
 Observable_1.Observable.prototype.repeatWhen = repeatWhen_1.repeatWhen;
 //# sourceMappingURL=repeatWhen.js.map
 
 /***/ }),
-/* 268 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15780,18 +16230,18 @@ var RepeatWhenSubscriber = (function (_super) {
 //# sourceMappingURL=repeatWhen.js.map
 
 /***/ }),
-/* 269 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var retry_1 = __webpack_require__(270);
+var retry_1 = __webpack_require__(277);
 Observable_1.Observable.prototype.retry = retry_1.retry;
 //# sourceMappingURL=retry.js.map
 
 /***/ }),
-/* 270 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15862,18 +16312,18 @@ var RetrySubscriber = (function (_super) {
 //# sourceMappingURL=retry.js.map
 
 /***/ }),
-/* 271 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var retryWhen_1 = __webpack_require__(272);
+var retryWhen_1 = __webpack_require__(279);
 Observable_1.Observable.prototype.retryWhen = retryWhen_1.retryWhen;
 //# sourceMappingURL=retryWhen.js.map
 
 /***/ }),
-/* 272 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15980,18 +16430,18 @@ var RetryWhenSubscriber = (function (_super) {
 //# sourceMappingURL=retryWhen.js.map
 
 /***/ }),
-/* 273 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var sample_1 = __webpack_require__(274);
+var sample_1 = __webpack_require__(281);
 Observable_1.Observable.prototype.sample = sample_1.sample;
 //# sourceMappingURL=sample.js.map
 
 /***/ }),
-/* 274 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16085,18 +16535,18 @@ var SampleSubscriber = (function (_super) {
 //# sourceMappingURL=sample.js.map
 
 /***/ }),
-/* 275 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var sampleTime_1 = __webpack_require__(276);
+var sampleTime_1 = __webpack_require__(283);
 Observable_1.Observable.prototype.sampleTime = sampleTime_1.sampleTime;
 //# sourceMappingURL=sampleTime.js.map
 
 /***/ }),
-/* 276 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16193,18 +16643,18 @@ function dispatchNotification(state) {
 //# sourceMappingURL=sampleTime.js.map
 
 /***/ }),
-/* 277 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var scan_1 = __webpack_require__(278);
+var scan_1 = __webpack_require__(285);
 Observable_1.Observable.prototype.scan = scan_1.scan;
 //# sourceMappingURL=scan.js.map
 
 /***/ }),
-/* 278 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16329,18 +16779,18 @@ var ScanSubscriber = (function (_super) {
 //# sourceMappingURL=scan.js.map
 
 /***/ }),
-/* 279 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var sequenceEqual_1 = __webpack_require__(280);
+var sequenceEqual_1 = __webpack_require__(287);
 Observable_1.Observable.prototype.sequenceEqual = sequenceEqual_1.sequenceEqual;
 //# sourceMappingURL=sequenceEqual.js.map
 
 /***/ }),
-/* 280 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16510,18 +16960,18 @@ var SequenceEqualCompareToSubscriber = (function (_super) {
 //# sourceMappingURL=sequenceEqual.js.map
 
 /***/ }),
-/* 281 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var share_1 = __webpack_require__(282);
+var share_1 = __webpack_require__(289);
 Observable_1.Observable.prototype.share = share_1.share;
 //# sourceMappingURL=share.js.map
 
 /***/ }),
-/* 282 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16551,18 +17001,18 @@ exports.share = share;
 //# sourceMappingURL=share.js.map
 
 /***/ }),
-/* 283 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var shareReplay_1 = __webpack_require__(284);
+var shareReplay_1 = __webpack_require__(291);
 Observable_1.Observable.prototype.shareReplay = shareReplay_1.shareReplay;
 //# sourceMappingURL=shareReplay.js.map
 
 /***/ }),
-/* 284 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16590,18 +17040,18 @@ exports.shareReplay = shareReplay;
 //# sourceMappingURL=shareReplay.js.map
 
 /***/ }),
-/* 285 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var single_1 = __webpack_require__(286);
+var single_1 = __webpack_require__(293);
 Observable_1.Observable.prototype.single = single_1.single;
 //# sourceMappingURL=single.js.map
 
 /***/ }),
-/* 286 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16700,18 +17150,18 @@ var SingleSubscriber = (function (_super) {
 //# sourceMappingURL=single.js.map
 
 /***/ }),
-/* 287 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var skip_1 = __webpack_require__(288);
+var skip_1 = __webpack_require__(295);
 Observable_1.Observable.prototype.skip = skip_1.skip;
 //# sourceMappingURL=skip.js.map
 
 /***/ }),
-/* 288 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16768,18 +17218,18 @@ var SkipSubscriber = (function (_super) {
 //# sourceMappingURL=skip.js.map
 
 /***/ }),
-/* 289 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var skipLast_1 = __webpack_require__(290);
+var skipLast_1 = __webpack_require__(297);
 Observable_1.Observable.prototype.skipLast = skipLast_1.skipLast;
 //# sourceMappingURL=skipLast.js.map
 
 /***/ }),
-/* 290 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16790,7 +17240,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(1);
-var ArgumentOutOfRangeError_1 = __webpack_require__(19);
+var ArgumentOutOfRangeError_1 = __webpack_require__(20);
 /**
  * Skip the last `count` values emitted by the source Observable.
  *
@@ -16878,18 +17328,18 @@ var SkipLastSubscriber = (function (_super) {
 //# sourceMappingURL=skipLast.js.map
 
 /***/ }),
-/* 291 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var skipUntil_1 = __webpack_require__(292);
+var skipUntil_1 = __webpack_require__(299);
 Observable_1.Observable.prototype.skipUntil = skipUntil_1.skipUntil;
 //# sourceMappingURL=skipUntil.js.map
 
 /***/ }),
-/* 292 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16966,18 +17416,18 @@ var SkipUntilSubscriber = (function (_super) {
 //# sourceMappingURL=skipUntil.js.map
 
 /***/ }),
-/* 293 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var skipWhile_1 = __webpack_require__(294);
+var skipWhile_1 = __webpack_require__(301);
 Observable_1.Observable.prototype.skipWhile = skipWhile_1.skipWhile;
 //# sourceMappingURL=skipWhile.js.map
 
 /***/ }),
-/* 294 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17049,26 +17499,26 @@ var SkipWhileSubscriber = (function (_super) {
 //# sourceMappingURL=skipWhile.js.map
 
 /***/ }),
-/* 295 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var startWith_1 = __webpack_require__(296);
+var startWith_1 = __webpack_require__(303);
 Observable_1.Observable.prototype.startWith = startWith_1.startWith;
 //# sourceMappingURL=startWith.js.map
 
 /***/ }),
-/* 296 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var ArrayObservable_1 = __webpack_require__(12);
-var ScalarObservable_1 = __webpack_require__(32);
+var ScalarObservable_1 = __webpack_require__(33);
 var EmptyObservable_1 = __webpack_require__(13);
-var concat_1 = __webpack_require__(34);
+var concat_1 = __webpack_require__(35);
 var isScheduler_1 = __webpack_require__(11);
 /* tslint:enable:max-line-length */
 /**
@@ -17112,23 +17562,23 @@ exports.startWith = startWith;
 //# sourceMappingURL=startWith.js.map
 
 /***/ }),
-/* 297 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var subscribeOn_1 = __webpack_require__(298);
+var subscribeOn_1 = __webpack_require__(305);
 Observable_1.Observable.prototype.subscribeOn = subscribeOn_1.subscribeOn;
 //# sourceMappingURL=subscribeOn.js.map
 
 /***/ }),
-/* 298 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var SubscribeOnObservable_1 = __webpack_require__(299);
+var SubscribeOnObservable_1 = __webpack_require__(306);
 /**
  * Asynchronously subscribes Observers to this Observable on the specified IScheduler.
  *
@@ -17158,7 +17608,7 @@ var SubscribeOnOperator = (function () {
 //# sourceMappingURL=subscribeOn.js.map
 
 /***/ }),
-/* 299 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17169,7 +17619,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(0);
-var asap_1 = __webpack_require__(61);
+var asap_1 = __webpack_require__(64);
 var isNumeric_1 = __webpack_require__(27);
 /**
  * We need this JSDoc comment for affecting ESDoc.
@@ -17215,7 +17665,7 @@ exports.SubscribeOnObservable = SubscribeOnObservable;
 //# sourceMappingURL=SubscribeOnObservable.js.map
 
 /***/ }),
-/* 300 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17225,8 +17675,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Immediate_1 = __webpack_require__(301);
-var AsyncAction_1 = __webpack_require__(17);
+var Immediate_1 = __webpack_require__(308);
+var AsyncAction_1 = __webpack_require__(18);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -17276,7 +17726,7 @@ exports.AsapAction = AsapAction;
 //# sourceMappingURL=AsapAction.js.map
 
 /***/ }),
-/* 301 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17489,10 +17939,10 @@ var ImmediateDefinition = (function () {
 exports.ImmediateDefinition = ImmediateDefinition;
 exports.Immediate = new ImmediateDefinition(root_1.root);
 //# sourceMappingURL=Immediate.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(62).clearImmediate, __webpack_require__(62).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(65).clearImmediate, __webpack_require__(65).setImmediate))
 
 /***/ }),
-/* 302 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -17682,10 +18132,10 @@ exports.Immediate = new ImmediateDefinition(root_1.root);
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(39), __webpack_require__(303)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(42), __webpack_require__(310)))
 
 /***/ }),
-/* 303 */
+/* 310 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -17875,7 +18325,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 304 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17885,7 +18335,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var AsyncScheduler_1 = __webpack_require__(18);
+var AsyncScheduler_1 = __webpack_require__(19);
 var AsapScheduler = (function (_super) {
     __extends(AsapScheduler, _super);
     function AsapScheduler() {
@@ -17918,19 +18368,19 @@ exports.AsapScheduler = AsapScheduler;
 //# sourceMappingURL=AsapScheduler.js.map
 
 /***/ }),
-/* 305 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var switch_1 = __webpack_require__(306);
+var switch_1 = __webpack_require__(313);
 Observable_1.Observable.prototype.switch = switch_1._switch;
 Observable_1.Observable.prototype._switch = switch_1._switch;
 //# sourceMappingURL=switch.js.map
 
 /***/ }),
-/* 306 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18044,18 +18494,18 @@ var SwitchSubscriber = (function (_super) {
 //# sourceMappingURL=switch.js.map
 
 /***/ }),
-/* 307 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var switchMap_1 = __webpack_require__(308);
+var switchMap_1 = __webpack_require__(315);
 Observable_1.Observable.prototype.switchMap = switchMap_1.switchMap;
 //# sourceMappingURL=switchMap.js.map
 
 /***/ }),
-/* 308 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18201,18 +18651,18 @@ var SwitchMapSubscriber = (function (_super) {
 //# sourceMappingURL=switchMap.js.map
 
 /***/ }),
-/* 309 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var switchMapTo_1 = __webpack_require__(310);
+var switchMapTo_1 = __webpack_require__(317);
 Observable_1.Observable.prototype.switchMapTo = switchMapTo_1.switchMapTo;
 //# sourceMappingURL=switchMapTo.js.map
 
 /***/ }),
-/* 310 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18343,18 +18793,18 @@ var SwitchMapToSubscriber = (function (_super) {
 //# sourceMappingURL=switchMapTo.js.map
 
 /***/ }),
-/* 311 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var take_1 = __webpack_require__(312);
+var take_1 = __webpack_require__(319);
 Observable_1.Observable.prototype.take = take_1.take;
 //# sourceMappingURL=take.js.map
 
 /***/ }),
-/* 312 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18365,7 +18815,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(1);
-var ArgumentOutOfRangeError_1 = __webpack_require__(19);
+var ArgumentOutOfRangeError_1 = __webpack_require__(20);
 var EmptyObservable_1 = __webpack_require__(13);
 /**
  * Emits only the first `count` values emitted by the source Observable.
@@ -18449,18 +18899,18 @@ var TakeSubscriber = (function (_super) {
 //# sourceMappingURL=take.js.map
 
 /***/ }),
-/* 313 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var takeLast_1 = __webpack_require__(314);
+var takeLast_1 = __webpack_require__(321);
 Observable_1.Observable.prototype.takeLast = takeLast_1.takeLast;
 //# sourceMappingURL=takeLast.js.map
 
 /***/ }),
-/* 314 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18471,7 +18921,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(1);
-var ArgumentOutOfRangeError_1 = __webpack_require__(19);
+var ArgumentOutOfRangeError_1 = __webpack_require__(20);
 var EmptyObservable_1 = __webpack_require__(13);
 /**
  * Emits only the last `count` values emitted by the source Observable.
@@ -18573,18 +19023,18 @@ var TakeLastSubscriber = (function (_super) {
 //# sourceMappingURL=takeLast.js.map
 
 /***/ }),
-/* 315 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var takeUntil_1 = __webpack_require__(316);
+var takeUntil_1 = __webpack_require__(323);
 Observable_1.Observable.prototype.takeUntil = takeUntil_1.takeUntil;
 //# sourceMappingURL=takeUntil.js.map
 
 /***/ }),
-/* 316 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18665,18 +19115,18 @@ var TakeUntilSubscriber = (function (_super) {
 //# sourceMappingURL=takeUntil.js.map
 
 /***/ }),
-/* 317 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var takeWhile_1 = __webpack_require__(318);
+var takeWhile_1 = __webpack_require__(325);
 Observable_1.Observable.prototype.takeWhile = takeWhile_1.takeWhile;
 //# sourceMappingURL=takeWhile.js.map
 
 /***/ }),
-/* 318 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18774,29 +19224,29 @@ var TakeWhileSubscriber = (function (_super) {
 //# sourceMappingURL=takeWhile.js.map
 
 /***/ }),
-/* 319 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var throttle_1 = __webpack_require__(63);
+var throttle_1 = __webpack_require__(66);
 Observable_1.Observable.prototype.throttle = throttle_1.throttle;
 //# sourceMappingURL=throttle.js.map
 
 /***/ }),
-/* 320 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var throttleTime_1 = __webpack_require__(321);
+var throttleTime_1 = __webpack_require__(328);
 Observable_1.Observable.prototype.throttleTime = throttleTime_1.throttleTime;
 //# sourceMappingURL=throttleTime.js.map
 
 /***/ }),
-/* 321 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18808,7 +19258,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Subscriber_1 = __webpack_require__(1);
 var async_1 = __webpack_require__(9);
-var throttle_1 = __webpack_require__(63);
+var throttle_1 = __webpack_require__(66);
 /**
  * Emits a value from the source Observable, then ignores subsequent source
  * values for `duration` milliseconds, then repeats this process.
@@ -18918,29 +19368,29 @@ function dispatchNext(arg) {
 //# sourceMappingURL=throttleTime.js.map
 
 /***/ }),
-/* 322 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var timeInterval_1 = __webpack_require__(64);
+var timeInterval_1 = __webpack_require__(67);
 Observable_1.Observable.prototype.timeInterval = timeInterval_1.timeInterval;
 //# sourceMappingURL=timeInterval.js.map
 
 /***/ }),
-/* 323 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var timeout_1 = __webpack_require__(324);
+var timeout_1 = __webpack_require__(331);
 Observable_1.Observable.prototype.timeout = timeout_1.timeout;
 //# sourceMappingURL=timeout.js.map
 
 /***/ }),
-/* 324 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18953,11 +19403,69 @@ var __extends = (this && this.__extends) || function (d, b) {
 var async_1 = __webpack_require__(9);
 var isDate_1 = __webpack_require__(28);
 var Subscriber_1 = __webpack_require__(1);
-var TimeoutError_1 = __webpack_require__(65);
+var TimeoutError_1 = __webpack_require__(68);
 /**
- * @param {number} due
- * @param {Scheduler} [scheduler]
- * @return {Observable<R>|WebSocketSubject<T>|Observable<T>}
+ *
+ * Errors if Observable does not emit a value in given time span.
+ *
+ * <span class="informal">Timeouts on Observable that doesn't emit values fast enough.</span>
+ *
+ * <img src="./img/timeout.png" width="100%">
+ *
+ * `timeout` operator accepts as an argument either a number or a Date.
+ *
+ * If number was provided, it returns an Observable that behaves like a source
+ * Observable, unless there is a period of time where there is no value emitted.
+ * So if you provide `100` as argument and first value comes after 50ms from
+ * the moment of subscription, this value will be simply re-emitted by the resulting
+ * Observable. If however after that 100ms passes without a second value being emitted,
+ * stream will end with an error and source Observable will be unsubscribed.
+ * These checks are performed throughout whole lifecycle of Observable - from the moment
+ * it was subscribed to, until it completes or errors itself. Thus every value must be
+ * emitted within specified period since previous value.
+ *
+ * If provided argument was Date, returned Observable behaves differently. It throws
+ * if Observable did not complete before provided Date. This means that periods between
+ * emission of particular values do not matter in this case. If Observable did not complete
+ * before provided Date, source Observable will be unsubscribed. Other than that, resulting
+ * stream behaves just as source Observable.
+ *
+ * `timeout` accepts also a Scheduler as a second parameter. It is used to schedule moment (or moments)
+ * when returned Observable will check if source stream emitted value or completed.
+ *
+ * @example <caption>Check if ticks are emitted within certain timespan</caption>
+ * const seconds = Rx.Observable.interval(1000);
+ *
+ * seconds.timeout(1100) // Let's use bigger timespan to be safe,
+ *                       // since `interval` might fire a bit later then scheduled.
+ * .subscribe(
+ *     value => console.log(value), // Will emit numbers just as regular `interval` would.
+ *     err => console.log(err) // Will never be called.
+ * );
+ *
+ * seconds.timeout(900).subscribe(
+ *     value => console.log(value), // Will never be called.
+ *     err => console.log(err) // Will emit error before even first value is emitted,
+ *                             // since it did not arrive within 900ms period.
+ * );
+ *
+ * @example <caption>Use Date to check if Observable completed</caption>
+ * const seconds = Rx.Observable.interval(1000);
+ *
+ * seconds.timeout(new Date("December 17, 2020 03:24:00"))
+ * .subscribe(
+ *     value => console.log(value), // Will emit values as regular `interval` would
+ *                                  // until December 17, 2020 at 03:24:00.
+ *     err => console.log(err) // On December 17, 2020 at 03:24:00 it will emit an error,
+ *                             // since Observable did not complete by then.
+ * );
+ *
+ * @see {@link timeoutWith}
+ *
+ * @param {number|Date} due Number specifying period within which Observable must emit values
+ *                          or Date specifying before when Observable should complete
+ * @param {Scheduler} [scheduler] Scheduler controlling when timeout checks occur.
+ * @return {Observable<T>} Observable that mirrors behaviour of source, unless timeout checks fail.
  * @method timeout
  * @owner Observable
  */
@@ -19029,18 +19537,18 @@ var TimeoutSubscriber = (function (_super) {
 //# sourceMappingURL=timeout.js.map
 
 /***/ }),
-/* 325 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var timeoutWith_1 = __webpack_require__(326);
+var timeoutWith_1 = __webpack_require__(333);
 Observable_1.Observable.prototype.timeoutWith = timeoutWith_1.timeoutWith;
 //# sourceMappingURL=timeoutWith.js.map
 
 /***/ }),
-/* 326 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19133,29 +19641,29 @@ var TimeoutWithSubscriber = (function (_super) {
 //# sourceMappingURL=timeoutWith.js.map
 
 /***/ }),
-/* 327 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var timestamp_1 = __webpack_require__(66);
+var timestamp_1 = __webpack_require__(69);
 Observable_1.Observable.prototype.timestamp = timestamp_1.timestamp;
 //# sourceMappingURL=timestamp.js.map
 
 /***/ }),
-/* 328 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var toArray_1 = __webpack_require__(329);
+var toArray_1 = __webpack_require__(336);
 Observable_1.Observable.prototype.toArray = toArray_1.toArray;
 //# sourceMappingURL=toArray.js.map
 
 /***/ }),
-/* 329 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19206,18 +19714,18 @@ var ToArraySubscriber = (function (_super) {
 //# sourceMappingURL=toArray.js.map
 
 /***/ }),
-/* 330 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var toPromise_1 = __webpack_require__(331);
+var toPromise_1 = __webpack_require__(338);
 Observable_1.Observable.prototype.toPromise = toPromise_1.toPromise;
 //# sourceMappingURL=toPromise.js.map
 
 /***/ }),
-/* 331 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19295,18 +19803,18 @@ exports.toPromise = toPromise;
 //# sourceMappingURL=toPromise.js.map
 
 /***/ }),
-/* 332 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var window_1 = __webpack_require__(333);
+var window_1 = __webpack_require__(340);
 Observable_1.Observable.prototype.window = window_1.window;
 //# sourceMappingURL=window.js.map
 
 /***/ }),
-/* 333 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19422,18 +19930,18 @@ var WindowSubscriber = (function (_super) {
 //# sourceMappingURL=window.js.map
 
 /***/ }),
-/* 334 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var windowCount_1 = __webpack_require__(335);
+var windowCount_1 = __webpack_require__(342);
 Observable_1.Observable.prototype.windowCount = windowCount_1.windowCount;
 //# sourceMappingURL=windowCount.js.map
 
 /***/ }),
-/* 335 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19570,18 +20078,18 @@ var WindowCountSubscriber = (function (_super) {
 //# sourceMappingURL=windowCount.js.map
 
 /***/ }),
-/* 336 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var windowTime_1 = __webpack_require__(337);
+var windowTime_1 = __webpack_require__(344);
 Observable_1.Observable.prototype.windowTime = windowTime_1.windowTime;
 //# sourceMappingURL=windowTime.js.map
 
 /***/ }),
-/* 337 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19748,18 +20256,18 @@ function dispatchWindowClose(state) {
 //# sourceMappingURL=windowTime.js.map
 
 /***/ }),
-/* 338 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var windowToggle_1 = __webpack_require__(339);
+var windowToggle_1 = __webpack_require__(346);
 Observable_1.Observable.prototype.windowToggle = windowToggle_1.windowToggle;
 //# sourceMappingURL=windowToggle.js.map
 
 /***/ }),
-/* 339 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19945,18 +20453,18 @@ var WindowToggleSubscriber = (function (_super) {
 //# sourceMappingURL=windowToggle.js.map
 
 /***/ }),
-/* 340 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var windowWhen_1 = __webpack_require__(341);
+var windowWhen_1 = __webpack_require__(348);
 Observable_1.Observable.prototype.windowWhen = windowWhen_1.windowWhen;
 //# sourceMappingURL=windowWhen.js.map
 
 /***/ }),
-/* 341 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20089,18 +20597,18 @@ var WindowSubscriber = (function (_super) {
 //# sourceMappingURL=windowWhen.js.map
 
 /***/ }),
-/* 342 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var withLatestFrom_1 = __webpack_require__(343);
+var withLatestFrom_1 = __webpack_require__(350);
 Observable_1.Observable.prototype.withLatestFrom = withLatestFrom_1.withLatestFrom;
 //# sourceMappingURL=withLatestFrom.js.map
 
 /***/ }),
-/* 343 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20236,34 +20744,34 @@ var WithLatestFromSubscriber = (function (_super) {
 //# sourceMappingURL=withLatestFrom.js.map
 
 /***/ }),
-/* 344 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var zip_1 = __webpack_require__(36);
+var zip_1 = __webpack_require__(37);
 Observable_1.Observable.prototype.zip = zip_1.zipProto;
 //# sourceMappingURL=zip.js.map
 
 /***/ }),
-/* 345 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(0);
-var zipAll_1 = __webpack_require__(346);
+var zipAll_1 = __webpack_require__(353);
 Observable_1.Observable.prototype.zipAll = zipAll_1.zipAll;
 //# sourceMappingURL=zipAll.js.map
 
 /***/ }),
-/* 346 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var zip_1 = __webpack_require__(36);
+var zip_1 = __webpack_require__(37);
 /**
  * @param project
  * @return {Observable<R>|WebSocketSubject<T>|Observable<T>}
@@ -20277,7 +20785,7 @@ exports.zipAll = zipAll;
 //# sourceMappingURL=zipAll.js.map
 
 /***/ }),
-/* 347 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20288,11 +20796,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(0);
-var Notification_1 = __webpack_require__(16);
-var ColdObservable_1 = __webpack_require__(348);
-var HotObservable_1 = __webpack_require__(349);
-var SubscriptionLog_1 = __webpack_require__(68);
-var VirtualTimeScheduler_1 = __webpack_require__(70);
+var Notification_1 = __webpack_require__(17);
+var ColdObservable_1 = __webpack_require__(355);
+var HotObservable_1 = __webpack_require__(356);
+var SubscriptionLog_1 = __webpack_require__(71);
+var VirtualTimeScheduler_1 = __webpack_require__(73);
 var defaultMaxFrame = 750;
 var TestScheduler = (function (_super) {
     __extends(TestScheduler, _super);
@@ -20506,7 +21014,7 @@ exports.TestScheduler = TestScheduler;
 //# sourceMappingURL=TestScheduler.js.map
 
 /***/ }),
-/* 348 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20518,8 +21026,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(0);
 var Subscription_1 = __webpack_require__(4);
-var SubscriptionLoggable_1 = __webpack_require__(67);
-var applyMixins_1 = __webpack_require__(69);
+var SubscriptionLoggable_1 = __webpack_require__(70);
+var applyMixins_1 = __webpack_require__(72);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -20558,7 +21066,7 @@ applyMixins_1.applyMixins(ColdObservable, [SubscriptionLoggable_1.SubscriptionLo
 //# sourceMappingURL=ColdObservable.js.map
 
 /***/ }),
-/* 349 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20570,8 +21078,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Subject_1 = __webpack_require__(5);
 var Subscription_1 = __webpack_require__(4);
-var SubscriptionLoggable_1 = __webpack_require__(67);
-var applyMixins_1 = __webpack_require__(69);
+var SubscriptionLoggable_1 = __webpack_require__(70);
+var applyMixins_1 = __webpack_require__(72);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -20612,13 +21120,13 @@ applyMixins_1.applyMixins(HotObservable, [SubscriptionLoggable_1.SubscriptionLog
 //# sourceMappingURL=HotObservable.js.map
 
 /***/ }),
-/* 350 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var AnimationFrameAction_1 = __webpack_require__(351);
-var AnimationFrameScheduler_1 = __webpack_require__(353);
+var AnimationFrameAction_1 = __webpack_require__(358);
+var AnimationFrameScheduler_1 = __webpack_require__(360);
 /**
  *
  * Animation Frame Scheduler
@@ -20653,7 +21161,7 @@ exports.animationFrame = new AnimationFrameScheduler_1.AnimationFrameScheduler(A
 //# sourceMappingURL=animationFrame.js.map
 
 /***/ }),
-/* 351 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20663,8 +21171,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var AsyncAction_1 = __webpack_require__(17);
-var AnimationFrame_1 = __webpack_require__(352);
+var AsyncAction_1 = __webpack_require__(18);
+var AnimationFrame_1 = __webpack_require__(359);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -20714,7 +21222,7 @@ exports.AnimationFrameAction = AnimationFrameAction;
 //# sourceMappingURL=AnimationFrameAction.js.map
 
 /***/ }),
-/* 352 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20754,7 +21262,7 @@ exports.AnimationFrame = new RequestAnimationFrameDefinition(root_1.root);
 //# sourceMappingURL=AnimationFrame.js.map
 
 /***/ }),
-/* 353 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20764,7 +21272,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var AsyncScheduler_1 = __webpack_require__(18);
+var AsyncScheduler_1 = __webpack_require__(19);
 var AnimationFrameScheduler = (function (_super) {
     __extends(AnimationFrameScheduler, _super);
     function AnimationFrameScheduler() {
@@ -20797,177 +21305,719 @@ exports.AnimationFrameScheduler = AnimationFrameScheduler;
 //# sourceMappingURL=AnimationFrameScheduler.js.map
 
 /***/ }),
-/* 354 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 361 */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addEvents; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return hiddenEvents; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__colours__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fog__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__player__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inArea__ = __webpack_require__(72);
-const markerSvg = __webpack_require__(355);
-const doneMarkerSvg = __webpack_require__(356);
-const events = __webpack_require__(363);
-const pickRandom = __webpack_require__(360);
 
-
-const geodist = __webpack_require__(361);
-
-
-const NOTHING = 'nothing';
-
-let hiddenEvents = events.eventList;
-let visableEvents = [];
-let map;
-
-function activatedIcon() {
-    return L.divIcon({
-        iconAnchor: [12, 12],
-        labelAnchor: [12, 12],
-        popupAnchor: [0, -12],
-        html: doneMarkerSvg.replace(/fill="[^"]*"/, 'fill="' + __WEBPACK_IMPORTED_MODULE_0__colours__["a" /* randomColour */]() + '"'),
-        className: "activated_marker"
-    });
-}
-
-function unactivatedIcon() {
-    return L.divIcon({
-        iconAnchor: [12, 12],
-        labelAnchor: [12, 12],
-        popupAnchor: [0, -12],
-        html: markerSvg.replace(/fill="[^"]*"/, 'fill="' + __WEBPACK_IMPORTED_MODULE_0__colours__["a" /* randomColour */]() + '"'),
-        className: "not_activated_marker"
-    });
-}
-
-function gitterGeo(geo) {
-    // Randommly offset the location a litle to prevent identical locations overlaying.
-    // TODO: Somthing more intelligant rather than random.
-    let scale = 0.0003
-    return {
-        lat: geo.lat + scale * Math.random() - scale / 2,
-        lon: geo.lon + scale * Math.random() - scale / 2
-    }
-}
-
-function makeGameEventMarker(evt) {
-    return (evt.details === NOTHING) ? makeEmptyMarker(evt) : makePowerUpMarker(evt)
-}
-
-function makeEventMarker(evt) {
-    // TODO: What if not jpeg or multiple images/attachemtns?
-    let imgurl = evt["attach;fmttype=image/jpeg"];
-    let imgtag = (imgurl) ? `<a target="_blank" href="${evt.url}"><img src="${imgurl}" alt="${evt.summary}" style="width:100%;" /></a>` : "";
-    let description = evt.description;
-    let maxlen = 300;
-    if (description.length > maxlen) {
-        description = description.substring(0, maxlen);
-        description += `<a target="_blank" href="${evt.url}" title="Read more">...</a>`;
-    }
-
-    return L.marker(gitterGeo(evt.geo), { icon: unactivatedIcon() }).bindPopup(`
-            ${imgtag}
-            <h3><a target="_blank" href="${evt.url}">${evt.summary}</a></h3>
-            <p>${description}<p>
-    `)
-}
-
-function makePowerUpMarker(evt) {
-    let callback = __WEBPACK_IMPORTED_MODULE_2__player__["c" /* createPowerUpCallback */](evt.details);
-    let text = (evt.details === __WEBPACK_IMPORTED_MODULE_2__player__["b" /* INC_RANGE */]) ? "Vision range increased." : "Hint frequency increased.";
-    let marker = L.marker(evt.geo, { icon: unactivatedIcon() }).bindPopup(text);
-    marker.once('click', callback);
-    return marker;
-}
-
-
-function makeEmptyMarker(evt) {
-    let marker = L.marker(evt.geo, { icon: unactivatedIcon() }).bindPopup("Sorry nothing here...");
-    marker.once('click', () => {
-        setTimeout(() => {
-            map.removeLayer(marker)
-        }, 3000);
-    });
-    return marker;
-}
-
-function markerToMap(evt) {
-    let marker = {
-        "event": makeEventMarker,
-        "gameevent": makeGameEventMarker
-    }[evt.type](evt);
-
-    if (marker) {
-        marker.addTo(map);
-        let markAsClicked = () => marker.setIcon(activatedIcon());
-        marker.once('click', markAsClicked);
-    }
-    return marker;
-}
-
-function randomGameEvent() {
-    let details = [__WEBPACK_IMPORTED_MODULE_2__player__["a" /* INC_HINT */], __WEBPACK_IMPORTED_MODULE_2__player__["b" /* INC_RANGE */], NOTHING];
-    return {
-        'type': 'gameevent',
-        'details': pickRandom(details)[0],
-        'geo': __WEBPACK_IMPORTED_MODULE_3__inArea__["d" /* randomInside */]()
-    };
-}
-
-function addEvents(eventMap) {
-    map = eventMap;
-    let count = hiddenEvents.length;
-    for (let i = 0; i < count; i++) { // TODO: Half the events are game actions. Is this the correct ratio.
-        hiddenEvents.push(randomGameEvent());
-    }
-    //TODO: add random powerups and 'nothing' events.
-    setInterval(updateRecentlyVisable, 333);
-    setInterval(updateVisable, 5000); //TODO: Batch in to 'sets' of 50-300 points so don't inturup UI?
-}
-
-
-function updateRecentlyVisable() {
-    updateVisable(50);
-}
-// TODO: Reduce complexity?
-function updateVisable(limit) {
-    limit = limit || 0; // Limit to `limit` number of recent location events.
-    limit = __WEBPACK_IMPORTED_MODULE_1__fog__["d" /* visited */].length - 1 - limit;
-    limit = (limit < 0) ? 0 : limit;
-    for (var eventIdx = hiddenEvents.length - 1; eventIdx >= 0; eventIdx--) { // Loop from end since we will be removing items
-        let event = hiddenEvents[eventIdx];
-        for (var pointIdx = __WEBPACK_IMPORTED_MODULE_1__fog__["d" /* visited */].length - 1; pointIdx >= limit; pointIdx--) { // Start at most recent data
-            let point = __WEBPACK_IMPORTED_MODULE_1__fog__["d" /* visited */][pointIdx];
-            if (geodist(point.point, event.geo, { exact: true, unit: 'meters', limit: point.range })) {
-                hiddenEvents.splice(eventIdx, 1);
-                event.marker = markerToMap(event);
-                visableEvents.push(event);
-                event.found = true;
-                break;
-            }
-        }
-    }
-}
-
+module.exports = function (str) {
+	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+		return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+	});
+};
 
 
 /***/ }),
-/* 355 */
+/* 362 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+
+/***/ }),
+/* 363 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var token = '%[a-f0-9]{2}';
+var singleMatcher = new RegExp(token, 'gi');
+var multiMatcher = new RegExp('(' + token + ')+', 'gi');
+
+function decodeComponents(components, split) {
+	try {
+		// Try to decode the entire string first
+		return decodeURIComponent(components.join(''));
+	} catch (err) {
+		// Do nothing
+	}
+
+	if (components.length === 1) {
+		return components;
+	}
+
+	split = split || 1;
+
+	// Split the array in 2 parts
+	var left = components.slice(0, split);
+	var right = components.slice(split);
+
+	return Array.prototype.concat.call([], decodeComponents(left), decodeComponents(right));
+}
+
+function decode(input) {
+	try {
+		return decodeURIComponent(input);
+	} catch (err) {
+		var tokens = input.match(singleMatcher);
+
+		for (var i = 1; i < tokens.length; i++) {
+			input = decodeComponents(tokens, i).join('');
+
+			tokens = input.match(singleMatcher);
+		}
+
+		return input;
+	}
+}
+
+function customDecodeURIComponent(input) {
+	// Keep track of all the replacements and prefill the map with the `BOM`
+	var replaceMap = {
+		'%FE%FF': '\uFFFD\uFFFD',
+		'%FF%FE': '\uFFFD\uFFFD'
+	};
+
+	var match = multiMatcher.exec(input);
+	while (match) {
+		try {
+			// Decode as big chunks as possible
+			replaceMap[match[0]] = decodeURIComponent(match[0]);
+		} catch (err) {
+			var result = decode(match[0]);
+
+			if (result !== match[0]) {
+				replaceMap[match[0]] = result;
+			}
+		}
+
+		match = multiMatcher.exec(input);
+	}
+
+	// Add `%C2` at the end of the map to make sure it does not replace the combinator before everything else
+	replaceMap['%C2'] = '\uFFFD';
+
+	var entries = Object.keys(replaceMap);
+
+	for (var i = 0; i < entries.length; i++) {
+		// Replace all decoded components
+		var key = entries[i];
+		input = input.replace(new RegExp(key, 'g'), replaceMap[key]);
+	}
+
+	return input;
+}
+
+module.exports = function (encodedURI) {
+	if (typeof encodedURI !== 'string') {
+		throw new TypeError('Expected `encodedURI` to be of type `string`, got `' + typeof encodedURI + '`');
+	}
+
+	try {
+		encodedURI = encodedURI.replace(/\+/g, ' ');
+
+		// Try the built in decoder first
+		return decodeURIComponent(encodedURI);
+	} catch (err) {
+		// Fallback to a more advanced decoder
+		return customDecodeURIComponent(encodedURI);
+	}
+};
+
+
+/***/ }),
+/* 364 */
 /***/ (function(module, exports) {
 
 module.exports = "<svg fill=\"#FFFFFF\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n    <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z\"/>\n</svg>"
 
 /***/ }),
-/* 356 */
+/* 365 */
 /***/ (function(module, exports) {
 
 module.exports = "<svg fill=\"#FFFFFF\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n    <path d=\"M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z\"/>\n</svg>"
 
 /***/ }),
-/* 357 */,
-/* 358 */
+/* 366 */
+/***/ (function(module, exports) {
+
+module.exports = {
+    "eventList": [
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Bellhouse.jpg",
+            "categories": "Art",
+            "created": "20170720T112931Z",
+            "description": "9am \u2013 6pm Friday 6th\n9am \u2013 5pm Saturday 7th\n12pm \u2013 4pm Sunday 8th \n \nBellHouse is a playful, interactive sound sculpture that translates data into the chimes of thirty-five bells in an open-sided house. \nCombining craft and technology, the bells are in fact beautiful ceramic pots, made by ceramist and BellHouse creator Roop Johnstone. \nEach pot is fixed with a robotic beater and is triggered by motion capture. There will be opportunities to play, hack and translate your own data through the BellHouse. What can you make it do? \n \n",
+            "dtend;value=date": "20171008",
+            "dtstamp": "20170728T115320",
+            "dtstart;value=date": "20171006",
+            "geo": {
+                "lat": 50.7254596,
+                "lon": -3.5293268
+            },
+            "last-modified": "20170728T102711Z",
+            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
+            "summary": "BELLHOUSE by Roop Johnstone of RAMP",
+            "type": "event",
+            "uid": "3431-1507248000-1507507199@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/bellhouse-by-roop-johnstone-of-ramp/",
+            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Smile-by-Catherine-Cartwright.jpg",
+            "categories": "Art",
+            "created": "20170720T114447Z",
+            "description": "7pm \u2013 10pm Friday 6th / Saturday 7th / Sunday 8th \nA projected animated portrait of young people from Ellen Tinkham College, a special college for 16-25 year olds. \nThe artist and printmaker Catherine Cartwright drew 250 monotype prints to make a joyous and moving portrait of eight young people from Exeter. \nBecause Exeter is not as accessible to them as it is for other young people, through this projection they become \u2018present\u2019 in our city centre. \nIncludes an additional short film \u201cKanga\u201d created by students at the college during Art Week Exeter 2017. \nwww.catherinecartwright.co.uk \n \n",
+            "dtend;value=date": "20171008",
+            "dtstamp": "20170728T115320",
+            "dtstart;value=date": "20171006",
+            "geo": {
+                "lat": 50.719937,
+                "lon": -3.5360648
+            },
+            "last-modified": "20170726T155427Z",
+            "location": "35 New Bridge Street, Exeter, Devon, EX4 3AH, United Kingdom",
+            "summary": "SMILE by Catherine Cartwright",
+            "type": "event",
+            "uid": "3446-1507248000-1507507199@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/smile-by-catherine-cartwright/",
+            "x-apple-structured-location;value=uri;x-address=35 new bridge street exeter devon ex4 3ah united kingdom;x-apple-radius=500;x-title=35 new bridge street": "geo:-3.5360648,50.719937"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Forever-Me.jpg",
+            "categories": "Art",
+            "created": "20170720T115329Z",
+            "description": "10am \u2013 6pm   Friday 6th / Saturday 7th / Sunday 8th  \nForever Me is a cube, made up of 220 individual shadow boxes, exploring the collective digital immortality of a community. You can make your own shadow box and record how you would like to be remembered. What one thing will you choose to project to the world after you have left? \nBy day passers-by can listen in to the individual shadow boxes to hear the testimonials. By night the whole cube comes alive as the boxes glow and speak of their collective experiences to be projected into the future. \n",
+            "dtend;value=date": "20171008",
+            "dtstamp": "20170728T115320",
+            "dtstart;value=date": "20171006",
+            "geo": {
+                "lat": 50.7243322,
+                "lon": -3.5279588
+            },
+            "last-modified": "20170725T094223Z",
+            "location": "Eastgate, Princesshay, Exeter, Devon, EX1 1QA, United Kingdom",
+            "summary": "FOREVER ME by Becca Gill of Mercurial Wrestler",
+            "type": "event",
+            "uid": "3453-1507248000-1507507199@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/forever-me-by-becca-gill-of-mercurial-wrestler/",
+            "x-apple-structured-location;value=uri;x-address=eastgate princesshay exeter devon ex1 1qa united kingdom;x-apple-radius=500;x-title=eastgate\\, princesshay": "geo:-3.5279588,50.7243322"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Buoyed.jpg",
+            "categories": "Art",
+            "created": "20170720T120906Z",
+            "description": "7am \u2013 9pm Friday 6th / Saturday 7th / Sunday 8th \nBuoyed is an interactive, playful cluster of magical glass buoys that hang above head height, suspended by slender wooden stems. They tease you with their pulsing glow and muffled voices, enticing you in for a closer listen. And as you reach them, they start speaking to you\u2026 \n \n",
+            "dtend;value=date": "20171008",
+            "dtstamp": "20170728T115320",
+            "dtstart;value=date": "20171006",
+            "geo": {
+                "lat": 50.725551,
+                "lon": -3.5293462
+            },
+            "last-modified": "20170726T153659Z",
+            "location": "12 Castle Street, Exeter, Devon, EX4 3PU, United Kingdom",
+            "summary": "BUOYED by Dr Louisa Evans, Dr Rachel Turner, Daniel Marcus Clark, Jay Kerry, Kaleider",
+            "type": "event",
+            "uid": "3463-1507248000-1507507199@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/buoyed-by-dr-louisa-evans-dr-rachel-turner-daniel-marcus-clark-jay-kerry-kaleider-2/",
+            "x-apple-structured-location;value=uri;x-address=12 castle street exeter devon ex4 3pu united kingdom;x-apple-radius=500;x-title=12 castle street": "geo:-3.5293462,50.725551"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/ACCELERATOR-SHOWCASE.jpg",
+            "categories": "Ideas",
+            "created": "20170720T143336Z",
+            "description": "10am \u2013 5pm   Friday 6th / Saturday 7th  \nExeter City Futures have set the bold goal to make Exeter energy independent and congestion free by 2025. Their core approach is a process for defining problems, building partnerships to find solutions, and managing and measuring progress. \nTheir framework enables innovative individuals, communities and businesses to respond to clear challenges that address real need within the City. They accelerate ideas with greatest potential via their start-up accelerator and other channels to deliver impactful progress. \nTheir City Space will be open for the public to come and meet our first set of start-ups looking to solve our challenges. \n",
+            "dtend;value=date": "20171007",
+            "dtstamp": "20170728T115320",
+            "dtstart;value=date": "20171006",
+            "geo": {
+                "lat": 50.7246191,
+                "lon": -3.5268397
+            },
+            "last-modified": "20170725T092423Z",
+            "location": "Broadwalk House, Exeter, Devon, EX1 1TS, United Kingdom",
+            "summary": "EXETER CITY FUTURES",
+            "type": "event",
+            "uid": "3496-1507248000-1507420799@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/accelerator-showcase/",
+            "x-apple-structured-location;value=uri;x-address=broadwalk house exeter devon ex1 1ts united kingdom;x-apple-radius=500;x-title=broadwalk house": "geo:-3.5268397,50.7246191"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Radio-Broadcast-Workshops.jpg",
+            "categories": "Tech",
+            "created": "20170720T144115Z",
+            "description": "11am \u2013 5pm Friday 6th / Saturday 7th \nBOOK TICKETS - FRI\nBOOK TICKETS - SAT\nRadio production workshop for college-aged radio and sound arts enthusiasts. Working to a brief set by Phonic FM, the students will be encouraged to attend the festival throughout Exeter with the purpose of gathering content. The resulting contributions will be aired during a live broadcast planned for the final day of the festival. \nThe workshops will be run by experienced radio professionals and will enable the students to produce professional quality broadcast material, as well as unlocking skills, experience and confidence they can take to further their careers. \n",
+            "dtend;value=date": "20171007",
+            "dtstamp": "20170728T115320",
+            "dtstart;value=date": "20171006",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T204304Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "RADIO PRODUCTION WORKSHOP",
+            "type": "event",
+            "uid": "3501-1507248000-1507420799@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/radio-production-workshop/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-October-Don-Letts.jpg",
+            "categories": "Music",
+            "created": "20170720T103944Z",
+            "description": " \nBOOK TICKETS\nFREE ENTRY places are limited so please book a place BOOK TICKETS \nA day of workshops, talks and panel discussions, chaired by writer and broadcaster John Robb and film maker/DJ Don Letts. \nEvents cover everything from punk rock, politics and activism right down to the basics of being in a band. Industry experts will discuss how to book gigs, how to get your music heard, and what you need to do to forge path in the music industry. \nIncluding DJ workshops, guest speakers, demo jury, a \u2018zine making workshop with Matt Martin from The Photocopy Club plus much more. \nMore speakers, and how to take part in the demo jury to be announced! \n",
+            "dtend;tzid=utc+0": "20171006T160000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171006T100000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170725T142421Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "LOST WEEKEND MUSIC CONFERENCE",
+            "type": "event",
+            "uid": "3408-1507284000-1507305600@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/lost-weekend-music-conference/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Tech-SoDa.jpg",
+            "categories": "Tech",
+            "created": "20170726T132113Z",
+            "description": "BOOK TICKETS\n(over 16s) \u00a0\u00a0\u00a0\u00a0\u00a0 Places are limited please book a ticket BOOK TICKET \nA digital arts workshop for creative beginners and digital experts alike. Bring your own laptop and charger! \nAs part of the Lost Weekend festival, University of Exeter and BAFTA winning arts agency SoDa will be demonstrating MASH, an ambient digital artwork that dynamically montages live text and image feeds onto public screens. Fiddian Warman of SoDa will lead a workshop using the easy to learn programming environment IFTTT, where you can learn to control content feeds and experiment with interactive triggers to change how content is displayed. \n \n",
+            "dtend;tzid=utc+0": "20171006T160000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171006T140000",
+            "geo": {
+                "lat": 50.7254596,
+                "lon": -3.5293268
+            },
+            "last-modified": "20170726T155029Z",
+            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
+            "summary": "SoDa PRESENT MASH",
+            "type": "event",
+            "uid": "4030-1507298400-1507305600@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/soda-present-mash-learn-interactive-triggering-for-digital-art/",
+            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-october-Lost-in-Film-two-sevens-clash.jpg",
+            "categories": "Film",
+            "created": "20170720T104956Z",
+            "description": "BOOK TICKETS\n(UK, 2017, 50 min) \nDirected, filmed and narrated by Don Letts this archive-based documentary looks at the myth and the reality of the \u2018punky-reggae party\u2019. Using unseen footage shot on Super-8mm 40 years ago, the film features The Sex Pistols, The Clash, Culture, The Slits, Linton Kwesi Johnson and many more. \nFOLLOWED BY Q&A WITH DON LETTS \nDon Letts is a British film director and musician. His film, The Punk Rock Movie, documents the original UK punk rock movement. Letts is credited with introducing dub and reggae to the London punk scene, which was to influence The Clash and other bands. \n",
+            "dtend;tzid=utc+0": "20171006T180000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171006T170000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T115837Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "TWO SEVENS CLASH",
+            "type": "event",
+            "uid": "3410-1507309200-1507312800@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/two-sevens-clash/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-October-Quuercore-How-to-Punk-a-Revolution.jpg",
+            "categories": "Film",
+            "created": "20170720T105600Z",
+            "description": " \nBOOK TICKETS\n(Germany, 2017, 82 min) \nDirected by Berlin-based filmmaker Yony Leyser, \u201cQueercore: How to Punk a Revolution\u201d is a feature-length snapshot into the music and fanzines that gave voice to LGBTQ DIY Punk outsiders \u2014 those who didn\u2019t subscribe to the dominant gay scenes. \nFeat. Kathleen Hannah, Beth Ditto and others. \n",
+            "dtend;tzid=utc+0": "20171006T213000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171006T200000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T114924Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "QUEERCORE, HOW TO PUNK A REVOLUTION",
+            "type": "event",
+            "uid": "3413-1507320000-1507325400@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/queercore-how-to-punk-a-revolution/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/craig-charles.jpg",
+            "categories": "Music",
+            "created": "20170720T110014Z",
+            "description": "BOOK TICKETS\nCRAIG CHARLES FUNK & SOUL CLUB + SPECIAL GUEST DON LETTS \nThe legendary actor, host and broadcaster Craig Charles is one of the UK\u2019s most beloved Funk and Soul DJ\u2019s, from Robot Wars to Red Dwarf and now The Gadget Show, Craig has now grounded himself as a Funk & Soul icon after 10 years of broadcasting on BBC 6 Music with their primetime Saturday night show. \nDon Letts is a film director, musician, DJ and radio broadcaster who turned punks onto reggae at The Roxy back in 1977! \n",
+            "dtend;tzid=utc+0": "20171007T020000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171006T210000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T142725Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "Beatz & Bobz present THE LOST WEEKEND LAUNCH PARTY",
+            "type": "event",
+            "uid": "3417-1507323600-1507341600@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/beatz-bobz-present-the-lost-weekend-launch-party/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Cardboard-Arcade.jpg",
+            "categories": "Art",
+            "created": "20170720T122035Z",
+            "description": "11am \u2013 4pm    Saturday 7th / Sunday 8th  \nJoin forces and explore the creative world of gaming as you enjoy multi-player arcade games made by small developers from around the world. \nCARDBOARD ARCADE is a suite of travelling arcade machines made out of cardboard. Inside is a computer, a monitor and a game. \nUnstable King\u2019s goal is to put free multi-player arcade machines in public places around the UK to encourage new friendships through gaming. They also want to encourage people to see computer games as an artistic and creative medium. \nThe arcade started as a side project to a comedy/circus show that was heavily inspired by gaming. The project\u2019s creator is Michael Bell who operates underneath the umbrella of his arts company Unstable King. \nSTREET VIDEO GAME CHALLENGE \u2013 An improvised live gaming experience where the audience come together to complete simple challenges with hilarious results. A pop up spectator sport where the passion of fandom and the want to win join together in an electrifying synthwave inspired showdown. A smash hit at places such as the V&A and Befest and designed for gamers and non-gamers of any age. \nwww.unstableking.co.uk \n",
+            "dtend;value=date": "20171008",
+            "dtstamp": "20170728T115320",
+            "dtstart;value=date": "20171007",
+            "geo": {
+                "lat": 50.7171563,
+                "lon": -3.5305495
+            },
+            "last-modified": "20170725T094536Z",
+            "location": "44 Waterside, Exeter, Devon, EX2 8GX, United Kingdom",
+            "summary": "CARDBOARD ARCADE by Unstable King",
+            "type": "event",
+            "uid": "3473-1507334400-1507507199@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/3473/",
+            "x-apple-structured-location;value=uri;x-address=44 waterside exeter devon ex2 8gx united kingdom;x-apple-radius=500;x-title=44 waterside": "geo:-3.5305495,50.7171563"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/TED-Events.jpg",
+            "categories": "Ideas",
+            "created": "20170720T135246Z",
+            "description": "BOOK TICKETS\nTEDxExeter is Exeter\u2019s local ideas festival with global reach. Home to \u2018Ideas worth spreading\u2019, their speakers\u2019 talks have been viewed almost 15 million times online. \n\u00a325 \u2013 special offer includes free access into Saturday Lost in Music/Lost in Film \u2013 see programme for detail \nAs part of Lost Weekend, TEDxExeter\u2019s first Salon will explore how technology meets the real world, bringing together speakers from academia, the arts and innovative companies to discuss how technology is transforming our lives in ways that are exhilarating yet often controversial. They will share insights into how machines are teaching themselves to understand their environment, and how tech can reveal the collective consciousness \u2013 or hive mind \u2013 of large groups of people. \nSpeakers will include: \nRAIA HADSELL, research lead on robot navigation and lifelong learning at Google DeepMind\nALASDAIR ALLAN, scientist, author, hacker, and journalist\nSIMON JOHNSON, who uses games, play and agency to help people understand complex subjects\nNEIL LAWRENCE, who leads Amazon Research Cambridge, where he is a director of machine learning \nFor speaker announcements and more information about the event please see www.TEDxExeter.com \nTEDxExeter was founded in 2012. It is licensed by TED and organised by a team of local volunteers.. Tickets for TEDxExeter\u2019s 2017 conference in April sold out in minutes, there were over 180 livestream events and people from over 50 countries watched the day live online. There will be simultaneous livestream events at the Exeter Phoenix\u2019s Studio 74 and Royal Albert Memorial Museum. \nTEDxExeter is organised by a team of local volunteers and licensed by TED.\u00a0More than 180 livestream events were planned for TEDxExeter\u2019s 2017 conference in April and people from over 50 countries watched the day live online. \n",
+            "dtend;tzid=utc+0": "20171007T130000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T090000",
+            "geo": {
+                "lat": 50.7228606,
+                "lon": -3.5251522
+            },
+            "last-modified": "20170726T205631Z",
+            "location": "Barnfield Road, Exeter, Devon, EX1 1SN, United Kingdom",
+            "summary": "TEDxExeter SALON",
+            "type": "event",
+            "uid": "3487-1507366800-1507381200@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/tedxexeter-salon/",
+            "x-apple-structured-location;value=uri;x-address=barnfield road exeter devon ex1 1sn united kingdom;x-apple-radius=500;x-title=barnfield road": "geo:-3.5251522,50.7228606"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/TED-Events.jpg",
+            "categories": "Ideas",
+            "created": "20170720T141004Z",
+            "description": "Plus booking fee \nThis event is a live broadcast of the TEDxExeterSalon taking place at the Barnfield Theatre. \nBOOK TICKETS\nTEDxExeter is Exeter\u2019s local ideas festival with global reach. Home to \u2018Ideas worth spreading\u2019, their speakers\u2019 talks have been viewed almost 15 million times online. \nTEDxExeter\u2019s first Salon will explore how technology meets the real world, bringing together speakers from academia, the arts and innovative companies to discuss how technology is transforming our lives in ways that are exhilarating yet often controversial. They will share insights into how machines are teaching themselves to understand their environment, and how tech can reveal the collective consciousness \u2013 or hive mind \u2013 of large groups of people. \nSpeakers will include: \nRAIA HADSELL, research lead on robot navigation and lifelong learning at Google DeepMind\nALASDAIR ALLAN, scientist, author, hacker, and journalist\nSIMON JOHNSON, who uses games, play and agency to help people understand complex subjects\nNEIL LAWRENCE, who leads Amazon Research Cambridge, where he is a director of machine learning \nFor speaker announcements and more information about the event please see www.TEDxExeter.co \nMore speakers will be announced on www.TEDxExeter.com \nTEDxExeter was founded in 2012. It is licensed by TED and organised by a team of local volunteers.. Tickets for TEDxExeter\u2019s 2017 conference in April sold out in minutes, there were over 180 livestream events and people from over 50 countries watched the day live online. \nThere will be simultaneous livestream events at the Exeter Phoenix\u2019s Studio 74 and Royal Albert Memorial Museum. \nTEDxExeter is organised by a team of local volunteers and licensed by TED. More than 180 livestream events were planned for TEDxExeter\u2019s 2017 conference in April and people from over 50 countries watched the day live online. \n",
+            "dtend;tzid=utc+0": "20171007T130000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T093000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T205405Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "TEDxExeter SALON: Livestream",
+            "type": "event",
+            "uid": "3492-1507368600-1507381200@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/tedxexeter-salon-livestream/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/TED-Events.jpg",
+            "categories": "Ideas",
+            "created": "20170720T141328Z",
+            "description": "Plus booking fee. \nThis event is a live broadcast of the TEDxExeterSalon taking place at the Barnfield Theatre \nBOOK TICKETS\nTEDxExeter is Exeter\u2019s local ideas festival with global reach. Home to \u2018Ideas worth spreading\u2019, their speakers\u2019 talks have been viewed almost 15 million times online. \nAs part of Lost Weekend, TEDxExeter\u2019s first Salon will explore how technology meets the real world, bringing together speakers from academia, the arts and innovative companies to discuss how technology is transforming our lives in ways that are exhilarating yet often controversial. They will share insights into how machines are teaching themselves to understand their environment, and how tech can reveal the collective consciousness \u2013 or hive mind \u2013 of large groups of people. \nSpeakers will include: \nRAIA HADSELL, research lead on robot navigation and lifelong learning at Google DeepMind\nALASDAIR ALLAN, scientist, author, hacker, and journalist\nSIMON JOHNSON, who uses games, play and agency to help people understand complex subjects\nNEIL LAWRENCE, who leads Amazon Research Cambridge, where he is a director of machine learning \nFor speaker announcements and more information about the event please see www.TEDxExeter.com \nTEDxExeter was founded in 2012. It is licensed by TED and organised by a team of local volunteers.Tickets for TEDxExeter\u2019s 2017 conference in April sold out in minutes, there were over 180 livestream events and people from over 50 countries watched the day live online. There will be simultaneous livestream events at the Exeter Phoenix\u2019s Studio 74 and Royal Albert Memorial Museum. \nTEDxExeter is organised by a team of local volunteers and licensed by TED.\u00a0More than 180 livestream events were planned for TEDxExeter\u2019s 2017 conference in April and people from over 50 countries watched the day live online. \n",
+            "dtend;tzid=utc+0": "20171007T130000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T093000",
+            "geo": {
+                "lat": 50.7251169,
+                "lon": -3.5326119
+            },
+            "last-modified": "20170726T205527Z",
+            "location": "Queen St, Exeter, Devon, EX4 3RX, United Kingdom",
+            "summary": "TEDxExeter SALON: Livestream",
+            "type": "event",
+            "uid": "3494-1507368600-1507381200@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/tedxexeter-salon-livestream-2/",
+            "x-apple-structured-location;value=uri;x-address=queen st exeter devon ex4 3rx united kingdom;x-apple-radius=500;x-title=queen st": "geo:-3.5326119,50.7251169"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Arts-Massively-Local-Multiplayer-Gaming.jpg",
+            "categories": "Tech",
+            "created": "20170720T122714Z",
+            "description": " \nWouldn\u2019t it be great if you could play your favourite retro games with not just a couple of your friends, but up to 200 other people? That\u2019s what Massively (Local) Multiplayer Gaming is about! The audience is in control \u2013 use your mobile phone to play Mario & Pacman on the big screen \u2013 but there\u2019s a catch: You\u2019ll need to work together to beat the games! \nHost Kris Sum runs \u201cTechExeter\u201d \u2013 an 800 member strong community for all things tech. \nFind out more at\u00a0www.techexeter.uk\u00a0 \n",
+            "dtend;tzid=utc+0": "20171007T170000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T100000",
+            "geo": {
+                "lat": 50.7225356,
+                "lon": -3.5299135
+            },
+            "last-modified": "20170723T150546Z",
+            "location": "1 The Cloisters, Exeter, Devon, EX1 1HS, United Kingdom",
+            "summary": "MASSIVELY (LOCAL) MULTIPLAYER GAMING by Kris Sum",
+            "type": "event",
+            "uid": "3478-1507370400-1507395600@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/massively-local-multiplayer-gaming-by-kris-sum/",
+            "x-apple-structured-location;value=uri;x-address=1 the cloisters exeter devon ex1 1hs united kingdom;x-apple-radius=500;x-title=1 the cloisters": "geo:-3.5299135,50.7225356"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Rasberyy-PI.jpg",
+            "categories": "Tech",
+            "created": "20170720T144650Z",
+            "description": "Raspberry Jam is the pun-tastic name given to a meetup of people interested in making things with a Raspberry Pi computer. \nA Jam is a meeting of all kinds of people: some will be new to physical computing, and some will have plenty of experience that they are happy to share. There will be lots to do, plenty of help and advice and Raspberry Pi computers to play with. As Well as the Pi, there will be some BBC micro:bit and Arduino systems to try. \n",
+            "dtend;tzid=utc+0": "20171007T120000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T100000",
+            "geo": {
+                "lat": 50.7254596,
+                "lon": -3.5293268
+            },
+            "last-modified": "20170726T134028Z",
+            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
+            "summary": "RASPBERRY JAM",
+            "type": "event",
+            "uid": "3505-1507370400-1507377600@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/raspberry-pi/",
+            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Museum-Machina-Workshop.jpg",
+            "categories": "Tech,Art",
+            "created": "20170720T123207Z",
+            "description": "See digital art work created by local young people as part of Museum Machina project, using museum objects as a source of inspiration for digital art, with arts-inspired learning organisation Daisi. \nMeet project artist Tony Minnion, and explore and try out some of the digital process and techniques used to create the work. \n \n",
+            "dtend;tzid=utc+0": "20171007T133000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T110000",
+            "geo": {
+                "lat": 50.7251169,
+                "lon": -3.5326119
+            },
+            "last-modified": "20170726T161334Z",
+            "location": "Queen St, Exeter, Devon, EX4 3RX, United Kingdom",
+            "summary": "MUSEUM MACHINA SHOWCASE",
+            "type": "event",
+            "uid": "3481-1507374000-1507383000@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/museum-machina-showcase/",
+            "x-apple-structured-location;value=uri;x-address=queen st exeter devon ex4 3rx united kingdom;x-apple-radius=500;x-title=queen st": "geo:-3.5326119,50.7251169"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Web-Design-Workshop.jpg",
+            "categories": "Tech",
+            "created": "20170720T145203Z",
+            "description": "Learn to make websites for free, in one workshop, open to everyone! \nEver needed a website and didn\u2019t know where to start? Or curious to get into coding but felt overwhelmed? Problem solved! \nThis beginners\u2019 workshop will help you quickly grasp the fundamentals of website design. You will learn all the basics to build and style websites using two easy to pick-up languages: HTML and CSS. \nPlaces are limited and must be booked. \n\u00a0 \n",
+            "dtend;tzid=utc+0": "20171007T160000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T133000",
+            "geo": {
+                "lat": 50.7254596,
+                "lon": -3.5293268
+            },
+            "last-modified": "20170726T134153Z",
+            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
+            "summary": "WEB DESIGN WORKSHOP",
+            "type": "event",
+            "uid": "3509-1507383000-1507392000@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/web-design-workshop/",
+            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-October-Film-Biophilia.jpg",
+            "categories": "Film",
+            "created": "20170720T110730Z",
+            "description": "BOOK TICKETS\n(UK, 2014, 97 min) \n\u00a37 (FREE Lost in Music wristbands, film tickets must be collected by LIM wristband holders from Exeter Phoenix before 2pm ) \nDirected by Peter Strickland and Nick Fenton, this stunning film features Bj\u00f6rk performing tracks from her Biophilia Tour at Alexandra Palace in London on 3 September 2013. \n\u00a0 \n",
+            "dtend;tzid=utc+0": "20171007T220000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T200000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T114858Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "BIOPHILIA LIVE",
+            "type": "event",
+            "uid": "3421-1507406400-1507413600@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/biophilia-live/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/After-show-party.jpg",
+            "categories": "Music",
+            "created": "20170724T121024Z",
+            "description": "BOOK TICKETS\n\u00a36 on the door, or free to Lost in Music Wristband holders and Beats and Bass members. \nBeats and Bass is Exeter University\u2019s dance music society and club night, renowned locally for showcasing emerging acts from the world of Techno, Garage, Hip Hop, Drum and Bass, Disco, House and all the places in between. (Guests have included the likes of Split Prophets, Madam X, The Four Owls, Tessela and The Busy Twist.) \n",
+            "dtend;tzid=utc+0": "20171008T020000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171007T220000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T204615Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "LOST IN MUSIC AFTERPARTY",
+            "type": "event",
+            "uid": "3781-1507413600-1507428000@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/lost-in-music-afterparty/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-october-Art-Choral-Cuisine.jpg",
+            "categories": "Art",
+            "created": "20170720T123825Z",
+            "description": "BOOK TICKTES\nChoral Cuisine will see 50 diners collectively composing a symphony whilst sitting down to a delicious communal meal. \nA sonorous Sunday brunch. \nBy combining tableware and technology, participants will discover flutes in their forks, percussion in their plates and choirs in their cups. The nuanced and distinctive way you enjoy your food will be translated into a symphony of sound. Whether you are a speedy scoffer or dainty nibbler, every participant will bring their own unique musical offering to the table. \nThe result is a unique marriage of food and technology that will excite and inspire both culinary connoisseur and audiophile alike. \nThis culinary composition is a two hour brunch in Exeter\u2019s Guildhall, beginning at 11am. This vegetarian menu is a secret and will include dairy, nuts and gluten. We regret that we will not be able to provide dietary alternatives for diners with food allergies. Ingredients have been locally sourced and there are refreshments upon arrival. \nThere will be a pay bar on arrival\nTo RSVP please book your ticket! \nDoors open at 10:30am. \nThis is a collaboration between Sabrina Shirazi of Cuisine+Colour (www.cusineandcolour.com) \u00a0Composer Wilf Petherbridge (www.wilfredpetherbridge.com \u00a0and Creative Technologist Joseph Horton (www.jhorton.com )\n",
+            "dtend;tzid=utc+0": "20171008T130000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171008T110000",
+            "geo": {
+                "lat": 50.7233865,
+                "lon": -3.5320843
+            },
+            "last-modified": "20170726T203726Z",
+            "location": "High Street, Exeter, Devon, EX4 3EB, United Kingdom",
+            "summary": "CHORAL CUISINE by Sabrina Shirazi and Wilf Petherbridge",
+            "type": "event",
+            "uid": "3483-1507460400-1507467600@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/choral-cuisine-by-sabrina-shirazi-and-wilf-petherbridge/",
+            "x-apple-structured-location;value=uri;x-address=high street exeter devon ex4 3eb united kingdom;x-apple-radius=500;x-title=high street": "geo:-3.5320843,50.7233865"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/HACKATHON.jpg",
+            "categories": "Tech",
+            "created": "20170720T145348Z",
+            "description": "BOOK TICKETS\n8 \u2013 16 year olds \u2013 under 12s must be accompanied by an adult \nOpen to all abilities, this day of making is driven by you. The aim is to produce a piece of art that once started is constantly changing. The most important thing is to meet, inspire and create. Materials will be provided and FabLab Devon will be open for access to a wide range of digital making equipment. \nEnthusiasm and imagination are more important than ability and experience. There\u2019ll be introductory sessions to get you started as well as a range of experts on hand to help. You can register as a team or book as an individual and join a team on the day. \n\u00a0 \n\u00a0 \n",
+            "dtend;tzid=utc+0": "20171008T170000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171008T110000",
+            "geo": {
+                "lat": 50.7248094,
+                "lon": -3.5312523
+            },
+            "last-modified": "20170726T204510Z",
+            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
+            "summary": "YOUNG PEOPLE\u2019S HACKATHON",
+            "type": "event",
+            "uid": "3511-1507460400-1507482000@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/young-peoples-hackathon/",
+            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
+        },
+        {
+            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Circadial.jpg",
+            "categories": "Music",
+            "created": "20170720T111215Z",
+            "description": "BOOK TCKETS\n\u00a37 Standalone ticket or free to Lost in Music Wristband holder \nCIRCADIAL created and performed by Tanuja Amarasuriya and Timothy X Atack, of Sleepdogs: the sounds of this town\u2019s streets, wildlife, nightlife, vehicles, venues, homes, musicians and offices are looped, sieved, filtered, warped and stretched to make new, beautiful and perturbing music. Circadial is about the rhythms and polyphony of a place; the way that sound can locate you in time and geography. They make local field recordings over the days and night preceding the performances, from which they create a live, improvised constantly shifting music. We think of it as finding the ghost music underneath the traffic noise, street bustle, police helicopters and birdsong. They\u2019ve used these techniques of manipulating field recordings as the basis of composition in a lot of their theatre work, but this is the first project where they\u2019re putting the process at the centre of the performance.\nEach version of Circadial is unique and created specially, and specifically for each location they play. \nGALLOPS are an experimental rock and electronica band from Wales. They have\nsupported the likes of Deerhunter, Battles and 65daysofstatic. \nBEHIND THE SHADOW DROPS the brand new project from MONO composer Takaakira \u2018Taka\u2019 Goto. The project sees Goto combining ambient, trip-hop and other minimalist musical elements \u2013 creating a soundtrack-like, dark musical world for the listener.The live show will consist of Taka solo, performing with various instruments and live visuals. \nhttp://sleepdogs.org/project/circadial/\nhttp://www.behindtheshadowdrops.com/\nhttps://gallops.bandcamp.com/ \nCircadial Credits\nProduced by MAYK. Created for Theaster Gates\u2019 Sanctum, a Bristol 2015 European Green capital Project produced by Situations. Developed with support from Bristol Old Vic Ferment.\n",
+            "dtend;tzid=utc+0": "20171008T193000",
+            "dtstamp": "20170728T115320",
+            "dtstart;tzid=utc+0": "20171008T193000",
+            "geo": {
+                "lat": 50.7246392,
+                "lon": -3.5316824
+            },
+            "last-modified": "20170726T203937Z",
+            "location": "83-84 Queen Street, Exeter, Devon, EX4 3RP, United Kingdom",
+            "summary": "THE LOST SESSIONS",
+            "type": "event",
+            "uid": "3423-1507491000-1507491000@www.lostweekend.co.uk",
+            "url": "http://www.lostweekend.co.uk/event/the-lost-sessions-experimental-electronica/",
+            "x-apple-structured-location;value=uri;x-address=83-84 queen street exeter devon ex4 3rp united kingdom;x-apple-radius=500;x-title=83-84 queen street": "geo:-3.5316824,50.7246392"
+        }
+    ]
+}
+
+/***/ }),
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -20978,7 +22028,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 (function(root, factory) {
     if (typeof module !== "undefined" && module.exports) {
-        module.exports = factory(__webpack_require__(359));
+        module.exports = factory(__webpack_require__(368));
     }
     else if (true) {
         !(__WEBPACK_AMD_DEFINE_ARRAY__ = [!(function webpackMissingModule() { var e = new Error("Cannot find module \"tinycolor\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
@@ -21351,7 +22401,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 }));
 
 /***/ }),
-/* 359 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;// TinyColor v1.4.1
@@ -22553,37 +23603,7 @@ else {
 
 
 /***/ }),
-/* 360 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = (data, opts) => {
-	opts = Object.assign({count: 1}, opts);
-	data = data.slice();
-
-	let count = opts.count;
-
-	if (!Array.isArray(data)) {
-		throw new TypeError('Expected an Array as the first argument');
-	}
-
-	if (count > data.length) {
-		throw new Error('Count must be lower or the same as the number of picks');
-	}
-
-	const ret = [];
-
-	while (count--) {
-		ret.push(data.splice(Math.floor(Math.random() * data.length), 1)[0]);
-	}
-
-	return ret;
-};
-
-
-/***/ }),
-/* 361 */
+/* 369 */
 /***/ (function(module, exports) {
 
 // Generated by CoffeeScript 1.4.0
@@ -22666,16 +23686,16 @@ module.exports = getDistance;
 
 
 /***/ }),
-/* 362 */
+/* 370 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return showHints; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__loc__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__inArea__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__player__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__colours__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__loc__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__inArea__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__player__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__colours__ = __webpack_require__(76);
 
 
 
@@ -22683,7 +23703,7 @@ module.exports = getDistance;
 
 
 
-const pickRandom = __webpack_require__(360);
+const pickRandom = __webpack_require__(41);
 
 
 let hints = [];
@@ -22742,7 +23762,7 @@ function newHint(event) {
         dieAfterNPulses: 50,
         pulseCount: 0,
         speed: 0.5,
-        colorStr: __WEBPACK_IMPORTED_MODULE_4__colours__["b" /* toRGBStr */](__WEBPACK_IMPORTED_MODULE_4__colours__["a" /* randomColour */]())
+        colorStr: Object(__WEBPACK_IMPORTED_MODULE_4__colours__["b" /* toRGBStr */])(Object(__WEBPACK_IMPORTED_MODULE_4__colours__["a" /* randomColour */])())
     });
 }
 
@@ -22775,920 +23795,48 @@ function showHints(map) {
 
 
 /***/ }),
-/* 363 */
-/***/ (function(module, exports) {
-
-module.exports = {
-    "eventList": [
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Bellhouse.jpg",
-            "categories": "Art",
-            "created": "20170720T112931Z",
-            "description": "9am \u2013 6pm Friday 6th\n9am \u2013 5pm Saturday 7th\n12pm \u2013 4pm Sunday 8th \n \nBellHouse is a playful, interactive sound sculpture that translates data into the chimes of thirty-five bells in an open-sided house. \nCombining craft and technology, the bells are in fact beautiful ceramic pots, made by ceramist and BellHouse creator Roop Johnstone. \nEach pot is fixed with a robotic beater and is triggered by motion capture. There will be opportunities to play, hack and translate your own data through the BellHouse. What can you make it do? \n \n",
-            "dtend;value=date": "20171008",
-            "dtstamp": "20170728T115320",
-            "dtstart;value=date": "20171006",
-            "geo": {
-                "lat": 50.7254596,
-                "lon": -3.5293268
-            },
-            "last-modified": "20170728T102711Z",
-            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
-            "summary": "BELLHOUSE by Roop Johnstone of RAMP",
-            "type": "event",
-            "uid": "3431-1507248000-1507507199@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/bellhouse-by-roop-johnstone-of-ramp/",
-            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Smile-by-Catherine-Cartwright.jpg",
-            "categories": "Art",
-            "created": "20170720T114447Z",
-            "description": "7pm \u2013 10pm Friday 6th / Saturday 7th / Sunday 8th \nA projected animated portrait of young people from Ellen Tinkham College, a special college for 16-25 year olds. \nThe artist and printmaker Catherine Cartwright drew 250 monotype prints to make a joyous and moving portrait of eight young people from Exeter. \nBecause Exeter is not as accessible to them as it is for other young people, through this projection they become \u2018present\u2019 in our city centre. \nIncludes an additional short film \u201cKanga\u201d created by students at the college during Art Week Exeter 2017. \nwww.catherinecartwright.co.uk \n \n",
-            "dtend;value=date": "20171008",
-            "dtstamp": "20170728T115320",
-            "dtstart;value=date": "20171006",
-            "geo": {
-                "lat": 50.719937,
-                "lon": -3.5360648
-            },
-            "last-modified": "20170726T155427Z",
-            "location": "35 New Bridge Street, Exeter, Devon, EX4 3AH, United Kingdom",
-            "summary": "SMILE by Catherine Cartwright",
-            "type": "event",
-            "uid": "3446-1507248000-1507507199@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/smile-by-catherine-cartwright/",
-            "x-apple-structured-location;value=uri;x-address=35 new bridge street exeter devon ex4 3ah united kingdom;x-apple-radius=500;x-title=35 new bridge street": "geo:-3.5360648,50.719937"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Forever-Me.jpg",
-            "categories": "Art",
-            "created": "20170720T115329Z",
-            "description": "10am \u2013 6pm   Friday 6th / Saturday 7th / Sunday 8th  \nForever Me is a cube, made up of 220 individual shadow boxes, exploring the collective digital immortality of a community. You can make your own shadow box and record how you would like to be remembered. What one thing will you choose to project to the world after you have left? \nBy day passers-by can listen in to the individual shadow boxes to hear the testimonials. By night the whole cube comes alive as the boxes glow and speak of their collective experiences to be projected into the future. \n",
-            "dtend;value=date": "20171008",
-            "dtstamp": "20170728T115320",
-            "dtstart;value=date": "20171006",
-            "geo": {
-                "lat": 50.7243322,
-                "lon": -3.5279588
-            },
-            "last-modified": "20170725T094223Z",
-            "location": "Eastgate, Princesshay, Exeter, Devon, EX1 1QA, United Kingdom",
-            "summary": "FOREVER ME by Becca Gill of Mercurial Wrestler",
-            "type": "event",
-            "uid": "3453-1507248000-1507507199@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/forever-me-by-becca-gill-of-mercurial-wrestler/",
-            "x-apple-structured-location;value=uri;x-address=eastgate princesshay exeter devon ex1 1qa united kingdom;x-apple-radius=500;x-title=eastgate\\, princesshay": "geo:-3.5279588,50.7243322"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Buoyed.jpg",
-            "categories": "Art",
-            "created": "20170720T120906Z",
-            "description": "7am \u2013 9pm Friday 6th / Saturday 7th / Sunday 8th \nBuoyed is an interactive, playful cluster of magical glass buoys that hang above head height, suspended by slender wooden stems. They tease you with their pulsing glow and muffled voices, enticing you in for a closer listen. And as you reach them, they start speaking to you\u2026 \n \n",
-            "dtend;value=date": "20171008",
-            "dtstamp": "20170728T115320",
-            "dtstart;value=date": "20171006",
-            "geo": {
-                "lat": 50.725551,
-                "lon": -3.5293462
-            },
-            "last-modified": "20170726T153659Z",
-            "location": "12 Castle Street, Exeter, Devon, EX4 3PU, United Kingdom",
-            "summary": "BUOYED by Dr Louisa Evans, Dr Rachel Turner, Daniel Marcus Clark, Jay Kerry, Kaleider",
-            "type": "event",
-            "uid": "3463-1507248000-1507507199@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/buoyed-by-dr-louisa-evans-dr-rachel-turner-daniel-marcus-clark-jay-kerry-kaleider-2/",
-            "x-apple-structured-location;value=uri;x-address=12 castle street exeter devon ex4 3pu united kingdom;x-apple-radius=500;x-title=12 castle street": "geo:-3.5293462,50.725551"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/ACCELERATOR-SHOWCASE.jpg",
-            "categories": "Ideas",
-            "created": "20170720T143336Z",
-            "description": "10am \u2013 5pm   Friday 6th / Saturday 7th  \nExeter City Futures have set the bold goal to make Exeter energy independent and congestion free by 2025. Their core approach is a process for defining problems, building partnerships to find solutions, and managing and measuring progress. \nTheir framework enables innovative individuals, communities and businesses to respond to clear challenges that address real need within the City. They accelerate ideas with greatest potential via their start-up accelerator and other channels to deliver impactful progress. \nTheir City Space will be open for the public to come and meet our first set of start-ups looking to solve our challenges. \n",
-            "dtend;value=date": "20171007",
-            "dtstamp": "20170728T115320",
-            "dtstart;value=date": "20171006",
-            "geo": {
-                "lat": 50.7246191,
-                "lon": -3.5268397
-            },
-            "last-modified": "20170725T092423Z",
-            "location": "Broadwalk House, Exeter, Devon, EX1 1TS, United Kingdom",
-            "summary": "EXETER CITY FUTURES",
-            "type": "event",
-            "uid": "3496-1507248000-1507420799@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/accelerator-showcase/",
-            "x-apple-structured-location;value=uri;x-address=broadwalk house exeter devon ex1 1ts united kingdom;x-apple-radius=500;x-title=broadwalk house": "geo:-3.5268397,50.7246191"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Radio-Broadcast-Workshops.jpg",
-            "categories": "Tech",
-            "created": "20170720T144115Z",
-            "description": "11am \u2013 5pm Friday 6th / Saturday 7th \nBOOK TICKETS - FRI\nBOOK TICKETS - SAT\nRadio production workshop for college-aged radio and sound arts enthusiasts. Working to a brief set by Phonic FM, the students will be encouraged to attend the festival throughout Exeter with the purpose of gathering content. The resulting contributions will be aired during a live broadcast planned for the final day of the festival. \nThe workshops will be run by experienced radio professionals and will enable the students to produce professional quality broadcast material, as well as unlocking skills, experience and confidence they can take to further their careers. \n",
-            "dtend;value=date": "20171007",
-            "dtstamp": "20170728T115320",
-            "dtstart;value=date": "20171006",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T204304Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "RADIO PRODUCTION WORKSHOP",
-            "type": "event",
-            "uid": "3501-1507248000-1507420799@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/radio-production-workshop/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-October-Don-Letts.jpg",
-            "categories": "Music",
-            "created": "20170720T103944Z",
-            "description": " \nBOOK TICKETS\nFREE ENTRY places are limited so please book a place BOOK TICKETS \nA day of workshops, talks and panel discussions, chaired by writer and broadcaster John Robb and film maker/DJ Don Letts. \nEvents cover everything from punk rock, politics and activism right down to the basics of being in a band. Industry experts will discuss how to book gigs, how to get your music heard, and what you need to do to forge path in the music industry. \nIncluding DJ workshops, guest speakers, demo jury, a \u2018zine making workshop with Matt Martin from The Photocopy Club plus much more. \nMore speakers, and how to take part in the demo jury to be announced! \n",
-            "dtend;tzid=utc+0": "20171006T160000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171006T100000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170725T142421Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "LOST WEEKEND MUSIC CONFERENCE",
-            "type": "event",
-            "uid": "3408-1507284000-1507305600@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/lost-weekend-music-conference/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Tech-SoDa.jpg",
-            "categories": "Tech",
-            "created": "20170726T132113Z",
-            "description": "BOOK TICKETS\n(over 16s) \u00a0\u00a0\u00a0\u00a0\u00a0 Places are limited please book a ticket BOOK TICKET \nA digital arts workshop for creative beginners and digital experts alike. Bring your own laptop and charger! \nAs part of the Lost Weekend festival, University of Exeter and BAFTA winning arts agency SoDa will be demonstrating MASH, an ambient digital artwork that dynamically montages live text and image feeds onto public screens. Fiddian Warman of SoDa will lead a workshop using the easy to learn programming environment IFTTT, where you can learn to control content feeds and experiment with interactive triggers to change how content is displayed. \n \n",
-            "dtend;tzid=utc+0": "20171006T160000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171006T140000",
-            "geo": {
-                "lat": 50.7254596,
-                "lon": -3.5293268
-            },
-            "last-modified": "20170726T155029Z",
-            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
-            "summary": "SoDa PRESENT MASH",
-            "type": "event",
-            "uid": "4030-1507298400-1507305600@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/soda-present-mash-learn-interactive-triggering-for-digital-art/",
-            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-october-Lost-in-Film-two-sevens-clash.jpg",
-            "categories": "Film",
-            "created": "20170720T104956Z",
-            "description": "BOOK TICKETS\n(UK, 2017, 50 min) \nDirected, filmed and narrated by Don Letts this archive-based documentary looks at the myth and the reality of the \u2018punky-reggae party\u2019. Using unseen footage shot on Super-8mm 40 years ago, the film features The Sex Pistols, The Clash, Culture, The Slits, Linton Kwesi Johnson and many more. \nFOLLOWED BY Q&A WITH DON LETTS \nDon Letts is a British film director and musician. His film, The Punk Rock Movie, documents the original UK punk rock movement. Letts is credited with introducing dub and reggae to the London punk scene, which was to influence The Clash and other bands. \n",
-            "dtend;tzid=utc+0": "20171006T180000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171006T170000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T115837Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "TWO SEVENS CLASH",
-            "type": "event",
-            "uid": "3410-1507309200-1507312800@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/two-sevens-clash/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-October-Quuercore-How-to-Punk-a-Revolution.jpg",
-            "categories": "Film",
-            "created": "20170720T105600Z",
-            "description": " \nBOOK TICKETS\n(Germany, 2017, 82 min) \nDirected by Berlin-based filmmaker Yony Leyser, \u201cQueercore: How to Punk a Revolution\u201d is a feature-length snapshot into the music and fanzines that gave voice to LGBTQ DIY Punk outsiders \u2014 those who didn\u2019t subscribe to the dominant gay scenes. \nFeat. Kathleen Hannah, Beth Ditto and others. \n",
-            "dtend;tzid=utc+0": "20171006T213000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171006T200000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T114924Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "QUEERCORE, HOW TO PUNK A REVOLUTION",
-            "type": "event",
-            "uid": "3413-1507320000-1507325400@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/queercore-how-to-punk-a-revolution/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/craig-charles.jpg",
-            "categories": "Music",
-            "created": "20170720T110014Z",
-            "description": "BOOK TICKETS\nCRAIG CHARLES FUNK & SOUL CLUB + SPECIAL GUEST DON LETTS \nThe legendary actor, host and broadcaster Craig Charles is one of the UK\u2019s most beloved Funk and Soul DJ\u2019s, from Robot Wars to Red Dwarf and now The Gadget Show, Craig has now grounded himself as a Funk & Soul icon after 10 years of broadcasting on BBC 6 Music with their primetime Saturday night show. \nDon Letts is a film director, musician, DJ and radio broadcaster who turned punks onto reggae at The Roxy back in 1977! \n",
-            "dtend;tzid=utc+0": "20171007T020000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171006T210000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T142725Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "Beatz & Bobz present THE LOST WEEKEND LAUNCH PARTY",
-            "type": "event",
-            "uid": "3417-1507323600-1507341600@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/beatz-bobz-present-the-lost-weekend-launch-party/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Cardboard-Arcade.jpg",
-            "categories": "Art",
-            "created": "20170720T122035Z",
-            "description": "11am \u2013 4pm    Saturday 7th / Sunday 8th  \nJoin forces and explore the creative world of gaming as you enjoy multi-player arcade games made by small developers from around the world. \nCARDBOARD ARCADE is a suite of travelling arcade machines made out of cardboard. Inside is a computer, a monitor and a game. \nUnstable King\u2019s goal is to put free multi-player arcade machines in public places around the UK to encourage new friendships through gaming. They also want to encourage people to see computer games as an artistic and creative medium. \nThe arcade started as a side project to a comedy/circus show that was heavily inspired by gaming. The project\u2019s creator is Michael Bell who operates underneath the umbrella of his arts company Unstable King. \nSTREET VIDEO GAME CHALLENGE \u2013 An improvised live gaming experience where the audience come together to complete simple challenges with hilarious results. A pop up spectator sport where the passion of fandom and the want to win join together in an electrifying synthwave inspired showdown. A smash hit at places such as the V&A and Befest and designed for gamers and non-gamers of any age. \nwww.unstableking.co.uk \n",
-            "dtend;value=date": "20171008",
-            "dtstamp": "20170728T115320",
-            "dtstart;value=date": "20171007",
-            "geo": {
-                "lat": 50.7171563,
-                "lon": -3.5305495
-            },
-            "last-modified": "20170725T094536Z",
-            "location": "44 Waterside, Exeter, Devon, EX2 8GX, United Kingdom",
-            "summary": "CARDBOARD ARCADE by Unstable King",
-            "type": "event",
-            "uid": "3473-1507334400-1507507199@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/3473/",
-            "x-apple-structured-location;value=uri;x-address=44 waterside exeter devon ex2 8gx united kingdom;x-apple-radius=500;x-title=44 waterside": "geo:-3.5305495,50.7171563"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/TED-Events.jpg",
-            "categories": "Ideas",
-            "created": "20170720T135246Z",
-            "description": "BOOK TICKETS\nTEDxExeter is Exeter\u2019s local ideas festival with global reach. Home to \u2018Ideas worth spreading\u2019, their speakers\u2019 talks have been viewed almost 15 million times online. \n\u00a325 \u2013 special offer includes free access into Saturday Lost in Music/Lost in Film \u2013 see programme for detail \nAs part of Lost Weekend, TEDxExeter\u2019s first Salon will explore how technology meets the real world, bringing together speakers from academia, the arts and innovative companies to discuss how technology is transforming our lives in ways that are exhilarating yet often controversial. They will share insights into how machines are teaching themselves to understand their environment, and how tech can reveal the collective consciousness \u2013 or hive mind \u2013 of large groups of people. \nSpeakers will include: \nRAIA HADSELL, research lead on robot navigation and lifelong learning at Google DeepMind\nALASDAIR ALLAN, scientist, author, hacker, and journalist\nSIMON JOHNSON, who uses games, play and agency to help people understand complex subjects\nNEIL LAWRENCE, who leads Amazon Research Cambridge, where he is a director of machine learning \nFor speaker announcements and more information about the event please see www.TEDxExeter.com \nTEDxExeter was founded in 2012. It is licensed by TED and organised by a team of local volunteers.. Tickets for TEDxExeter\u2019s 2017 conference in April sold out in minutes, there were over 180 livestream events and people from over 50 countries watched the day live online. There will be simultaneous livestream events at the Exeter Phoenix\u2019s Studio 74 and Royal Albert Memorial Museum. \nTEDxExeter is organised by a team of local volunteers and licensed by TED.\u00a0More than 180 livestream events were planned for TEDxExeter\u2019s 2017 conference in April and people from over 50 countries watched the day live online. \n",
-            "dtend;tzid=utc+0": "20171007T130000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T090000",
-            "geo": {
-                "lat": 50.7228606,
-                "lon": -3.5251522
-            },
-            "last-modified": "20170726T205631Z",
-            "location": "Barnfield Road, Exeter, Devon, EX1 1SN, United Kingdom",
-            "summary": "TEDxExeter SALON",
-            "type": "event",
-            "uid": "3487-1507366800-1507381200@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/tedxexeter-salon/",
-            "x-apple-structured-location;value=uri;x-address=barnfield road exeter devon ex1 1sn united kingdom;x-apple-radius=500;x-title=barnfield road": "geo:-3.5251522,50.7228606"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/TED-Events.jpg",
-            "categories": "Ideas",
-            "created": "20170720T141004Z",
-            "description": "Plus booking fee \nThis event is a live broadcast of the TEDxExeterSalon taking place at the Barnfield Theatre. \nBOOK TICKETS\nTEDxExeter is Exeter\u2019s local ideas festival with global reach. Home to \u2018Ideas worth spreading\u2019, their speakers\u2019 talks have been viewed almost 15 million times online. \nTEDxExeter\u2019s first Salon will explore how technology meets the real world, bringing together speakers from academia, the arts and innovative companies to discuss how technology is transforming our lives in ways that are exhilarating yet often controversial. They will share insights into how machines are teaching themselves to understand their environment, and how tech can reveal the collective consciousness \u2013 or hive mind \u2013 of large groups of people. \nSpeakers will include: \nRAIA HADSELL, research lead on robot navigation and lifelong learning at Google DeepMind\nALASDAIR ALLAN, scientist, author, hacker, and journalist\nSIMON JOHNSON, who uses games, play and agency to help people understand complex subjects\nNEIL LAWRENCE, who leads Amazon Research Cambridge, where he is a director of machine learning \nFor speaker announcements and more information about the event please see www.TEDxExeter.co \nMore speakers will be announced on www.TEDxExeter.com \nTEDxExeter was founded in 2012. It is licensed by TED and organised by a team of local volunteers.. Tickets for TEDxExeter\u2019s 2017 conference in April sold out in minutes, there were over 180 livestream events and people from over 50 countries watched the day live online. \nThere will be simultaneous livestream events at the Exeter Phoenix\u2019s Studio 74 and Royal Albert Memorial Museum. \nTEDxExeter is organised by a team of local volunteers and licensed by TED. More than 180 livestream events were planned for TEDxExeter\u2019s 2017 conference in April and people from over 50 countries watched the day live online. \n",
-            "dtend;tzid=utc+0": "20171007T130000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T093000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T205405Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "TEDxExeter SALON: Livestream",
-            "type": "event",
-            "uid": "3492-1507368600-1507381200@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/tedxexeter-salon-livestream/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/TED-Events.jpg",
-            "categories": "Ideas",
-            "created": "20170720T141328Z",
-            "description": "Plus booking fee. \nThis event is a live broadcast of the TEDxExeterSalon taking place at the Barnfield Theatre \nBOOK TICKETS\nTEDxExeter is Exeter\u2019s local ideas festival with global reach. Home to \u2018Ideas worth spreading\u2019, their speakers\u2019 talks have been viewed almost 15 million times online. \nAs part of Lost Weekend, TEDxExeter\u2019s first Salon will explore how technology meets the real world, bringing together speakers from academia, the arts and innovative companies to discuss how technology is transforming our lives in ways that are exhilarating yet often controversial. They will share insights into how machines are teaching themselves to understand their environment, and how tech can reveal the collective consciousness \u2013 or hive mind \u2013 of large groups of people. \nSpeakers will include: \nRAIA HADSELL, research lead on robot navigation and lifelong learning at Google DeepMind\nALASDAIR ALLAN, scientist, author, hacker, and journalist\nSIMON JOHNSON, who uses games, play and agency to help people understand complex subjects\nNEIL LAWRENCE, who leads Amazon Research Cambridge, where he is a director of machine learning \nFor speaker announcements and more information about the event please see www.TEDxExeter.com \nTEDxExeter was founded in 2012. It is licensed by TED and organised by a team of local volunteers.Tickets for TEDxExeter\u2019s 2017 conference in April sold out in minutes, there were over 180 livestream events and people from over 50 countries watched the day live online. There will be simultaneous livestream events at the Exeter Phoenix\u2019s Studio 74 and Royal Albert Memorial Museum. \nTEDxExeter is organised by a team of local volunteers and licensed by TED.\u00a0More than 180 livestream events were planned for TEDxExeter\u2019s 2017 conference in April and people from over 50 countries watched the day live online. \n",
-            "dtend;tzid=utc+0": "20171007T130000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T093000",
-            "geo": {
-                "lat": 50.7251169,
-                "lon": -3.5326119
-            },
-            "last-modified": "20170726T205527Z",
-            "location": "Queen St, Exeter, Devon, EX4 3RX, United Kingdom",
-            "summary": "TEDxExeter SALON: Livestream",
-            "type": "event",
-            "uid": "3494-1507368600-1507381200@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/tedxexeter-salon-livestream-2/",
-            "x-apple-structured-location;value=uri;x-address=queen st exeter devon ex4 3rx united kingdom;x-apple-radius=500;x-title=queen st": "geo:-3.5326119,50.7251169"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Arts-Massively-Local-Multiplayer-Gaming.jpg",
-            "categories": "Tech",
-            "created": "20170720T122714Z",
-            "description": " \nWouldn\u2019t it be great if you could play your favourite retro games with not just a couple of your friends, but up to 200 other people? That\u2019s what Massively (Local) Multiplayer Gaming is about! The audience is in control \u2013 use your mobile phone to play Mario & Pacman on the big screen \u2013 but there\u2019s a catch: You\u2019ll need to work together to beat the games! \nHost Kris Sum runs \u201cTechExeter\u201d \u2013 an 800 member strong community for all things tech. \nFind out more at\u00a0www.techexeter.uk\u00a0 \n",
-            "dtend;tzid=utc+0": "20171007T170000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T100000",
-            "geo": {
-                "lat": 50.7225356,
-                "lon": -3.5299135
-            },
-            "last-modified": "20170723T150546Z",
-            "location": "1 The Cloisters, Exeter, Devon, EX1 1HS, United Kingdom",
-            "summary": "MASSIVELY (LOCAL) MULTIPLAYER GAMING by Kris Sum",
-            "type": "event",
-            "uid": "3478-1507370400-1507395600@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/massively-local-multiplayer-gaming-by-kris-sum/",
-            "x-apple-structured-location;value=uri;x-address=1 the cloisters exeter devon ex1 1hs united kingdom;x-apple-radius=500;x-title=1 the cloisters": "geo:-3.5299135,50.7225356"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Rasberyy-PI.jpg",
-            "categories": "Tech",
-            "created": "20170720T144650Z",
-            "description": "Raspberry Jam is the pun-tastic name given to a meetup of people interested in making things with a Raspberry Pi computer. \nA Jam is a meeting of all kinds of people: some will be new to physical computing, and some will have plenty of experience that they are happy to share. There will be lots to do, plenty of help and advice and Raspberry Pi computers to play with. As Well as the Pi, there will be some BBC micro:bit and Arduino systems to try. \n",
-            "dtend;tzid=utc+0": "20171007T120000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T100000",
-            "geo": {
-                "lat": 50.7254596,
-                "lon": -3.5293268
-            },
-            "last-modified": "20170726T134028Z",
-            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
-            "summary": "RASPBERRY JAM",
-            "type": "event",
-            "uid": "3505-1507370400-1507377600@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/raspberry-pi/",
-            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Museum-Machina-Workshop.jpg",
-            "categories": "Tech,Art",
-            "created": "20170720T123207Z",
-            "description": "See digital art work created by local young people as part of Museum Machina project, using museum objects as a source of inspiration for digital art, with arts-inspired learning organisation Daisi. \nMeet project artist Tony Minnion, and explore and try out some of the digital process and techniques used to create the work. \n \n",
-            "dtend;tzid=utc+0": "20171007T133000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T110000",
-            "geo": {
-                "lat": 50.7251169,
-                "lon": -3.5326119
-            },
-            "last-modified": "20170726T161334Z",
-            "location": "Queen St, Exeter, Devon, EX4 3RX, United Kingdom",
-            "summary": "MUSEUM MACHINA SHOWCASE",
-            "type": "event",
-            "uid": "3481-1507374000-1507383000@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/museum-machina-showcase/",
-            "x-apple-structured-location;value=uri;x-address=queen st exeter devon ex4 3rx united kingdom;x-apple-radius=500;x-title=queen st": "geo:-3.5326119,50.7251169"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Web-Design-Workshop.jpg",
-            "categories": "Tech",
-            "created": "20170720T145203Z",
-            "description": "Learn to make websites for free, in one workshop, open to everyone! \nEver needed a website and didn\u2019t know where to start? Or curious to get into coding but felt overwhelmed? Problem solved! \nThis beginners\u2019 workshop will help you quickly grasp the fundamentals of website design. You will learn all the basics to build and style websites using two easy to pick-up languages: HTML and CSS. \nPlaces are limited and must be booked. \n\u00a0 \n",
-            "dtend;tzid=utc+0": "20171007T160000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T133000",
-            "geo": {
-                "lat": 50.7254596,
-                "lon": -3.5293268
-            },
-            "last-modified": "20170726T134153Z",
-            "location": "Castle Street, Exeter, EX4 3PQ, United Kingdom",
-            "summary": "WEB DESIGN WORKSHOP",
-            "type": "event",
-            "uid": "3509-1507383000-1507392000@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/web-design-workshop/",
-            "x-apple-structured-location;value=uri;x-address=castle street exeter ex4 3pq united kingdom;x-apple-radius=500;x-title=castle street": "geo:-3.5293268,50.7254596"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Friday-6-October-Film-Biophilia.jpg",
-            "categories": "Film",
-            "created": "20170720T110730Z",
-            "description": "BOOK TICKETS\n(UK, 2014, 97 min) \n\u00a37 (FREE Lost in Music wristbands, film tickets must be collected by LIM wristband holders from Exeter Phoenix before 2pm ) \nDirected by Peter Strickland and Nick Fenton, this stunning film features Bj\u00f6rk performing tracks from her Biophilia Tour at Alexandra Palace in London on 3 September 2013. \n\u00a0 \n",
-            "dtend;tzid=utc+0": "20171007T220000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T200000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T114858Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "BIOPHILIA LIVE",
-            "type": "event",
-            "uid": "3421-1507406400-1507413600@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/biophilia-live/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/After-show-party.jpg",
-            "categories": "Music",
-            "created": "20170724T121024Z",
-            "description": "BOOK TICKETS\n\u00a36 on the door, or free to Lost in Music Wristband holders and Beats and Bass members. \nBeats and Bass is Exeter University\u2019s dance music society and club night, renowned locally for showcasing emerging acts from the world of Techno, Garage, Hip Hop, Drum and Bass, Disco, House and all the places in between. (Guests have included the likes of Split Prophets, Madam X, The Four Owls, Tessela and The Busy Twist.) \n",
-            "dtend;tzid=utc+0": "20171008T020000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171007T220000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T204615Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "LOST IN MUSIC AFTERPARTY",
-            "type": "event",
-            "uid": "3781-1507413600-1507428000@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/lost-in-music-afterparty/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-october-Art-Choral-Cuisine.jpg",
-            "categories": "Art",
-            "created": "20170720T123825Z",
-            "description": "BOOK TICKTES\nChoral Cuisine will see 50 diners collectively composing a symphony whilst sitting down to a delicious communal meal. \nA sonorous Sunday brunch. \nBy combining tableware and technology, participants will discover flutes in their forks, percussion in their plates and choirs in their cups. The nuanced and distinctive way you enjoy your food will be translated into a symphony of sound. Whether you are a speedy scoffer or dainty nibbler, every participant will bring their own unique musical offering to the table. \nThe result is a unique marriage of food and technology that will excite and inspire both culinary connoisseur and audiophile alike. \nThis culinary composition is a two hour brunch in Exeter\u2019s Guildhall, beginning at 11am. This vegetarian menu is a secret and will include dairy, nuts and gluten. We regret that we will not be able to provide dietary alternatives for diners with food allergies. Ingredients have been locally sourced and there are refreshments upon arrival. \nThere will be a pay bar on arrival\nTo RSVP please book your ticket! \nDoors open at 10:30am. \nThis is a collaboration between Sabrina Shirazi of Cuisine+Colour (www.cusineandcolour.com) \u00a0Composer Wilf Petherbridge (www.wilfredpetherbridge.com \u00a0and Creative Technologist Joseph Horton (www.jhorton.com )\n",
-            "dtend;tzid=utc+0": "20171008T130000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171008T110000",
-            "geo": {
-                "lat": 50.7233865,
-                "lon": -3.5320843
-            },
-            "last-modified": "20170726T203726Z",
-            "location": "High Street, Exeter, Devon, EX4 3EB, United Kingdom",
-            "summary": "CHORAL CUISINE by Sabrina Shirazi and Wilf Petherbridge",
-            "type": "event",
-            "uid": "3483-1507460400-1507467600@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/choral-cuisine-by-sabrina-shirazi-and-wilf-petherbridge/",
-            "x-apple-structured-location;value=uri;x-address=high street exeter devon ex4 3eb united kingdom;x-apple-radius=500;x-title=high street": "geo:-3.5320843,50.7233865"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/HACKATHON.jpg",
-            "categories": "Tech",
-            "created": "20170720T145348Z",
-            "description": "BOOK TICKETS\n8 \u2013 16 year olds \u2013 under 12s must be accompanied by an adult \nOpen to all abilities, this day of making is driven by you. The aim is to produce a piece of art that once started is constantly changing. The most important thing is to meet, inspire and create. Materials will be provided and FabLab Devon will be open for access to a wide range of digital making equipment. \nEnthusiasm and imagination are more important than ability and experience. There\u2019ll be introductory sessions to get you started as well as a range of experts on hand to help. You can register as a team or book as an individual and join a team on the day. \n\u00a0 \n\u00a0 \n",
-            "dtend;tzid=utc+0": "20171008T170000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171008T110000",
-            "geo": {
-                "lat": 50.7248094,
-                "lon": -3.5312523
-            },
-            "last-modified": "20170726T204510Z",
-            "location": "Bradninch Place, Gandy Street, Exeter, Devon, EX4 3LS, United Kingdom",
-            "summary": "YOUNG PEOPLE\u2019S HACKATHON",
-            "type": "event",
-            "uid": "3511-1507460400-1507482000@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/young-peoples-hackathon/",
-            "x-apple-structured-location;value=uri;x-address=bradninch place gandy street exeter devon ex4 3ls united kingdom;x-apple-radius=500;x-title=bradninch place\\, gandy street": "geo:-3.5312523,50.7248094"
-        },
-        {
-            "attach;fmttype=image/jpeg": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Circadial.jpg",
-            "categories": "Music",
-            "created": "20170720T111215Z",
-            "description": "BOOK TCKETS\n\u00a37 Standalone ticket or free to Lost in Music Wristband holder \nCIRCADIAL created and performed by Tanuja Amarasuriya and Timothy X Atack, of Sleepdogs: the sounds of this town\u2019s streets, wildlife, nightlife, vehicles, venues, homes, musicians and offices are looped, sieved, filtered, warped and stretched to make new, beautiful and perturbing music. Circadial is about the rhythms and polyphony of a place; the way that sound can locate you in time and geography. They make local field recordings over the days and night preceding the performances, from which they create a live, improvised constantly shifting music. We think of it as finding the ghost music underneath the traffic noise, street bustle, police helicopters and birdsong. They\u2019ve used these techniques of manipulating field recordings as the basis of composition in a lot of their theatre work, but this is the first project where they\u2019re putting the process at the centre of the performance.\nEach version of Circadial is unique and created specially, and specifically for each location they play. \nGALLOPS are an experimental rock and electronica band from Wales. They have\nsupported the likes of Deerhunter, Battles and 65daysofstatic. \nBEHIND THE SHADOW DROPS the brand new project from MONO composer Takaakira \u2018Taka\u2019 Goto. The project sees Goto combining ambient, trip-hop and other minimalist musical elements \u2013 creating a soundtrack-like, dark musical world for the listener.The live show will consist of Taka solo, performing with various instruments and live visuals. \nhttp://sleepdogs.org/project/circadial/\nhttp://www.behindtheshadowdrops.com/\nhttps://gallops.bandcamp.com/ \nCircadial Credits\nProduced by MAYK. Created for Theaster Gates\u2019 Sanctum, a Bristol 2015 European Green capital Project produced by Situations. Developed with support from Bristol Old Vic Ferment.\n",
-            "dtend;tzid=utc+0": "20171008T193000",
-            "dtstamp": "20170728T115320",
-            "dtstart;tzid=utc+0": "20171008T193000",
-            "geo": {
-                "lat": 50.7246392,
-                "lon": -3.5316824
-            },
-            "last-modified": "20170726T203937Z",
-            "location": "83-84 Queen Street, Exeter, Devon, EX4 3RP, United Kingdom",
-            "summary": "THE LOST SESSIONS",
-            "type": "event",
-            "uid": "3423-1507491000-1507491000@www.lostweekend.co.uk",
-            "url": "http://www.lostweekend.co.uk/event/the-lost-sessions-experimental-electronica/",
-            "x-apple-structured-location;value=uri;x-address=83-84 queen street exeter devon ex4 3rp united kingdom;x-apple-radius=500;x-title=83-84 queen street": "geo:-3.5316824,50.7246392"
-        }
-    ]
-}
-
-/***/ }),
-/* 364 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 371 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addFullScreen; });
+const screenfull = __webpack_require__(372);
+let isFull = false;
 
-var strictUriEncode = __webpack_require__(365);
-var objectAssign = __webpack_require__(366);
-var decodeComponent = __webpack_require__(367);
+function addFullScreen(map) {
+    if (screenfull.enabled) {
+        // TODO: move out in to file?
+        var ourCustomControl = L.Control.extend({
 
-function encoderForArrayFormat(opts) {
-	switch (opts.arrayFormat) {
-		case 'index':
-			return function (key, value, index) {
-				return value === null ? [
-					encode(key, opts),
-					'[',
-					index,
-					']'
-				].join('') : [
-					encode(key, opts),
-					'[',
-					encode(index, opts),
-					']=',
-					encode(value, opts)
-				].join('');
-			};
+            options: {
+                position: 'topleft'
+                    //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
+            },
 
-		case 'bracket':
-			return function (key, value) {
-				return value === null ? encode(key, opts) : [
-					encode(key, opts),
-					'[]=',
-					encode(value, opts)
-				].join('');
-			};
+            onAdd: function(map) {
+                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
 
-		default:
-			return function (key, value) {
-				return value === null ? encode(key, opts) : [
-					encode(key, opts),
-					'=',
-					encode(value, opts)
-				].join('');
-			};
-	}
+                container.style.backgroundColor = 'white';
+                container.style.backgroundImage = 'url("fullscreen.svg")';
+                container.style.width = '24px';
+                container.style.height = '24px';
+
+                container.onclick = function() {
+
+                    screenfull.toggle();
+                }
+                return container;
+            }
+
+        });
+        map.addControl(new ourCustomControl());
+    }
+
 }
-
-function parserForArrayFormat(opts) {
-	var result;
-
-	switch (opts.arrayFormat) {
-		case 'index':
-			return function (key, value, accumulator) {
-				result = /\[(\d*)\]$/.exec(key);
-
-				key = key.replace(/\[\d*\]$/, '');
-
-				if (!result) {
-					accumulator[key] = value;
-					return;
-				}
-
-				if (accumulator[key] === undefined) {
-					accumulator[key] = {};
-				}
-
-				accumulator[key][result[1]] = value;
-			};
-
-		case 'bracket':
-			return function (key, value, accumulator) {
-				result = /(\[\])$/.exec(key);
-				key = key.replace(/\[\]$/, '');
-
-				if (!result) {
-					accumulator[key] = value;
-					return;
-				} else if (accumulator[key] === undefined) {
-					accumulator[key] = [value];
-					return;
-				}
-
-				accumulator[key] = [].concat(accumulator[key], value);
-			};
-
-		default:
-			return function (key, value, accumulator) {
-				if (accumulator[key] === undefined) {
-					accumulator[key] = value;
-					return;
-				}
-
-				accumulator[key] = [].concat(accumulator[key], value);
-			};
-	}
-}
-
-function encode(value, opts) {
-	if (opts.encode) {
-		return opts.strict ? strictUriEncode(value) : encodeURIComponent(value);
-	}
-
-	return value;
-}
-
-function keysSorter(input) {
-	if (Array.isArray(input)) {
-		return input.sort();
-	} else if (typeof input === 'object') {
-		return keysSorter(Object.keys(input)).sort(function (a, b) {
-			return Number(a) - Number(b);
-		}).map(function (key) {
-			return input[key];
-		});
-	}
-
-	return input;
-}
-
-exports.extract = function (str) {
-	return str.split('?')[1] || '';
-};
-
-exports.parse = function (str, opts) {
-	opts = objectAssign({arrayFormat: 'none'}, opts);
-
-	var formatter = parserForArrayFormat(opts);
-
-	// Create an object with no prototype
-	// https://github.com/sindresorhus/query-string/issues/47
-	var ret = Object.create(null);
-
-	if (typeof str !== 'string') {
-		return ret;
-	}
-
-	str = str.trim().replace(/^(\?|#|&)/, '');
-
-	if (!str) {
-		return ret;
-	}
-
-	str.split('&').forEach(function (param) {
-		var parts = param.replace(/\+/g, ' ').split('=');
-		// Firefox (pre 40) decodes `%3D` to `=`
-		// https://github.com/sindresorhus/query-string/pull/37
-		var key = parts.shift();
-		var val = parts.length > 0 ? parts.join('=') : undefined;
-
-		// missing `=` should be `null`:
-		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
-		val = val === undefined ? null : decodeComponent(val);
-
-		formatter(decodeComponent(key), val, ret);
-	});
-
-	return Object.keys(ret).sort().reduce(function (result, key) {
-		var val = ret[key];
-		if (Boolean(val) && typeof val === 'object' && !Array.isArray(val)) {
-			// Sort object keys, not values
-			result[key] = keysSorter(val);
-		} else {
-			result[key] = val;
-		}
-
-		return result;
-	}, Object.create(null));
-};
-
-exports.stringify = function (obj, opts) {
-	var defaults = {
-		encode: true,
-		strict: true,
-		arrayFormat: 'none'
-	};
-
-	opts = objectAssign(defaults, opts);
-
-	var formatter = encoderForArrayFormat(opts);
-
-	return obj ? Object.keys(obj).sort().map(function (key) {
-		var val = obj[key];
-
-		if (val === undefined) {
-			return '';
-		}
-
-		if (val === null) {
-			return encode(key, opts);
-		}
-
-		if (Array.isArray(val)) {
-			var result = [];
-
-			val.slice().forEach(function (val2) {
-				if (val2 === undefined) {
-					return;
-				}
-
-				result.push(formatter(key, val2, result.length));
-			});
-
-			return result.join('&');
-		}
-
-		return encode(key, opts) + '=' + encode(val, opts);
-	}).filter(function (x) {
-		return x.length > 0;
-	}).join('&') : '';
-};
 
 
 /***/ }),
-/* 365 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function (str) {
-	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-		return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-	});
-};
-
-
-/***/ }),
-/* 366 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-
-/***/ }),
-/* 367 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var token = '%[a-f0-9]{2}';
-var singleMatcher = new RegExp(token, 'gi');
-var multiMatcher = new RegExp('(' + token + ')+', 'gi');
-
-function decodeComponents(components, split) {
-	try {
-		// Try to decode the entire string first
-		return decodeURIComponent(components.join(''));
-	} catch (err) {
-		// Do nothing
-	}
-
-	if (components.length === 1) {
-		return components;
-	}
-
-	split = split || 1;
-
-	// Split the array in 2 parts
-	var left = components.slice(0, split);
-	var right = components.slice(split);
-
-	return Array.prototype.concat.call([], decodeComponents(left), decodeComponents(right));
-}
-
-function decode(input) {
-	try {
-		return decodeURIComponent(input);
-	} catch (err) {
-		var tokens = input.match(singleMatcher);
-
-		for (var i = 1; i < tokens.length; i++) {
-			input = decodeComponents(tokens, i).join('');
-
-			tokens = input.match(singleMatcher);
-		}
-
-		return input;
-	}
-}
-
-function customDecodeURIComponent(input) {
-	// Keep track of all the replacements and prefill the map with the `BOM`
-	var replaceMap = {
-		'%FE%FF': '\uFFFD\uFFFD',
-		'%FF%FE': '\uFFFD\uFFFD'
-	};
-
-	var match = multiMatcher.exec(input);
-	while (match) {
-		try {
-			// Decode as big chunks as possible
-			replaceMap[match[0]] = decodeURIComponent(match[0]);
-		} catch (err) {
-			var result = decode(match[0]);
-
-			if (result !== match[0]) {
-				replaceMap[match[0]] = result;
-			}
-		}
-
-		match = multiMatcher.exec(input);
-	}
-
-	// Add `%C2` at the end of the map to make sure it does not replace the combinator before everything else
-	replaceMap['%C2'] = '\uFFFD';
-
-	var entries = Object.keys(replaceMap);
-
-	for (var i = 0; i < entries.length; i++) {
-		// Replace all decoded components
-		var key = entries[i];
-		input = input.replace(new RegExp(key, 'g'), replaceMap[key]);
-	}
-
-	return input;
-}
-
-module.exports = function (encodedURI) {
-	if (typeof encodedURI !== 'string') {
-		throw new TypeError('Expected `encodedURI` to be of type `string`, got `' + typeof encodedURI + '`');
-	}
-
-	try {
-		encodedURI = encodedURI.replace(/\+/g, ' ');
-
-		// Try the built in decoder first
-		return decodeURIComponent(encodedURI);
-	} catch (err) {
-		// Fallback to a more advanced decoder
-		return customDecodeURIComponent(encodedURI);
-	}
-};
-
-
-/***/ }),
-/* 368 */
+/* 372 */
 /***/ (function(module, exports) {
 
 /*!
@@ -23859,68 +24007,6 @@ module.exports = function (encodedURI) {
 		window.screenfull = screenfull;
 	}
 })();
-
-
-/***/ }),
-/* 369 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addFullScreen; });
-const screenfull = __webpack_require__(368);
-let isFull = false;
-
-function addFullScreen(map) {
-    if (screenfull.enabled) {
-        // TODO: move out in to file?
-        var ourCustomControl = L.Control.extend({
-
-            options: {
-                position: 'topleft'
-                    //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
-            },
-
-            onAdd: function(map) {
-                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-
-                container.style.backgroundColor = 'white';
-                container.style.backgroundImage = 'url("fullscreen.svg")';
-                container.style.width = '24px';
-                container.style.height = '24px';
-
-                container.onclick = function() {
-
-                    screenfull.toggle();
-                }
-                return container;
-            }
-
-        });
-        map.addControl(new ourCustomControl());
-    }
-
-}
-
-
-/***/ }),
-/* 370 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return randomColour; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return toRGBStr; });
-const gradient = __webpack_require__(358);
-const pickRandom = __webpack_require__(360);
-
-let colours = gradient('#ffff00', '#ff00ec').rgb(15);
-
-function randomColour() {
-    return pickRandom(colours)[0];
-}
-
-function toRGBStr(colour) {
-    return Math.round(colour._r) + "," + Math.round(colour._g) + "," + Math.round(colour._b);
-}
 
 
 /***/ })

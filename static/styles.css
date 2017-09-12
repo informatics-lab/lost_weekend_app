@@ -1,0 +1,63 @@
+#welcome {
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    background-color: #201C40;
+    position: absolute;
+}
+
+#notInAreaBanner {
+    z-index: 1000;
+    background: wheat;
+    display: none;
+}
+
+#map,
+#notInAreaBanner,
+#fog {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#fog {
+    z-index: -1;
+    background: rgba(50, 50, 50, 1)
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#welcome {
+    overflow: hidden;
+    text-align: center;
+}
+
+#welcome .logo {
+    position: relative;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    0% {
+        left: -50%;
+        transform: rotate(0deg);
+        width: 130%;
+    }
+    50% {
+        transform: rotate(180deg);
+        width: 70%;
+        left: -20%;
+    }
+    100% {
+        left: -50%;
+        transform: rotate(360deg);
+        width: 130%;
+    }
+}
