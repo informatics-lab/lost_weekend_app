@@ -38,6 +38,29 @@ body {
 }
 
 
+/* RHS menu */
+
+nav#menuBar {
+    z-index: 1500;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#menuBar .hamburger {
+    background: url("menu.svg");
+    width: 24px;
+    height: 24px;
+    border: none;
+}
+
+#menuBar ul {
+    display: block;
+    background: #ead320;
+    z-index: 1500;
+}
+
+
 /* Welcome and loading screen */
 
 #welcome {
