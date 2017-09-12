@@ -6995,7 +6995,6 @@ Object(__WEBPACK_IMPORTED_MODULE_4__locationHints__["a" /* showHints */])(map);
 Object(__WEBPACK_IMPORTED_MODULE_3__inArea__["c" /* monitor */])();
 Object(__WEBPACK_IMPORTED_MODULE_5__fullscreen__["a" /* addFullScreen */])(map);
 
-
 // TODO: Remove
 // range()
 // range()
@@ -7007,6 +7006,17 @@ Object(__WEBPACK_IMPORTED_MODULE_5__fullscreen__["a" /* addFullScreen */])(map);
 // range()
 // range()
 // range()
+
+/**
+ * Start up
+ */
+
+function hideWelcome() {
+    document.getElementById("welcome").style.display = 'none';
+}
+
+document.getElementById('startBtns').style.display = 'block';
+document.getElementById('startBtn').addEventListener('click', hideWelcome);
 
 /***/ }),
 /* 78 */

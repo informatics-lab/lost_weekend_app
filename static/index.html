@@ -3,7 +3,9 @@
 
 <head>
     <title>My Web Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://mapzen.com/js/mapzen.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,8 +14,13 @@
 
     <div id="welcome">
         <img class="logo" src="circle_graphic.svg" alt="Lost Weekend"></img>
-
+        <div id="startBtns" style="display:none;">
+            <button class="button" id="startBtn">Start</button>
+        </div>
     </div>
+
+
+
 
     <div id="fog"></div>
     <div id="map"></div>

@@ -25,7 +25,6 @@ showHints(map);
 monitor();
 addFullScreen(map);
 
-
 // TODO: Remove
 // range()
 // range()
@@ -37,3 +36,14 @@ addFullScreen(map);
 // range()
 // range()
 // range()
+
+/**
+ * Start up
+ */
+
+function hideWelcome() {
+    document.getElementById("welcome").style.display = 'none';
+}
+
+document.getElementById('startBtns').style.display = 'block';
+document.getElementById('startBtn').addEventListener('click', hideWelcome);
