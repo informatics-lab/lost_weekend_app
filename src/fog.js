@@ -5,10 +5,11 @@ import { playerAttributes } from './player';
 var points = [];
 
 function updateFog(pos) {
-    var THRESHOLD = 0.0001;
-    var point = { lat: pos[0], lon: pos[1] }
+    let round = (val) => Math.round(val * 10000) / 10000;
+    let THRESHOLD = 0.0001;
+    let point = { lat: round(pos[0]), lon: round(pos[1]) }
     if (points.length > 0) {
-        var last = points[points.length - 1]
+        let last = points[points.length - 1]
         if (Math.abs(last.lon - point.lon) < THRESHOLD && Math.abs(last.lat - point.lat) < THRESHOLD) { // TODO: Move to location stream
             return;
         }
@@ -39,18 +40,18 @@ let fog = {
                 let p = points[i].point;
                 let range = points[i].range;
                 let dot = info.layer._map.latLngToContainerPoint(p);
-
+                let size = range / meterPerPixel;
+                ctx.fillStyle = "rgba(255,255,255, 1)";
                 ctx.beginPath();
-                ctx.arc(dot.x, dot.y, range / meterPerPixel, 0, Math.PI * 2);
-                ctx.fill()
+                ctx.rect(dot.x - size, dot.y - size, 2 * size, 2 * size);
+                ctx.fill();
                 ctx.closePath();
-
             }
 
         }
 
         // subtract full screen rectangle from path to create reveal in the fog. 
-        ctx.globalCompositeOperation = "xor"
+        ctx.globalCompositeOperation = "xor";
         ctx.beginPath();
         ctx.rect(0, 0, info.canvas.width, info.canvas.height);
         ctx.fillStyle = "rgba(0,0,0, 1)";
