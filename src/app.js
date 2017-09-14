@@ -5,7 +5,7 @@ import { monitor } from './inArea';
 import { showHints } from './locationHints';
 import { setMap } from './loc';
 import { addFullScreen } from './fullscreen';
-
+import { activateMenus } from './menus';
 
 
 L.Mapzen.apiKey = 'mapzen-HeeC3NH';
@@ -24,7 +24,7 @@ addEvents(map);
 showHints(map);
 monitor();
 addFullScreen(map);
-
+activateMenus();
 // TODO: Remove
 // range()
 // range()
