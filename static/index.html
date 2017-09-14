@@ -5,27 +5,41 @@
     <title>My Web Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
     <link rel="stylesheet" href="https://mapzen.com/js/mapzen.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+    <!-- this is our loading splash screen -->
     <div id="welcome">
         <img class="logo" src="circle_graphic.svg" alt="Lost Weekend"></img>
-        <div id="startBtns" style="display:none;">
-            <button class="button" id="startBtn">Start</button>
+        <div>
+            <img class="title" src="/assets/asset2.svg" alt="Lost in art. Which events would you like to view?"/>
+            <div class="buttons">
+                <button id="enow" class="button" >Events<br/>now</button>
+                <button id="etoday" class="button" >Events<br/>today</button>
+                <button id="alle" class="button" >All<br/>events</button>
+            </div>
         </div>
     </div>
+    <!-- end -->
 
-
+    <div id="app" style="display:none;">
     <nav id="menuBar">
-        <button class="hamburger"></button>
+        <img class="hamburger" src="/asset1.svg"></img> 
+                  
         <ul class="links">
-            <li>Coming up</li>
-            <li>Now</li>
-            <li>All events</li>
+                <div class="boxed">
+                    <li>Events now</li> </div>
+                <div class="boxed">
+                    <li>Events today</li></div>
+                <div class="boxed">
+                    <li>All events</li></div>
+                <div class="boxed">
+                    <li>Show found</li></div>
+            <li>Reveal map</li>
         </ul>
     </nav>
 
@@ -35,10 +49,13 @@
     <div id="fog"></div>
     <div id="map"></div>
     <div id="notInAreaBanner">
-        <p>This experence is for enjoying Exeter's Lost Weekend. It requires access to your current location and for you to be in central exeter. </p>
-        <p> text will disapear once the above conditions are met (might take a half a minute for GPS to locate).</p>
+        <p>Experence Exeter's Lost Weekend with the interactive map. </p>
+        <p>This app needs access to your current location, and will not work </p>
+        <p>if you are outside of central Exeter.</p>
+        <p>Please be patient, it may take a few moments to locate your GPS.</p>
+        <p>Happy searching!</p>
     </div>
-
+    </div>
 
 
 
