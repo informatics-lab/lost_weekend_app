@@ -12,65 +12,57 @@
 
 <body>
 
-    <!-- this is our loading splash screen -->
-    <div id="welcome">
-        <img class="logo" src="circle_graphic.svg" alt="Lost Weekend"></img>
-        <div>
-            <img class="title" src="/assets/asset2.svg" alt="Lost in art. Which events would you like to view?"/>
-            <div class="buttons">
-                <button id="enow" class="button" >Events<br/>now</button>
-                <button id="etoday" class="button" >Events<br/>today</button>
-                <button id="alle" class="button" >All<br/>events</button>
+
+    <main>
+        <!-- this is our loading splash screen -->
+        <section id="welcome">
+            <img class="logo" src="circle_graphic.svg" alt="Lost Weekend"></img>
+            <div>
+                <img class="title" src="/assets/asset2.svg" alt="Lost in art. Which events would you like to view?" />
+                <div class="buttons">
+                    <button id="enow" class="button" value="now">Events<br/>now</button>
+                    <button id="etoday" class="button" value="today">Events<br/>today</button>
+                    <button id="alle" class="button" value="all">All<br/>events</button>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- end -->
+        </section>
+        <!-- end -->
+        <!-- <section id="app" style="visibility:hidden;"> -->
+        <section id="app" style="visibility:hidden;">
+            <nav id="menuBar">
+                <img class="hamburger" title="Menu" alt="Menu" width="24" src="/assets/asset1.svg"></img>
 
-    <div id="app" style="display:none;">
-    <nav id="menuBar">
-<<<<<<< HEAD
-        <button class="hamburger" id="menu-toggle">&#9776;</button>
-        <ul class="links" id="main-menu-items" style="display:none;">
-            <li>Coming up</li>
-            <li>Now</li>
-            <li>All events</li>
-=======
-        <img class="hamburger" src="/asset1.svg"></img> 
-                  
-        <ul class="links">
-                <div class="boxed">
-                    <li>Events now</li> </div>
-                <div class="boxed">
-                    <li>Events today</li></div>
-                <div class="boxed">
-                    <li>All events</li></div>
-                <div class="boxed">
-                    <li>Show found</li></div>
-            <li>Reveal map</li>
->>>>>>> master
-        </ul>
-    </nav>
+                <ul class="links">
+                    <div class="boxed">
+                        <li>Events now</li>
+                    </div>
+                    <div class="boxed">
+                        <li>Events today</li>
+                    </div>
+                    <div class="boxed">
+                        <li>All events</li>
+                    </div>
+                    <div class="boxed">
+                        <li>Show found</li>
+                    </div>
+                    <li>Reveal map</li>
+                </ul>
+            </nav>
 
+            <div id="fog"></div>
+            <div id="map"></div>
+            <div id="notInAreaBanner">
+                <p>Experence Exeter's Lost Weekend with the interactive map. </p>
+                <p>This app needs access to your current location, and will not work </p>
+                <p>if you are outside of central Exeter.</p>
+                <p>Please be patient, it may take a few moments to locate your GPS.</p>
+                <p>Happy searching!</p>
+            </div>
+        </section>
 
-
-
-    <div id="fog"></div>
-    <div id="map"></div>
-    <div id="notInAreaBanner">
-        <p>Experence Exeter's Lost Weekend with the interactive map. </p>
-        <p>This app needs access to your current location, and will not work </p>
-        <p>if you are outside of central Exeter.</p>
-        <p>Please be patient, it may take a few moments to locate your GPS.</p>
-        <p>Happy searching!</p>
-    </div>
-    </div>
-
-
-
-
-    <script src="https://mapzen.com/js/mapzen.min.js"></script>
-    <script src="lib/L.CanvasLayer.js"></script>
-    <script src="app.bundle.js"></script>
+        <script src="https://mapzen.com/js/mapzen.min.js"></script>
+        <script src="lib/L.CanvasLayer.js"></script>
+        <script src="app.bundle.js"></script>
 </body>
 
 </html>

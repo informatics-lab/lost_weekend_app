@@ -6,7 +6,7 @@ import { showHints } from './locationHints';
 import { setMap } from './loc';
 import { addFullScreen } from './fullscreen';
 import { activateMenus } from './menus';
-
+import { onLoadComplete } from './welcome';
 
 L.Mapzen.apiKey = 'mapzen-HeeC3NH';
 
@@ -25,25 +25,5 @@ showHints(map);
 monitor();
 addFullScreen(map);
 activateMenus();
-// TODO: Remove
-// range()
-// range()
-// range()
-// range()
-// range()
-// range()
-// range()
-// range()
-// range()
-// range()
 
-/**
- * Start up
- */
-
-function hideWelcome() {
-    document.getElementById("welcome").style.display = 'none';
-}
-
-document.getElementById('startBtns').style.display = 'block';
-document.getElementById('startBtn').addEventListener('click', hideWelcome);
+onLoadComplete();
