@@ -4,14 +4,21 @@ const events = require('./eventDetailsAuto');
 const pickRandom = require('pick-random');
 import { randomColour } from './colours';
 import { visited } from './fog';
-const geodist = require('geodist');
+const geodist = require('geodist'); // TODO: Use built in leflet?
 import { createPowerUpCallback, INC_HINT, INC_RANGE } from './player';
 import { randomInside } from './inArea';
 const NOTHING = 'nothing';
 
-let hiddenEvents = events.eventList;
+let allEvents = events.eventList;
+let hiddenEvents = allEvents.slice();
+let foundEvents = [];
 let visableEvents = [];
 let map;
+let markerLayer = L.layerGroup();
+
+
+
+
 
 function activatedIcon() {
     return L.divIcon({
@@ -49,7 +56,7 @@ function makeGameEventMarker(evt) {
 
 function makeEventMarker(evt) {
     // TODO: What if not jpeg or multiple images/attachemtns?
-    let imgurl = evt["attach;fmttype=image/jpeg"];
+    let imgurl = evt["img"];
     let imgtag = (imgurl) ? `<a target="_blank" href="${evt.url}"><img src="${imgurl}" alt="${evt.summary}" style="width:100%;" /></a>` : "";
     let description = evt.description;
     let maxlen = 300;
@@ -91,7 +98,7 @@ function markerToMap(evt) {
     }[evt.type](evt);
 
     if (marker) {
-        marker.addTo(map);
+        marker.addTo(markerLayer);
         let markAsClicked = () => marker.setIcon(activatedIcon());
         marker.once('click', markAsClicked);
     }
@@ -109,6 +116,7 @@ function randomGameEvent() {
 
 function addEvents(eventMap) {
     map = eventMap;
+    markerLayer.addTo(map);
     let count = hiddenEvents.length;
     for (let i = 0; i < count; i++) { // TODO: Half the events are game actions. Is this the correct ratio.
         hiddenEvents.push(randomGameEvent());
@@ -135,6 +143,7 @@ function updateVisable(limit) {
                 hiddenEvents.splice(eventIdx, 1);
                 event.marker = markerToMap(event);
                 visableEvents.push(event);
+                foundEvents.push(event);
                 event.found = true;
                 break;
             }

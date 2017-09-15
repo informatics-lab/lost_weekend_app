@@ -1,6 +1,5 @@
 import { getLocationStream } from './loc';
 import { hideTiles, showTiles } from './fog';
-
 let isShown = false;
 let container;
 
