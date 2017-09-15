@@ -41,7 +41,7 @@ body {
 
 #welcome .title {
     width: 80vw;
-    margin-top: 5em;
+    margin-top: 6em;
 }
 
 #welcome .buttons {
@@ -200,7 +200,8 @@ button.button {
     padding-left: 1.4em;
     margin-left: 0.5em;
     margin-right: 0.5em;
-    box-shadow: 0.3em 0.3em 0.4em 0.05em rgba(70, 0, 56, 0.6);
+    margin-top: 2em;
+    box-shadow: 0.2em 0.2em 0.2em 0.04em rgba(70, 0, 56, 0.4);
 }
 
 button.button:focus {
