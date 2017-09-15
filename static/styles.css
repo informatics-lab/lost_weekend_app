@@ -201,7 +201,7 @@ button.button {
     margin-left: 0.5em;
     margin-right: 0.5em;
     margin-top: 2em;
-    box-shadow: 0.2em 0.2em 0.2em 0.04em rgba(70, 0, 56, 0.4);
+    box-shadow: 0.2em 0.2em 0.2em 0.04em rgba(70, 0, 56, 0.5);
 }
 
 button.button:focus {
