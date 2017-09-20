@@ -54,7 +54,7 @@ let fog = {
         ctx.globalCompositeOperation = "xor";
         ctx.beginPath();
         ctx.rect(0, 0, info.canvas.width, info.canvas.height);
-        ctx.fillStyle = "rgba(0,0,0, 1)";
+        ctx.fillStyle = "rgba(32,28,64, 1)";
         ctx.fill();
     }
 };

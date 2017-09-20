@@ -66,8 +66,8 @@ function makeEventMarker(evt) {
     }
 
     return L.marker(gitterGeo(evt.geo), { icon: unactivatedIcon() }).bindPopup(`
-            ${imgtag}
             <h3><a target="_blank" href="${evt.url}">${evt.summary}</a></h3>
+            ${imgtag}
             <p>${description}<p>
     `)
 }

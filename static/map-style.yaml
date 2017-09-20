@@ -8,7 +8,7 @@ layers:
         draw:
             polygons:
                 order: 2
-                color: '#353535'
+                color: '#201C40'
     earth:
         data: { source: mapzen }
         draw:
@@ -52,5 +52,5 @@ layers:
         draw:
             polygons:
                 order: 7
-                color: '#999999'
+                color: '#2DAAE1' 
                 extrude: true
