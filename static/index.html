@@ -20,7 +20,7 @@
                 <img class="title" src="/assets/title.svg" alt="Lost in art. Which events would you like to view?" />
                 <div class="buttons">
                     <button id="enow" class="button" value="now">Events<br/>now</button>
-                    <button id="etoday" class="button" value="today">Events<br/>today</button>
+                    <!-- <button id="etoday" class="button" value="today">Events<br/>today</button> -->
                     <button id="alle" class="button" value="all">All<br/>events</button>
                 </div>
             </div>
@@ -30,41 +30,35 @@
         <section id="app" style="visibility:hidden;">
             <nav id="menuBar">
                 <div>
-                <img class="hamburger" title="Menu" alt="Menu" width="24" src="/assets/hamburger.svg"></img>
+                    <img class="hamburger" title="Menu" alt="Menu" width="24" src="/assets/hamburger.svg"></img>
                 </div>
                 <ul class="links">
-                        <li class="boxed">
-                            <h3>Events Now</h3>
-                        </li>
-                        <li class="boxed">
+                    <li class="boxed filter-link" data-eventtypes="now">
+                        <h3>Events Now</h3>
+                    </li>
+                    <li class="boxed filter-link" data-eventtypes="all">
 
-                                <hr>
-                                <h3>Events today</h3>
-                            
-                        </li>
-                        <li class="boxed">
-                            
-                                <hr>
-                                <h3>All events</h3>
-                        </li>
-                        <li class="boxed">
+                        <hr>
+                        <h3>All events</h3>
+                    </li>
+                    <li class="boxed filter-link" data-eventtypes="reveal">
 
-                                <hr>
-                                <h3>reveal map</h3>
-                        </li>
-                        <li class="boxed">
+                        <hr>
+                        <h3>reveal map</h3>
+                    </li>
+                    <li class="boxed">
 
-                                <hr>
-                                <h3>Show found</h3>
-                        </li>
+                        <hr>
+                        <h3>Show found</h3>
+                    </li>
                 </ul>
             </nav>
 
             <div id="fog"></div>
             <div id="map"></div>
             <div id="notInAreaBanner">
-                <div id="bannerTitle"> 
-                <h2>Get lost in Art</h2>
+                <div id="bannerTitle">
+                    <h2>Get lost in Art</h2>
                 </div>
                 <p>Experience Exeter's Lost Weekend with the interactive map. </p>
                 <p>This app needs access to your current location, and will not work if you are outside of central Exeter. </p>

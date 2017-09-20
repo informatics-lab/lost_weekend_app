@@ -71,8 +71,6 @@ body {
     display: block;
 }
 
-
-
 #enow {
     border-radius: 0.5em 0.5em 4em 0.5em;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6ec6d9+0,2c4a9a+51,714494+99 */
@@ -172,7 +170,8 @@ body {
     background: linear-gradient(90deg, #f7a754 0%, #d85297 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */;
+    /* IE6-9 fallback on horizontal gradient */
+    ;
     box-shadow: 0.2em 0.2em 0.2em 0.04em rgba(70, 0, 56, 0.5);
     padding-top: 1em;
     border-top-left-radius: 2em;
@@ -210,15 +209,14 @@ nav#menuBar {
     background: linear-gradient(90deg, #f7a754 0%, #d85297 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */;
+    /* IE6-9 fallback on horizontal gradient */
+    ;
     box-shadow: 0.2em 0.2em 0.2em 0.04em rgba(70, 0, 56, 0.5);
 }
 
 nav#menuBar.collapsed {
     background: none;
 }
-
-
 
 ul.links li hr {
     height: 0.5em;
@@ -232,7 +230,8 @@ ul.links li hr {
     background: linear-gradient(135deg, #f7a754 0%, #d85297 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */;
+    /* IE6-9 fallback on horizontal gradient */
+    ;
     box-shadow: 0.1em 0.1em 0.1em 0.03em rgba(70, 0, 56, 0.5);
 }
 
@@ -242,7 +241,6 @@ ul.links li h3 {
     padding-right: 3em;
     padding-left: 1em;
 }
-
 
 #menuBar .hamburger {
     border: none;
@@ -313,22 +311,19 @@ button.button:focus {
     border-radius: 40px;
 }
 
-
-.leaflet-popup{
+.leaflet-popup {
     margin: 0;
     padding: 0;
-
 }
-.leaflet-popup-content-wrapper{
+
+.leaflet-popup-content-wrapper {
     margin: 2em;
     padding: 0;
-
 }
 
-.leaflet-popup-content{
+.leaflet-popup-content {
     margin: 0;
     padding-left: 0;
-
 }
 
 .leaflet-popup h3 {
@@ -341,7 +336,8 @@ button.button:focus {
     background: linear-gradient(135deg, #f7a754 0%, #d85297 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */;
+    /* IE6-9 fallback on horizontal gradient */
+    ;
     box-shadow: 0.1em 0.1em 0.1em 0.03em rgba(70, 0, 56, 0.5);
     border-radius: 0.5em 0.5em 0em 0em;
     line-height: 1.2em;
@@ -356,8 +352,12 @@ button.button:focus {
     line-height: 30%;
 }
 
+.leaflet-popup-tip-container {
+    margin-top: -2em;
+}
+
+
 /* 
 .leaflet-popup img {
     max-width: 10em;
 } */
-

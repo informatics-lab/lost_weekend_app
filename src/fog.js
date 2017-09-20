@@ -104,7 +104,6 @@ function removeFog() {
 
 function showFog() {
     fogLayer.addTo(map);
-    map._onResize();
 }
 
 export { addFog, points as visited, hideTiles, showTiles, removeFog, showFog }

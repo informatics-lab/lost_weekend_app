@@ -35,14 +35,16 @@ function eventCurrentlyActive(event) {
 }
 
 function redrawEvents() {
-    console.log('redraw');
     map.removeLayer(markerLayer);
     markerLayer = L.layerGroup();
-    let events = (state.getMode() == MODE_REVEAL) ? allEvents : foundEvents;
-    let displayEvents = events.filter(eventCurrentlyActive);
-    console.log(displayEvents);
-    displayEvents.map(markerToMap);
+
+    let toShowEvents = (state.getMode() == MODE_REVEAL) ? allEvents : foundEvents.filter(eventCurrentlyActive);
+
+    toShowEvents.map(markerToMap);
     markerLayer.addTo(map);
+    map.invalidateSize();
+    setTimeout(() => { map.invalidateSize();
+        map._onResize() }, 3);
 }
 
 function activatedIcon() {
@@ -143,10 +145,10 @@ function addEvents(eventMap) {
     map = eventMap;
     markerLayer.addTo(map);
     let count = hiddenEvents.length;
-    for (let i = 0; i < count; i++) { // TODO: Half the events are game actions. Is this the correct ratio.
-        hiddenEvents.push(randomGameEvent());
-    }
-    //TODO: add random powerups and 'nothing' events.
+    // TODO: Game events currently disabled.
+    // for (let i = 0; i < count; i++) { // TODO: Half the events are game actions. Is this the correct ratio.
+    //     hiddenEvents.push(randomGameEvent());
+    // }.
     setInterval(updateRecentlyVisable, 333);
     setInterval(updateVisable, 5000); //TODO: Batch in to 'sets' of 50-300 points so don't inturup UI?
 }

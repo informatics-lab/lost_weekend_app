@@ -43,6 +43,7 @@ function locStream() {
             enableHighAccuracy: true
         },
         markerStyle: {
+            color: '#FF00FF',
             opacity: 0.8
         }
     });

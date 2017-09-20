@@ -1,3 +1,5 @@
+import { state } from './gameState';
+
 let button;
 let mainMenuItems;
 let container;
@@ -8,6 +10,16 @@ function activateMenus() {
     mainMenuItems = document.querySelector("#menuBar .links");
     button.addEventListener('click', toggleMainMenu);
     hide();
+
+
+    let filterButtons = document.querySelectorAll('.filter-link');
+    for (var i = 0; i < filterButtons.length; i++) {
+        var button = filterButtons[i];
+        button.addEventListener('click', (e) => {
+            let mode = e.currentTarget.getAttribute('data-eventtypes');
+            state.setMode(mode);
+        })
+    }
 }
 
 function hide() {
