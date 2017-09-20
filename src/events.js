@@ -8,17 +8,42 @@ const geodist = require('geodist'); // TODO: Use built in leflet?
 import { createPowerUpCallback, INC_HINT, INC_RANGE } from './player';
 import { randomInside } from './inArea';
 const NOTHING = 'nothing';
+import { state, MODE_ALL, MODE_NOW, MODE_REVEAL } from './gameState';
+
+
 
 let allEvents = events.eventList;
-let hiddenEvents = allEvents.slice();
 let foundEvents = [];
-let visableEvents = [];
+let hiddenEvents = allEvents.slice();
 let map;
 let markerLayer = L.layerGroup();
 
+function getActiveHideEvents() {
+    return hiddenEvents.filter(eventCurrentlyActive);
+}
 
+function eventCurrentlyActive(event) {
+    if (!event.times) {
+        return true;
+    } else if (state.getMode() == MODE_ALL) {
+        return true;
+    } else if (state.getMode() == MODE_NOW) {
+        let now = new Date();
+        return (event.times.filter(t => new Date(t.start) < now && new Date(t.end) > now).length > 0);
+    }
+    return true;
+}
 
-
+function redrawEvents() {
+    console.log('redraw');
+    map.removeLayer(markerLayer);
+    markerLayer = L.layerGroup();
+    let events = (state.getMode() == MODE_REVEAL) ? allEvents : foundEvents;
+    let displayEvents = events.filter(eventCurrentlyActive);
+    console.log(displayEvents);
+    displayEvents.map(markerToMap);
+    markerLayer.addTo(map);
+}
 
 function activatedIcon() {
     return L.divIcon({
@@ -141,14 +166,17 @@ function updateVisable(limit) {
             let point = visited[pointIdx];
             if (geodist(point.point, event.geo, { exact: true, unit: 'meters', limit: point.range })) {
                 hiddenEvents.splice(eventIdx, 1);
-                event.marker = markerToMap(event);
-                visableEvents.push(event);
                 foundEvents.push(event);
                 event.found = true;
+                if (eventCurrentlyActive(event)) {
+                    event.marker = markerToMap(event);
+                }
                 break;
             }
         }
     }
 }
 
-export { addEvents, hiddenEvents }
+
+// TODO: hidden events == all events - found, rather than keep as extra state
+export { addEvents, hiddenEvents, getActiveHideEvents, redrawEvents }
