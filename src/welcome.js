@@ -1,5 +1,5 @@
 import { setView } from './view';
-
+import { state } from './gameState';
 
 function onLoadComplete() {
     let buttons = document.querySelectorAll('#welcome .buttons button');
@@ -14,9 +14,9 @@ function onLoadComplete() {
 }
 
 function handleStartClick(event) {
-    console.log(event.target.value);
     event.preventDefault();
     setView('app');
+    state.setMode(event.target.value);
 }
 
 export { onLoadComplete };
