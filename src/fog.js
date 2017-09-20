@@ -3,6 +3,8 @@ import { playerAttributes } from './player';
 
 
 var points = [];
+var map = null;
+let fogLayer = null;
 
 function updateFog(pos) {
     let round = (val) => Math.round(val * 10000) / 10000;
@@ -60,11 +62,11 @@ let fog = {
 };
 
 
-function addFog(map) {
-
+function addFog(mainMap) {
+    map = mainMap;
     // TODO: on get location fail?
 
-    var fogLayer = L.canvasLayer()
+    fogLayer = L.canvasLayer()
         .delegate(fog) // -- if we do not inherit from L.CanvasLayer we can setup a delegate to receive events from L.CanvasLayer
         .addTo(map);
 
@@ -96,4 +98,13 @@ function showTiles() {
     }
 }
 
-export { addFog, points as visited, hideTiles, showTiles }
+function removeFog() {
+    map.removeLayer(fogLayer);
+}
+
+function showFog() {
+    fogLayer.addTo(map);
+    map._onResize();
+}
+
+export { addFog, points as visited, hideTiles, showTiles, removeFog, showFog }

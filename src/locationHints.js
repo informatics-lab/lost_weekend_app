@@ -1,6 +1,6 @@
 import { getLocationStream } from './loc';
 import { DIAGONAL_SIZE } from './inArea';
-import { hiddenEvents } from './events';
+import { getActiveHideEvents } from './events';
 import { playerAttributes } from './player'
 import { randomColour, toRGBStr } from './colours';
 
@@ -72,7 +72,11 @@ function addRandomHint() {
     if (hints.length >= playerAttributes.hints.max) { // Never show more than users max hints
         return;
     }
-    let event = pickRandom(hiddenEvents)[0];
+    let toFind = getActiveHideEvents();
+    if (toFind.length == 0) {
+        return;
+    }
+    let event = pickRandom(toFind)[0];
     newHint(event);
 }
 
