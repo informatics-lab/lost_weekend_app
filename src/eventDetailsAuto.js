@@ -6,6 +6,7 @@ module.exports = {
                 "lat": 50.72376145,
                 "lon": -3.528500441
             },
+            "id": "Forever Me",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Forever-Me-300x160.jpg",
             "summary": "Forever Me",
             "times": [
@@ -23,6 +24,7 @@ module.exports = {
                 "lat": 50.71694296,
                 "lon": -3.530347645
             },
+            "id": "The Cardboard Arcade",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Cardboard-Arcade-300x160.jpg",
             "summary": "The Cardboard Arcade",
             "times": [
@@ -44,6 +46,7 @@ module.exports = {
                 "lat": 50.72457531,
                 "lon": -3.531832583
             },
+            "id": "Circadial",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Circadial-300x160.jpg",
             "summary": "Circadial",
             "times": [
@@ -61,6 +64,7 @@ module.exports = {
                 "lat": 50.72571188,
                 "lon": -3.530538082
             },
+            "id": "Buoyed",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Buoyed.jpg",
             "summary": "Buoyed",
             "times": [
@@ -78,6 +82,7 @@ module.exports = {
                 "lat": 50.72292146,
                 "lon": -3.530357368
             },
+            "id": "Listening Trees",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-october-Arts-Listening-Tree-300x160.jpg",
             "summary": "Listening Trees",
             "times": [
@@ -95,6 +100,7 @@ module.exports = {
                 "lat": 50.72335563,
                 "lon": -3.531767372
             },
+            "id": "Choral Cuisine",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-october-Art-Choral-Cuisine-300x160.jpg",
             "summary": "Choral Cuisine",
             "times": [
@@ -112,6 +118,7 @@ module.exports = {
                 "lat": 50.71993374,
                 "lon": -3.536054464
             },
+            "id": " Smile",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Smile-by-Catherine-Cartwright.jpg",
             "summary": " Smile",
             "times": [
@@ -129,6 +136,7 @@ module.exports = {
                 "lat": 50.72003817,
                 "lon": -3.533763858
             },
+            "id": "Noise Platforms and The Sonic Balloon",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/08/Noiseplatforms-300x160.jpg",
             "summary": "Noise Platforms and The Sonic Balloon",
             "times": [
@@ -154,6 +162,7 @@ module.exports = {
                 "lat": 50.72292146,
                 "lon": -3.530357368
             },
+            "id": "Massively (local) Multiplayer Gaming",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Arts-Massively-Local-Multiplayer-Gaming-300x160.jpg",
             "summary": "Massively (local) Multiplayer Gaming",
             "times": [
@@ -171,6 +180,7 @@ module.exports = {
                 "lat": 50.72292146,
                 "lon": -3.530357368
             },
+            "id": "Come, Battle The Screenless PlayStation Game\u00a0",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Screenless-Playstation.jpg",
             "summary": "Come, Battle The Screenless PlayStation Game\u00a0",
             "times": [
@@ -188,6 +198,7 @@ module.exports = {
                 "lat": 50.72511527,
                 "lon": -3.530341275
             },
+            "id": "BellHouse",
             "img": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/6-8-October-Art-Bellhouse.jpg",
             "summary": "BellHouse",
             "times": [

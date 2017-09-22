@@ -11,12 +11,20 @@ function onLoadComplete() {
     if (buttonWrapper) {
         buttonWrapper.style.display = 'block';
     }
+    if (state.isRecovered() === true) {
+        startAppInMode(state.getMode());
+    }
+}
+
+function startAppInMode(mode) {
+    setView('app');
+    state.setMode(mode);
+
 }
 
 function handleStartClick(event) {
     event.preventDefault();
-    setView('app');
-    state.setMode(event.target.value);
+    startAppInMode(event.target.value);
 }
 
 export { onLoadComplete };

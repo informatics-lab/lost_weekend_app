@@ -47,7 +47,6 @@ function locStream() {
             opacity: 0.8
         }
     });
-    geoStream.subscribe(console.log);
     locator.addTo(map).start();
     geoStream = geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng]);
     geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng])

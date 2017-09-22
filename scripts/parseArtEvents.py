@@ -21,6 +21,7 @@ with open(os.path.join(os.path.dirname(__file__),'art.csv')) as csvfile:
         event = events.get(row[TITLE], {})
         if not event:
             event = {}
+            event["id"] =  row[TITLE]
             event["description"] = ""
             event["summary"] =  row[TITLE]
             event["geo"] = {

@@ -3,7 +3,6 @@ const doneMarkerSvg = require('./done.svg');
 const events = require('./eventDetailsAuto');
 const pickRandom = require('pick-random');
 import { randomColour } from './colours';
-import { visited } from './fog';
 const geodist = require('geodist'); // TODO: Use built in leflet?
 import { createPowerUpCallback, INC_HINT, INC_RANGE } from './player';
 import { randomInside } from './inArea';
@@ -13,7 +12,6 @@ import { state, MODE_ALL, MODE_NOW, MODE_REVEAL } from './gameState';
 
 
 let allEvents = events.eventList;
-let foundEvents = [];
 let hiddenEvents = allEvents.slice();
 let map;
 let markerLayer = L.layerGroup();
@@ -38,13 +36,17 @@ function redrawEvents() {
     map.removeLayer(markerLayer);
     markerLayer = L.layerGroup();
 
-    let toShowEvents = (state.getMode() == MODE_REVEAL) ? allEvents : foundEvents.filter(eventCurrentlyActive);
-
+    let toShowEvents = allEvents;
+    if (state.getMode() !== MODE_REVEAL) {
+        toShowEvents = toShowEvents.filter(eventCurrentlyActive).filter(state.isFoundEvent);
+    }
     toShowEvents.map(markerToMap);
     markerLayer.addTo(map);
     map.invalidateSize();
-    setTimeout(() => { map.invalidateSize();
-        map._onResize() }, 3);
+    setTimeout(() => {
+        map.invalidateSize();
+        map._onResize()
+    }, 3);
 }
 
 function activatedIcon() {
@@ -52,7 +54,7 @@ function activatedIcon() {
         iconAnchor: [12, 12],
         labelAnchor: [12, 12],
         popupAnchor: [0, -12],
-        html: doneMarkerSvg.replace(/fill="[^"]*"/, 'fill="' + randomColour() + '"'),
+        html: doneMarkerSvg, //.replace(/fill="[^"]*"/, 'fill="' + randomColour() + '"'),
         className: "activated_marker"
     });
 }
@@ -62,7 +64,7 @@ function unactivatedIcon() {
         iconAnchor: [12, 12],
         labelAnchor: [12, 12],
         popupAnchor: [0, -12],
-        html: markerSvg.replace(/fill="[^"]*"/, 'fill="' + randomColour() + '"'),
+        html: markerSvg, //.replace(/fill="[^"]*"/, 'fill="' + randomColour() + '"'),
         className: "not_activated_marker"
     });
 }
@@ -81,7 +83,7 @@ function makeGameEventMarker(evt) {
     return (evt.details === NOTHING) ? makeEmptyMarker(evt) : makePowerUpMarker(evt)
 }
 
-function makeEventMarker(evt) {
+function makeEventMarker(evt, visited) {
     // TODO: What if not jpeg or multiple images/attachemtns?
     let imgurl = evt["img"];
     let imgtag = (imgurl) ? `<a target="_blank" href="${evt.url}"><img src="${imgurl}" alt="${evt.summary}" style="width:100%;" /></a>` : "";
@@ -92,7 +94,9 @@ function makeEventMarker(evt) {
         description += `<a target="_blank" href="${evt.url}" title="Read more">...</a>`;
     }
 
-    return L.marker(gitterGeo(evt.geo), { icon: unactivatedIcon() }).bindPopup(`
+    let icon = (visited) ? activatedIcon() : unactivatedIcon();
+
+    return L.marker(gitterGeo(evt.geo), { icon: icon }).bindPopup(`
             <h3><a target="_blank" href="${evt.url}">${evt.summary}</a></h3>
             ${imgtag}
             <p>${description}<p>
@@ -119,15 +123,21 @@ function makeEmptyMarker(evt) {
 }
 
 function markerToMap(evt) {
+    let visited = state.isInteractedEvent(evt);
     let marker = {
         "event": makeEventMarker,
         "gameevent": makeGameEventMarker
-    }[evt.type](evt);
+    }[evt.type](evt, visited);
 
     if (marker) {
         marker.addTo(markerLayer);
-        let markAsClicked = () => marker.setIcon(activatedIcon());
-        marker.once('click', markAsClicked);
+        if (!visited) {
+            let markAsClicked = () => {
+                marker.setIcon(activatedIcon());
+                state.setInteractedEvent(evt);
+            };
+            marker.once('click', markAsClicked);
+        }
     }
     return marker;
 }
@@ -159,6 +169,7 @@ function updateRecentlyVisable() {
 }
 // TODO: Reduce complexity?
 function updateVisable(limit) {
+    let visited = state.getPoints();
     limit = limit || 0; // Limit to `limit` number of recent location events.
     limit = visited.length - 1 - limit;
     limit = (limit < 0) ? 0 : limit;
@@ -167,15 +178,20 @@ function updateVisable(limit) {
         for (var pointIdx = visited.length - 1; pointIdx >= limit; pointIdx--) { // Start at most recent data
             let point = visited[pointIdx];
             if (geodist(point.point, event.geo, { exact: true, unit: 'meters', limit: point.range })) {
-                hiddenEvents.splice(eventIdx, 1);
-                foundEvents.push(event);
-                event.found = true;
-                if (eventCurrentlyActive(event)) {
-                    event.marker = markerToMap(event);
-                }
+                findEvent(event, eventIdx);
                 break;
             }
         }
+    }
+}
+
+
+function findEvent(event, eventIdx) {
+    hiddenEvents.splice(eventIdx, 1);
+    state.setFoundEvent(event);
+    event.found = true;
+    if (eventCurrentlyActive(event)) {
+        event.marker = markerToMap(event);
     }
 }
 

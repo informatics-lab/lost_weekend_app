@@ -1,8 +1,8 @@
 import { getLocationStream } from './loc'
 import { playerAttributes } from './player';
+import { state } from './gameState';
 
 
-var points = [];
 var map = null;
 let fogLayer = null;
 
@@ -10,16 +10,18 @@ function updateFog(pos) {
     let round = (val) => Math.round(val * 10000) / 10000;
     let THRESHOLD = 0.0001;
     let point = { lat: round(pos[0]), lon: round(pos[1]) }
+    let points = state.getPoints();
     if (points.length > 0) {
         let last = points[points.length - 1]
         if (Math.abs(last.lon - point.lon) < THRESHOLD && Math.abs(last.lat - point.lat) < THRESHOLD) { // TODO: Move to location stream
             return;
         }
     }
-    points.push({
+    let pointDetails = {
         point: new L.LatLng(point.lat, point.lon),
         range: playerAttributes.range
-    });
+    };
+    state.recordPoint(pointDetails);
 }
 
 let fog = {
@@ -28,6 +30,7 @@ let fog = {
         ctx.clearRect(0, 0, info.canvas.width, info.canvas.height);
 
         // Draw path/sight
+        let points = state.getPoints();
         if (points.length >= 1) {
             var y = info.layer._map.getSize().y,
                 x = info.layer._map.getSize().x;
@@ -106,4 +109,4 @@ function showFog() {
     fogLayer.addTo(map);
 }
 
-export { addFog, points as visited, hideTiles, showTiles, removeFog, showFog }
+export { addFog, hideTiles, showTiles, removeFog, showFog }
