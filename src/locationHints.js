@@ -25,8 +25,13 @@ let locationEcho = {
 
             ctx.beginPath();
             ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
-            ctx.stroke();
-            // ctx.fill();
+            //ctx.stroke();
+            let grd = ctx.createRadialGradient(dot.x, dot.y, radius, dot.x, dot.y, 0);
+            grd.addColorStop(0, 'rgba(230,85,152,0.75)');
+            grd.addColorStop(0.125, 'rgba(97,68,148,0.50)');
+            grd.addColorStop(0.25, 'rgba(111,198,217,0)');
+            ctx.fillStyle = grd;
+            ctx.fill();
             ctx.closePath();
         } else {
             hint.pulseCount += 1;

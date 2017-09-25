@@ -12,12 +12,13 @@ L.Mapzen.apiKey = 'mapzen-HeeC3NH';
 
 // Base map
 var map = L.Mapzen.map('map', {
+    minZoom: 15,
+    maxZoom: 19,
     tangramOptions: {
         scene: 'map-style.yaml'
     }
 });
 map.setView(lat_lon, 19);
-
 setMap(map);
 addFog(map);
 addEvents(map);
