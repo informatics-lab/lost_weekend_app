@@ -1,7 +1,5 @@
 import { getLocationStream } from './loc'
-import { playerAttributes } from './player';
 import { state } from './gameState';
-
 
 var map = null;
 let fogLayer = null;
@@ -19,7 +17,7 @@ function updateFog(pos) {
     }
     let pointDetails = {
         point: new L.LatLng(point.lat, point.lon),
-        range: playerAttributes.range
+        range: state.getPlayerAttributes().range
     };
     state.recordPoint(pointDetails);
 }

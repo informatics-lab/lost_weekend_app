@@ -10,20 +10,21 @@ const NOTHING = 'nothing';
 import { state, MODE_ALL, MODE_NOW, MODE_REVEAL } from './gameState';
 
 
-
+const GAME_EVENT = 'gameevent';
+const EVENT_EVENT = 'event';
 let allEvents = events.eventList;
 let hiddenEvents = allEvents.slice();
 let map;
 let markerLayer = L.layerGroup();
 
-function getActiveHideEvents() {
+function getActiveHiddenEvents() {
     return hiddenEvents.filter(eventCurrentlyActive);
 }
 
 function eventCurrentlyActive(event) {
-    if (!event.times) {
-        return true;
-    } else if (state.getMode() == MODE_ALL) {
+    if (state.getMode() == MODE_ALL) {
+        return event.type === 'event';
+    } else if (!event.times) {
         return true;
     } else if (state.getMode() == MODE_NOW) {
         let now = new Date();
@@ -108,6 +109,11 @@ function makePowerUpMarker(evt) {
     let text = (evt.details === INC_RANGE) ? "Vision range increased." : "Hint frequency increased.";
     let marker = L.marker(evt.geo, { icon: unactivatedIcon() }).bindPopup(text);
     marker.once('click', callback);
+    marker.once('click', () => {
+        setTimeout(() => {
+            markerLayer.removeLayer(marker);
+        }, 3000);
+    });
     return marker;
 }
 
@@ -124,10 +130,10 @@ function makeEmptyMarker(evt) {
 
 function markerToMap(evt) {
     let visited = state.isInteractedEvent(evt);
-    let marker = {
-        "event": makeEventMarker,
-        "gameevent": makeGameEventMarker
-    }[evt.type](evt, visited);
+    let markerCreate = {};
+    markerCreate[EVENT_EVENT] = makeEventMarker;
+    markerCreate[GAME_EVENT] = makeGameEventMarker;
+    let marker = markerCreate[evt.type](evt, visited);
 
     if (marker) {
         marker.addTo(markerLayer);
@@ -145,7 +151,7 @@ function markerToMap(evt) {
 function randomGameEvent() {
     let details = [INC_HINT, INC_RANGE, NOTHING];
     return {
-        'type': 'gameevent',
+        'type': GAME_EVENT,
         'details': pickRandom(details)[0],
         'geo': randomInside()
     };
@@ -155,10 +161,6 @@ function addEvents(eventMap) {
     map = eventMap;
     markerLayer.addTo(map);
     let count = hiddenEvents.length;
-    // TODO: Game events currently disabled.
-    // for (let i = 0; i < count; i++) { // TODO: Half the events are game actions. Is this the correct ratio.
-    //     hiddenEvents.push(randomGameEvent());
-    // }.
     setInterval(updateRecentlyVisable, 333);
     setInterval(updateVisable, 5000); //TODO: Batch in to 'sets' of 50-300 points so don't inturup UI?
 }
@@ -197,4 +199,4 @@ function findEvent(event, eventIdx) {
 
 
 // TODO: hidden events == all events - found, rather than keep as extra state
-export { addEvents, hiddenEvents, getActiveHideEvents, redrawEvents }
+export { addEvents, hiddenEvents, getActiveHiddenEvents, redrawEvents }

@@ -18,6 +18,7 @@ function activateMenus() {
         button.addEventListener('click', (e) => {
             let mode = e.currentTarget.getAttribute('data-eventtypes');
             state.setMode(mode);
+            hide();
         })
     }
 }
