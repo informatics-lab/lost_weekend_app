@@ -147,6 +147,10 @@ body {
     background: #201C40;
 }
 
+#map {
+    background: #2B2564
+}
+
 #notInAreaBanner {
     z-index: 1100;
 }

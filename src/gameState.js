@@ -1,5 +1,6 @@
 import { redrawEvents } from './events';
 import { removeFog, showFog } from './fog';
+import { turnOnHints, turnOffHints } from './locationHints';
 
 const MODE_ALL = 'all';
 const MODE_NOW = 'now';
@@ -13,8 +14,17 @@ let storedGameState = {
     mode: MODE_ALL,
     recovered: false,
     foundEvents: [],
-    interactedEvents: []
+    interactedEvents: [],
+    playerAttributes: {
+        range: 14,
+        hints: {
+            minDelay: 20,
+            maxDelay: 60,
+            max: 1
+        }
+    }
 }
+
 try {
 
     var recoveredState = localStorage.getItem(GAME_STATE_STORAGE_KEY);
@@ -25,7 +35,9 @@ try {
         if (recoveredState.points instanceof Array &&
             recoveredState.foundEvents instanceof Array &&
             recoveredState.interactedEvents instanceof Array &&
-            typeof(recoveredState.mode) == "string") {
+            recoveredState.playerAttributes.hints &&
+            recoveredState.playerAttributes.range &&
+            typeof(recoveredState.mode) == "string") { // TODO: verify playerAtters?
             storedGameState = recoveredState;
         }
     }
@@ -43,8 +55,10 @@ function setMode(newMode) {
 
     if (newMode == MODE_REVEAL) {
         removeFog();
+        turnOffHints();
     } else {
         showFog();
+        turnOnHints();
     }
     redrawEvents();
 }
@@ -81,9 +95,10 @@ let state = {
     isFoundEvent: (event) => storedGameState.foundEvents.indexOf(event.id) >= 0,
     setInteractedEvent: (event) => storedGameState.interactedEvents.push(event.id),
     isInteractedEvent: (event) => storedGameState.interactedEvents.indexOf(event.id) >= 0,
-}
+    getPlayerAttributes: () => storedGameState.playerAttributes
+};
 
 
 
 
-export { state, MODE_ALL, MODE_NOW, MODE_REVEAL }
+export { state, MODE_ALL, MODE_NOW, MODE_REVEAL };

@@ -1,12 +1,12 @@
 import { getLocationStream } from './loc';
 import { DIAGONAL_SIZE } from './inArea';
-import { getActiveHideEvents } from './events';
-import { playerAttributes } from './player'
+import { getActiveHiddenEvents } from './events';
 import { randomColour, toRGBStr } from './colours';
+import { state } from './gameState';
 
 
 const pickRandom = require('pick-random');
-
+let hintsOn = true;
 
 let hints = [];
 
@@ -74,10 +74,10 @@ function newHint(event) {
 }
 
 function addRandomHint() {
-    if (hints.length >= playerAttributes.hints.max) { // Never show more than users max hints
+    if (hints.length >= state.getPlayerAttributes().hints.max) { // Never show more than users max hints
         return;
     }
-    let toFind = getActiveHideEvents();
+    let toFind = getActiveHiddenEvents();
     if (toFind.length == 0) {
         return;
     }
@@ -89,12 +89,18 @@ let maxWait = 20; // Time in seconds between showing a new hint
 let minWait = 5;
 
 function hintLoop() {
-    addRandomHint();
-    let delay = (Math.random() * (playerAttributes.hints.maxWait - playerAttributes.hints.minWait + 1) + playerAttributes.hints.minWait);
+    let delay = 0.1;
+    if (hintsOn) {
+        addRandomHint();
+        let playerAttributes = state.getPlayerAttributes();
+        let delay = (Math.random() * (playerAttributes.hints.maxWait - playerAttributes.hints.minWait + 1) + playerAttributes.hints.minWait);
+
+    }
     setTimeout(hintLoop, 1000 * delay);
 }
 
 function showHints(map) {
+    // This is a start up function adding the hint layer use turnOnHints() and turnOffHints() to toggle hinting.
     var echoLayer = L.canvasLayer()
         .delegate(locationEcho)
         .addTo(map);
@@ -103,4 +109,14 @@ function showHints(map) {
     hintLoop();
 }
 
-export { showHints };
+function turnOffHints() {
+    hints = [];
+    hintsOn = false;
+}
+
+
+function turnOnHints() {
+    hintsOn = true;
+}
+
+export { showHints, turnOffHints, turnOnHints };
