@@ -252,6 +252,7 @@ ul.links li h3 {
     margin: 0;
     padding-right: 3em;
     padding-left: 1em;
+    padding-bottom: 1em;
 }
 
 #menuBar .hamburger {
@@ -355,6 +356,7 @@ button.button:focus {
     line-height: 1.2em;
     padding-top: 1.5em;
     padding-left: 1em;
+    padding-right: 1em;
     padding-bottom: 1em;
 }
 
@@ -368,6 +370,10 @@ button.button:focus {
     margin-top: -2em;
 }
 
+.leaflet-popup img {
+    margin: 2%;
+    width: 96%;
+}
 
 /* 
 .leaflet-popup img {
