@@ -186,7 +186,7 @@ function updateVisable(limit) {
             if (dist < point.range) {
                 findEvent(event, eventIdx);
                 break;
-            } else if (dist < HINT_AT_RANGE) {
+            } else if (dist < HINT_AT_RANGE && eventCurrentlyActive(event)) {
                 doCloseHint(event);
             }
         }
