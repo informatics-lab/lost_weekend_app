@@ -87,7 +87,7 @@ function makeGameEventMarker(evt) {
 function makeEventMarker(evt, visited) {
     // TODO: What if not jpeg or multiple images/attachemtns?
     let imgurl = evt["img"];
-    let imgtag = (imgurl) ? `<a target="_blank" href="${evt.url}"><img src="${imgurl}" alt="${evt.summary}" style="width:100%;" /></a>` : "";
+    let imgtag = (imgurl) ? `<a target="_blank" href="${evt.url}"><img src="${imgurl}" alt="${evt.summary}" /></a>` : "";
     let description = evt.description;
     let maxlen = 300;
     if (description.length > maxlen) {
