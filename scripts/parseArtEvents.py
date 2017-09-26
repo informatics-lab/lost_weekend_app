@@ -23,8 +23,8 @@ def randomGeo():
     lon = (-3.5414834194, -3.5217404366)
     lat = ( 50.7160938261, 50.7262963402)
     return { 
-        'lon' : random.triangular(lon[0], lon[1],(lon[1] -  lon[0]) /2 ),
-        'lat' : random.triangular(lat[0], lat[1],(lat[1] -  lat[0]) /2 )
+        'lon' : random.triangular(lon[0], lon[1],lon[0] + (lon[1] -  lon[0]) /2 ),
+        'lat' : random.triangular(lat[0], lat[1],lat[0] + (lat[1] -  lat[0]) /2 )
     }
 
 with open(os.path.join(os.path.dirname(__file__),'art.csv')) as csvfile:
@@ -53,7 +53,7 @@ with open(os.path.join(os.path.dirname(__file__),'art.csv')) as csvfile:
 eventList = list(events.values())
 eventDetails = {"eventList":eventList}
 
-for i in range(len(eventList)//2):
+for i in range(len(eventList)* 1):
     eventtype = random.choice(POWER_UP_TYPES)
     eventList.append({
         "id" : eventtype + "_" + uuid4().hex,

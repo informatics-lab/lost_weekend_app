@@ -22,9 +22,11 @@ function getActiveHiddenEvents() {
 }
 
 function eventCurrentlyActive(event) {
-    if (state.getMode() == MODE_ALL) {
+    if (state.getMode() === MODE_ALL) {
+        return true;
+    } else if (state.getMode() == MODE_REVEAL) {
         return event.type === 'event';
-    } else if (!event.times) {
+    } else if (!event.times) { // Mode now but no 'times' show these (power ups).
         return true;
     } else if (state.getMode() == MODE_NOW) {
         let now = new Date();
