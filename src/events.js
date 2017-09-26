@@ -8,8 +8,9 @@ import { createPowerUpCallback, INC_HINT, INC_RANGE } from './player';
 import { randomInside } from './inArea';
 const NOTHING = 'nothing';
 import { state, MODE_ALL, MODE_NOW, MODE_REVEAL } from './gameState';
+import { doCloseHint } from './locationHints';
 
-
+const HINT_AT_RANGE = 100;
 const GAME_EVENT = 'gameevent';
 const EVENT_EVENT = 'event';
 let allEvents = events.eventList;
@@ -185,6 +186,8 @@ function updateVisable(limit) {
             if (dist < point.range) {
                 findEvent(event, eventIdx);
                 break;
+            } else if (dist < HINT_AT_RANGE) {
+                doCloseHint(event);
             }
         }
     }

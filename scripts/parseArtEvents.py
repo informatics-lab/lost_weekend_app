@@ -61,7 +61,7 @@ for i in range(len(eventList)* 1):
         "details":eventtype,
         "geo":randomGeo()
     })
-    print ('created a powerup:', eventtype)
+    print ('created a power up:', eventtype)
     
 
 print("Found %s events" % len(eventDetails['eventList']))

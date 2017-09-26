@@ -28,9 +28,16 @@ let locationEcho = {
             ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
             //ctx.stroke();
             let grd = ctx.createRadialGradient(dot.x, dot.y, radius, dot.x, dot.y, 0);
-            grd.addColorStop(0, 'rgba(230,85,152,0.60)');
-            grd.addColorStop(0.125, 'rgba(251,192,57,0.45)');
-            grd.addColorStop(0.50, 'rgba(111,198,217,0)');
+            if (hint.isClose) {
+                grd.addColorStop(0, 'rgba(0,85,152,0.60)');
+                grd.addColorStop(0.125, 'rgba(251,192,0,0.45)');
+                grd.addColorStop(0.50, 'rgba(111,0,217,0)');
+            } else {
+
+                grd.addColorStop(0, 'rgba(230,85,152,0.60)');
+                grd.addColorStop(0.125, 'rgba(251,192,57,0.45)');
+                grd.addColorStop(0.50, 'rgba(111,198,217,0)');
+            }
             ctx.fillStyle = grd;
             ctx.fill();
             ctx.closePath();
@@ -61,16 +68,18 @@ let locationEcho = {
     }
 };
 
-function newHint(event) {
+function newHint(event, close) {
+    close = close || false;
+    let nPulse = (close) ? 5 : 50;
     hints.push({
+        isClose: close,
         loc: event.geo,
         event: event,
         radius: 0,
         tLast: (new Date()).getTime(),
-        dieAfterNPulses: 50,
+        dieAfterNPulses: nPulse,
         pulseCount: 0,
-        speed: 0.8,
-        colorStr: toRGBStr(randomColour())
+        speed: 0.8
     });
 }
 
@@ -130,4 +139,11 @@ function turnOnHints() {
     }
 }
 
-export { showHints, turnOffHints, turnOnHints };
+function doCloseHint(event) {
+    if (hints.filter(hint => hint.event == event).length !== 0) {
+        return;
+    }
+    newHint(event, true);
+}
+
+export { showHints, turnOffHints, turnOnHints, doCloseHint };
