@@ -1,7 +1,7 @@
 module.exports = {
     "eventList": [
         {
-            "description": "",
+            "description": "A beautiful cube made up of 220 smaller boxes. Tell your own story or listen\nto others. What would you like to leave the world after you\u2019re gone?",
             "geo": {
                 "lat": 50.72376145,
                 "lon": -3.528500441
@@ -27,7 +27,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/forever-me-by-becca-gill-of-mercurial-wrestler/"
         },
         {
-            "description": "",
+            "description": "A suite of travelling arcade machines made out of cardboard. Inside is a\ncomputer, a monitor and a game.",
             "geo": {
                 "lat": 50.71694296,
                 "lon": -3.530347645
@@ -49,7 +49,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/3473/"
         },
         {
-            "description": "",
+            "description": "In\u00a0Circadial, Sleepdogs have made field recordings of Exeter, which are\nspliced, stretched and warped to turn the sounds of the city into improvised\nmusic made entirely from atmospheric sound",
             "geo": {
                 "lat": 50.72457531,
                 "lon": -3.531832583
@@ -67,7 +67,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/sleepdogs-perform-circadial/"
         },
         {
-            "description": "",
+            "description": "Magical glass buoys that speak when you get close to them.",
             "geo": {
                 "lat": 50.72571188,
                 "lon": -3.530538082
@@ -93,7 +93,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/buoyed-by-dr-louisa-evans-dr-rachel-turner-daniel-marcus-clark-jay-kerry-kaleider-2/"
         },
         {
-            "description": "",
+            "description": "Find a special bench that can connect you to someone sitting on a bench\nsomewhere else!",
             "geo": {
                 "lat": 50.72292146,
                 "lon": -3.530357368
@@ -111,7 +111,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/listening-trees-by-kaleider-mercurial-wrestler/"
         },
         {
-            "description": "",
+            "description": "Choral Cuisine will see 50 diners collectively composing a symphony whilst\nsitting down to a delicious brunch.",
             "geo": {
                 "lat": 50.72335563,
                 "lon": -3.531767372
@@ -129,7 +129,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/choral-cuisine-by-sabrina-shirazi-and-wilf-petherbridge/"
         },
         {
-            "description": "",
+            "description": "Projected, animated prints drawn by Catherine Cartwright, of young people\nfrom Ellen Tinkham College.",
             "geo": {
                 "lat": 50.71993374,
                 "lon": -3.536054464
@@ -147,7 +147,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/smile-by-catherine-cartwright/"
         },
         {
-            "description": "",
+            "description": "A musical installation incorporating music technology, multi-instrumental\ncomposition, five three-foot helium balloons, and buckets upon buckets of\nballs.",
             "geo": {
                 "lat": 50.72003817,
                 "lon": -3.533763858
@@ -173,7 +173,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/noise-platforms-by-david-sawyer/"
         },
         {
-            "description": "",
+            "description": "You, the audience are in control. Use your mobile phone to play Mario &amp;\nPacman on the big screen.",
             "geo": {
                 "lat": 50.72292146,
                 "lon": -3.530357368
@@ -191,7 +191,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/massively-local-multiplayer-gaming-by-kris-sum/"
         },
         {
-            "description": "",
+            "description": "Running around outside holding a light-up controller you must protect your\nKing and discover the traitor while you carefully listen to the music for clues.",
             "geo": {
                 "lat": 50.72292146,
                 "lon": -3.530357368
@@ -209,7 +209,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/come-battle-the-screenless-playstation-game/"
         },
         {
-            "description": "",
+            "description": "A playful sound sculpture: make some moves and hear the bells chime",
             "geo": {
                 "lat": 50.72511527,
                 "lon": -3.530341275
@@ -235,48 +235,48 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/wp-content/uploads/2017/07/Screenless-Playstation.jpg"
         },
         {
-            "details": "inc-hint",
+            "details": "inc-range",
             "geo": {
-                "lat": 50.22447192448345,
-                "lon": -3.3819762109447824
+                "lat": 50.12088532557118,
+                "lon": -3.330953431009418
             },
-            "id": "inc-hint_3fee6928322843639efdf2b222c18927",
+            "id": "inc-range_7e326be0b4c54b688a7950223b796ab0",
             "type": "gameevent"
         },
         {
             "details": "nothing",
             "geo": {
-                "lat": 50.28894827444693,
-                "lon": -3.3393413162541963
+                "lat": 50.228216709385244,
+                "lon": -3.432924442739354
             },
-            "id": "nothing_96ba96df331a47edae04b5546308a77a",
+            "id": "nothing_5c053f1ec4dd4724b14bf61d123fb800",
             "type": "gameevent"
         },
         {
             "details": "inc-range",
             "geo": {
-                "lat": 50.34510518845581,
-                "lon": -3.4275454097488804
+                "lat": 50.095511246335924,
+                "lon": -3.4339158716324425
             },
-            "id": "inc-range_704455c9dd36487c932d2ad228e4376c",
-            "type": "gameevent"
-        },
-        {
-            "details": "inc-range",
-            "geo": {
-                "lat": 50.141290746598315,
-                "lon": -3.422884108509375
-            },
-            "id": "inc-range_dd71f6b85c2f4df8afbbd6a4192a864c",
+            "id": "inc-range_624a1683d500450ab601fff7674357ef",
             "type": "gameevent"
         },
         {
             "details": "inc-hint",
             "geo": {
-                "lat": 50.225253293735825,
-                "lon": -3.4522490473672196
+                "lat": 50.32798003053602,
+                "lon": -3.297485319456371
             },
-            "id": "inc-hint_dc47080b29294d5f876f72922aac75e4",
+            "id": "inc-hint_6b794e23bfae45e99d60517c9b5e6a93",
+            "type": "gameevent"
+        },
+        {
+            "details": "inc-range",
+            "geo": {
+                "lat": 50.44785244153296,
+                "lon": -3.400227972079568
+            },
+            "id": "inc-range_09e5982e4ea74f18a269955db15914ee",
             "type": "gameevent"
         }
     ]

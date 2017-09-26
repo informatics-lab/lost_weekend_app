@@ -1,4 +1,5 @@
 import { state } from './gameState';
+import { setView } from './view';
 
 let button;
 let mainMenuItems;
@@ -21,6 +22,11 @@ function activateMenus() {
             hide();
         })
     }
+
+    document.getElementById('achivementslink').addEventListener('click', () => {
+        hide();
+        setView('achivements');
+    })
 }
 
 function hide() {

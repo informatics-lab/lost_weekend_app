@@ -35,7 +35,7 @@ with open(os.path.join(os.path.dirname(__file__),'art.csv')) as csvfile:
         if not event:
             event = {}
             event["id"] =  row[TITLE]
-            event["description"] = ""
+            event["description"] = row[DESC]
             event["summary"] =  row[TITLE]
             event["geo"] = {
                 "lat": float(row[LAT]),

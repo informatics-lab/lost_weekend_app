@@ -179,7 +179,8 @@ function updateVisable(limit) {
         let event = hiddenEvents[eventIdx];
         for (var pointIdx = visited.length - 1; pointIdx >= limit; pointIdx--) { // Start at most recent data
             let point = visited[pointIdx];
-            if (geodist(point.point, event.geo, { exact: true, unit: 'meters', limit: point.range })) {
+            let dist = geodist(point.point, event.geo, { exact: true, unit: 'meters' });
+            if (dist < point.range) {
                 findEvent(event, eventIdx);
                 break;
             }

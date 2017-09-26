@@ -9,7 +9,8 @@ const pickRandom = require('pick-random');
 let hintsOn = true;
 
 let hints = [];
-
+let hintLayer = null;
+let gameMap = null;
 let locationEcho = {
 
     drawHint: function(ctx, hint, map) {
@@ -101,22 +102,32 @@ function hintLoop() {
 
 function showHints(map) {
     // This is a start up function adding the hint layer use turnOnHints() and turnOffHints() to toggle hinting.
-    var echoLayer = L.canvasLayer()
+    gameMap = map;
+    // hintLayer = L.canvasLayer()
+    //     .delegate(hintLayer)
+    //     .addTo(map);
+    // setInterval(() => hintLayer.needRedraw(), 50);
+
+
+    hintLayer = L.canvasLayer()
         .delegate(locationEcho)
         .addTo(map);
-
-    setInterval(() => echoLayer.needRedraw(), 50);
+    setInterval(() => hintLayer.needRedraw(), 50);
     hintLoop();
 }
 
 function turnOffHints() {
     hints = [];
     hintsOn = false;
+    gameMap.removeLayer(hintLayer);
 }
 
 
 function turnOnHints() {
-    hintsOn = true;
+    if (!hintsOn) {
+        hintLayer.addTo(gameMap);
+        hintsOn = true;
+    }
 }
 
 export { showHints, turnOffHints, turnOnHints };

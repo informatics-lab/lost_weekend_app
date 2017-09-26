@@ -46,7 +46,7 @@
                         <hr>
                         <h3>reveal map</h3>
                     </li>
-                    <li class="boxed">
+                    <li class="boxed" id="achivementslink">
 
                         <hr>
                         <h3>Show found</h3>
@@ -69,12 +69,15 @@
                 </div>
             </div>
 
-
-            <div id="home">
-                <img class="tick button" src="asset/tick.svg"></img>
-            </div>
-
         </section>
+        <section id="achivements" style="visibility:hidden;">
+            <div class="buttons">
+                <button class="button" value="events">Events<br/>now</button>
+                <!-- <button id="etoday" class="button" value="today">Events<br/>today</button> -->
+                <button class="button" value="achivements">All<br/>events</button>
+            </div>
+        </section>
+
 
         <script src="https://mapzen.com/js/mapzen.min.js"></script>
         <script src="lib/L.CanvasLayer.js"></script>

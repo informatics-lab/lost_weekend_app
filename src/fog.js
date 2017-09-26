@@ -71,8 +71,6 @@ function addFog(mainMap) {
         .delegate(fog) // -- if we do not inherit from L.CanvasLayer we can setup a delegate to receive events from L.CanvasLayer
         .addTo(map);
 
-
-
     map.on('movestart', hideTiles);
     map.on('moveend', showTiles);
     map.on('zoomstart', hideTiles);
