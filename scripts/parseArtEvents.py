@@ -34,16 +34,16 @@ with open(os.path.join(os.path.dirname(__file__),'art.csv')) as csvfile:
         event = events.get(row[TITLE], {})
         if not event:
             event = {}
-            event["id"] =  row[TITLE]
-            event["description"] = row[DESC]
-            event["summary"] =  row[TITLE]
+            event["id"] =  row[TITLE].strip()
+            event["description"] = row[DESC].strip()
+            event["summary"] =  row[TITLE].strip()
             event["geo"] = {
                 "lat": float(row[LAT]),
                 "lon": float(row[LON])
             }
-            event["url"] = row[LINK]
+            event["url"] = row[LINK].strip()
             event["type"] = 'event'
-            event['img'] = row[IMG]  
+            event['img'] = row[IMG].strip()
         
         times = event.get('times', [])
         times.append({'start':row[START], 'end':row[END]})

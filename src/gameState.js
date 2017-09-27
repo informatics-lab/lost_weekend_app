@@ -22,7 +22,8 @@ let storedGameState = {
             maxDelay: 60,
             max: 1
         }
-    }
+    },
+    completedAchievements: []
 }
 
 try {
@@ -35,6 +36,7 @@ try {
         if (recoveredState.points instanceof Array &&
             recoveredState.foundEvents instanceof Array &&
             recoveredState.interactedEvents instanceof Array &&
+            recoveredState.completedAchievements instanceof Array &&
             recoveredState.playerAttributes.hints &&
             recoveredState.playerAttributes.range &&
             typeof(recoveredState.mode) == "string") { // TODO: verify playerAtters?
@@ -95,7 +97,9 @@ let state = {
     isFoundEvent: (event) => storedGameState.foundEvents.indexOf(event.id) >= 0,
     setInteractedEvent: (event) => storedGameState.interactedEvents.push(event.id),
     isInteractedEvent: (event) => storedGameState.interactedEvents.indexOf(event.id) >= 0,
-    getPlayerAttributes: () => storedGameState.playerAttributes
+    getPlayerAttributes: () => storedGameState.playerAttributes,
+    setGotAchievement: (achievement) => storedGameState.completedAchievements.push(achievement.id),
+    isAchievementGot: (achievement) => storedGameState.completedAchievements.indexOf(achievement.id) >= 0,
 };
 
 

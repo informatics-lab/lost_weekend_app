@@ -20,13 +20,19 @@ function activateMenus() {
             let mode = e.currentTarget.getAttribute('data-eventtypes');
             state.setMode(mode);
             hide();
-        })
+        });
     }
+
+    document.getElementById('backtomap').addEventListener('click', () => {
+        setView('app');
+    });
+
+
 
     document.getElementById('achivementslink').addEventListener('click', () => {
         hide();
         setView('achivements');
-    })
+    });
 }
 
 function hide() {

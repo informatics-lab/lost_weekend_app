@@ -38,8 +38,8 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    min-height: 100%;
+    bottom: 0;
+    overflow-y: auto;
 }
 
 
@@ -397,3 +397,60 @@ button.button:focus {
 .leaflet-popup img {
     max-width: 10em;
 } */
+
+
+/* achivements */
+
+.achievement {
+    opacity: 0.5;
+    width: 46%;
+    margin: 1%;
+    display: inline-block;
+    border: 0.1em solid #714494;
+    border-radius: 1em;
+    background-color: #4D4D4D;
+}
+
+.achievement.got {
+    opacity: 1;
+}
+
+.achievement .mystery {
+    display: none;
+}
+
+.achievement.mystery .mystery {
+    display: block;
+}
+
+.achievement.mystery .known {
+    display: none;
+}
+
+.achievement.got.mystery .known {
+    display: block;
+}
+
+.achievement.got.mystery .mystery {
+    display: none;
+}
+
+.achievement.mystry .achievement p,
+.achievement h3,
+.achievement img {
+    padding: 0.2em;
+    margin: 0;
+}
+
+.achievement h3 {
+    background-color: #f7a754;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f7a754 0%, #d85297 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #f7a754 0%, #d85297 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #f7a754 0%, #d85297 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}

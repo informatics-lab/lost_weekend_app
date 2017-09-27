@@ -9,8 +9,9 @@ import {createPowerUpCallback, INC_HINT, INC_RANGE} from './player';
 import {randomInside} from './inArea';
 
 const NOTHING = 'nothing';
-import {state, MODE_ALL, MODE_NOW, MODE_REVEAL} from './gameState';
-import {doCloseHint} from './locationHints';
+import { state, MODE_ALL, MODE_NOW, MODE_REVEAL } from './gameState';
+import { doCloseHint } from './locationHints';
+import { awardAchievement } from './achievements';
 
 const HINT_AT_RANGE = 100;
 const GAME_EVENT = 'gameevent';
@@ -142,6 +143,7 @@ function markerToMap(evt) {
             let markAsClicked = () => {
                 marker.setIcon(tickIcon);
                 state.setInteractedEvent(evt);
+                awardAchievement(evt);
             };
             marker.once('click', markAsClicked);
         }
@@ -208,4 +210,4 @@ function findEvent(event, eventIdx) {
 
 
 // TODO: hidden events == all events - found, rather than keep as extra state
-export {addEvents, hiddenEvents, getActiveHiddenEvents, redrawEvents}
+export { addEvents, hiddenEvents, getActiveHiddenEvents, redrawEvents, GAME_EVENT, EVENT_EVENT, allEvents }
