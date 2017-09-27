@@ -1,4 +1,5 @@
 import { GAME_EVENT, EVENT_EVENT } from './events';
+import { state } from './gameState';
 
 let achievements = {
     'events': []
@@ -19,15 +20,19 @@ function createAchievements(events) {
 }
 
 function createAchievement(summary, desc, mystery, img, points) {
-    return {
-        id: summary + Math.round((Math.random() * 10000)),
+    let achievement = {
+        id: summary,
         summary: summary,
         mystery: mystery,
         desc: desc,
         points: points,
         img: img,
         got: false
+    };
+    if (state.isAchievementGot(achievement)) {
+        achievement.got = true;
     }
+    return achievement;
 }
 
 function createEventAchievement(event) {
@@ -65,6 +70,7 @@ function awardAchievement(event) {
     }
     if (awarded) {
         awarded.got = true;
+        state.setGotAchievement(awarded);
         let ele = document.getElementById(awarded.id);
         ele.className = ele.className + " got";
     }
