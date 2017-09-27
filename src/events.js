@@ -2,13 +2,15 @@ const markerSvg = require('./question.svg');
 const doneMarkerSvg = require('./done.svg');
 const events = require('./eventDetailsAuto');
 const pickRandom = require('pick-random');
-import { randomColour } from './colours';
+import {randomColour} from './colours';
+
 const geodist = require('geodist'); // TODO: Use built in leflet?
-import { createPowerUpCallback, INC_HINT, INC_RANGE } from './player';
-import { randomInside } from './inArea';
+import {createPowerUpCallback, INC_HINT, INC_RANGE} from './player';
+import {randomInside} from './inArea';
+
 const NOTHING = 'nothing';
-import { state, MODE_ALL, MODE_NOW, MODE_REVEAL } from './gameState';
-import { doCloseHint } from './locationHints';
+import {state, MODE_ALL, MODE_NOW, MODE_REVEAL} from './gameState';
+import {doCloseHint} from './locationHints';
 
 const HINT_AT_RANGE = 100;
 const GAME_EVENT = 'gameevent';
@@ -69,7 +71,6 @@ function redrawEvents() {
 }
 
 
-
 function gitterGeo(geo) {
     // Randommly offset the location a litle to prevent identical locations overlaying.
     // TODO: Somthing more intelligant rather than random.
@@ -97,7 +98,7 @@ function makeEventMarker(evt, visited) {
 
     let icon = (visited) ? tickIcon : questionIcon;
 
-    return L.marker(gitterGeo(evt.geo), { icon: icon }).bindPopup(`
+    return L.marker(gitterGeo(evt.geo), {icon: icon}).bindPopup(`
             <h3><a target="_blank" href="${evt.url}">${evt.summary}</a></h3>
             ${imgtag}
             <p>${description}<p>
@@ -107,7 +108,7 @@ function makeEventMarker(evt, visited) {
 function makePowerUpMarker(evt) {
     let callback = createPowerUpCallback(evt.details);
     let text = (evt.details === INC_RANGE) ? "Vision range increased." : "Hint frequency increased.";
-    let marker = L.marker(evt.geo, { icon: questionIcon }).bindPopup(`<p>${text}</p>`);
+    let marker = L.marker(evt.geo, {icon: questionIcon}).bindPopup(`<p>${text}</p>`);
     marker.once('click', callback);
     marker.once('click', () => {
         setTimeout(() => {
@@ -119,7 +120,7 @@ function makePowerUpMarker(evt) {
 
 
 function makeEmptyMarker(evt) {
-    let marker = L.marker(evt.geo, { icon: questionIcon }).bindPopup("<p>Sorry nothing here...</p>");
+    let marker = L.marker(evt.geo, {icon: questionIcon}).bindPopup("<p>Sorry nothing here...</p>");
     marker.once('click', () => {
         setTimeout(() => {
             map.removeLayer(marker)
@@ -169,6 +170,7 @@ function addEvents(eventMap) {
 function updateRecentlyVisable() {
     updateVisable(50);
 }
+
 // TODO: Reduce complexity?
 function updateVisable(limit) {
     let visited = state.getPoints();
@@ -179,7 +181,7 @@ function updateVisable(limit) {
         let event = hiddenEvents[eventIdx];
         for (var pointIdx = visited.length - 1; pointIdx >= limit; pointIdx--) { // Start at most recent data
             let point = visited[pointIdx];
-            let dist = geodist(point.point, event.geo, { exact: true, unit: 'meters' });
+            let dist = geodist(point.point, event.geo, {exact: true, unit: 'meters'});
             if (dist <= point.range * 1.1) {
                 findEvent(event, eventIdx);
                 break;
@@ -194,6 +196,10 @@ function updateVisable(limit) {
 function findEvent(event, eventIdx) {
     hiddenEvents.splice(eventIdx, 1);
     state.setFoundEvent(event);
+    // register google analytics event
+    gtag('event', 'found-event', {
+        'event_label': event.id
+    });
     event.found = true;
     if (eventCurrentlyActive(event)) {
         event.marker = markerToMap(event);
@@ -202,4 +208,4 @@ function findEvent(event, eventIdx) {
 
 
 // TODO: hidden events == all events - found, rather than keep as extra state
-export { addEvents, hiddenEvents, getActiveHiddenEvents, redrawEvents }
+export {addEvents, hiddenEvents, getActiveHiddenEvents, redrawEvents}
