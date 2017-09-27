@@ -387,6 +387,12 @@ button.button:focus {
     width: 96%;
 }
 
+.leaflet-popup-content p {
+    margin: 0 0;
+    padding: 0 2% 0.005em 2%;
+}
+
+
 /* 
 .leaflet-popup img {
     max-width: 10em;

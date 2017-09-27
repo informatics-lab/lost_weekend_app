@@ -18,6 +18,21 @@ let hiddenEvents = allEvents.slice();
 let map;
 let markerLayer = L.layerGroup();
 
+let tickIcon = L.icon({
+    iconUrl: 'assets/tick.svg',
+    iconSize: [24, 24], // size of the icon
+    iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -12] // point from which the popup should open relative to the iconAnchor
+});
+
+let questionIcon = L.icon({
+    iconUrl: 'assets/question.svg',
+    iconSize: [24, 24], // size of the icon
+    iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+    popupAnchor: [0, -12] // point from which the popup should open relative to the iconAnchor
+});
+
+
 function getActiveHiddenEvents() {
     return hiddenEvents.filter(eventCurrentlyActive);
 }
@@ -40,9 +55,9 @@ function redrawEvents() {
     map.removeLayer(markerLayer);
     markerLayer = L.layerGroup();
 
-    let toShowEvents = allEvents;
+    let toShowEvents = allEvents.filter(eventCurrentlyActive);
     if (state.getMode() !== MODE_REVEAL) {
-        toShowEvents = toShowEvents.filter(eventCurrentlyActive).filter(state.isFoundEvent);
+        toShowEvents = toShowEvents.filter(state.isFoundEvent);
     }
     toShowEvents.map(markerToMap);
     markerLayer.addTo(map);
@@ -53,25 +68,7 @@ function redrawEvents() {
     }, 3);
 }
 
-function activatedIcon() {
-    return L.divIcon({
-        iconAnchor: [12, 12],
-        labelAnchor: [12, 12],
-        popupAnchor: [0, -12],
-        html: doneMarkerSvg, //.replace(/fill="[^"]*"/, 'fill="' + randomColour() + '"'),
-        className: "activated_marker"
-    });
-}
 
-function unactivatedIcon() {
-    return L.divIcon({
-        iconAnchor: [12, 12],
-        labelAnchor: [12, 12],
-        popupAnchor: [0, -12],
-        html: markerSvg, //.replace(/fill="[^"]*"/, 'fill="' + randomColour() + '"'),
-        className: "not_activated_marker"
-    });
-}
 
 function gitterGeo(geo) {
     // Randommly offset the location a litle to prevent identical locations overlaying.
@@ -98,7 +95,7 @@ function makeEventMarker(evt, visited) {
         description += `<a target="_blank" href="${evt.url}" title="Read more">...</a>`;
     }
 
-    let icon = (visited) ? activatedIcon() : unactivatedIcon();
+    let icon = (visited) ? tickIcon : questionIcon;
 
     return L.marker(gitterGeo(evt.geo), { icon: icon }).bindPopup(`
             <h3><a target="_blank" href="${evt.url}">${evt.summary}</a></h3>
@@ -110,7 +107,7 @@ function makeEventMarker(evt, visited) {
 function makePowerUpMarker(evt) {
     let callback = createPowerUpCallback(evt.details);
     let text = (evt.details === INC_RANGE) ? "Vision range increased." : "Hint frequency increased.";
-    let marker = L.marker(evt.geo, { icon: unactivatedIcon() }).bindPopup(text);
+    let marker = L.marker(evt.geo, { icon: questionIcon }).bindPopup(`<p>${text}</p>`);
     marker.once('click', callback);
     marker.once('click', () => {
         setTimeout(() => {
@@ -122,7 +119,7 @@ function makePowerUpMarker(evt) {
 
 
 function makeEmptyMarker(evt) {
-    let marker = L.marker(evt.geo, { icon: unactivatedIcon() }).bindPopup("Sorry nothing here...");
+    let marker = L.marker(evt.geo, { icon: questionIcon }).bindPopup("<p>Sorry nothing here...</p>");
     marker.once('click', () => {
         setTimeout(() => {
             map.removeLayer(marker)
@@ -142,7 +139,7 @@ function markerToMap(evt) {
         marker.addTo(markerLayer);
         if (!visited) {
             let markAsClicked = () => {
-                marker.setIcon(activatedIcon());
+                marker.setIcon(tickIcon);
                 state.setInteractedEvent(evt);
             };
             marker.once('click', markAsClicked);
@@ -183,10 +180,10 @@ function updateVisable(limit) {
         for (var pointIdx = visited.length - 1; pointIdx >= limit; pointIdx--) { // Start at most recent data
             let point = visited[pointIdx];
             let dist = geodist(point.point, event.geo, { exact: true, unit: 'meters' });
-            if (dist < point.range) {
+            if (dist <= point.range * 1.1) {
                 findEvent(event, eventIdx);
                 break;
-            } else if (dist < HINT_AT_RANGE && eventCurrentlyActive(event)) {
+            } else if (dist <= HINT_AT_RANGE && eventCurrentlyActive(event)) {
                 doCloseHint(event);
             }
         }
