@@ -1,12 +1,12 @@
 import { addFog } from './fog'
-import { addEvents } from './events'
-import { lat_lon } from './loc';
+import { addEvents, allEvents } from './events'
+import { setMap, lat_lon } from './loc';
 import { monitor } from './inArea';
 import { showHints } from './locationHints';
-import { setMap } from './loc';
 import { addFullScreen } from './fullscreen';
 import { activateMenus } from './menus';
 import { onLoadComplete } from './welcome';
+import { createAchievements } from './achievements';
 
 L.Mapzen.apiKey = 'mapzen-HeeC3NH';
 
@@ -26,5 +26,6 @@ showHints(map);
 monitor();
 addFullScreen(map);
 activateMenus();
+createAchievements(allEvents);
 
 onLoadComplete();
