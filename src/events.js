@@ -2,11 +2,11 @@ const markerSvg = require('./question.svg');
 const doneMarkerSvg = require('./done.svg');
 const events = require('./eventDetailsAuto');
 const pickRandom = require('pick-random');
-import {randomColour} from './colours';
+import { randomColour } from './colours';
 
 const geodist = require('geodist'); // TODO: Use built in leflet?
-import {createPowerUpCallback, INC_HINT, INC_RANGE} from './player';
-import {randomInside} from './inArea';
+import { createPowerUpCallback, INC_HINT, INC_RANGE } from './player';
+import { randomInside } from './inArea';
 
 const NOTHING = 'nothing';
 import { state, MODE_ALL, MODE_NOW, MODE_REVEAL } from './gameState';
@@ -40,11 +40,20 @@ function getActiveHiddenEvents() {
     return hiddenEvents.filter(eventCurrentlyActive);
 }
 
+function isEventType(event) {
+    return event.type === EVENT_EVENT;
+}
+
+function isNotActivatedGameEvent(event) {
+    return (event.type !== GAME_EVENT) || !state.isInteractedEvent(event);
+}
+
+
 function eventCurrentlyActive(event) {
     if (state.getMode() === MODE_ALL) {
         return true;
     } else if (state.getMode() == MODE_REVEAL) {
-        return event.type === 'event';
+        return event.type === EVENT_EVENT;
     } else if (!event.times) { // Mode now but no 'times' show these (power ups).
         return true;
     } else if (state.getMode() == MODE_NOW) {
@@ -57,10 +66,14 @@ function eventCurrentlyActive(event) {
 function redrawEvents() {
     map.removeLayer(markerLayer);
     markerLayer = L.layerGroup();
-
-    let toShowEvents = allEvents.filter(eventCurrentlyActive);
+    let toShowEvents = allEvents;
     if (state.getMode() !== MODE_REVEAL) {
-        toShowEvents = toShowEvents.filter(state.isFoundEvent);
+        toShowEvents = toShowEvents
+            .filter(eventCurrentlyActive)
+            .filter(state.isFoundEvent)
+            .filter(isNotActivatedGameEvent);
+    } else {
+        toShowEvents = toShowEvents.filter(isEventType);
     }
     toShowEvents.map(markerToMap);
     markerLayer.addTo(map);
@@ -99,7 +112,7 @@ function makeEventMarker(evt, visited) {
 
     let icon = (visited) ? tickIcon : questionIcon;
 
-    return L.marker(gitterGeo(evt.geo), {icon: icon}).bindPopup(`
+    return L.marker(gitterGeo(evt.geo), { icon: icon }).bindPopup(`
             <h3><a target="_blank" href="${evt.url}">${evt.summary}</a></h3>
             ${imgtag}
             <p>${description}<p>
@@ -109,7 +122,7 @@ function makeEventMarker(evt, visited) {
 function makePowerUpMarker(evt) {
     let callback = createPowerUpCallback(evt.details);
     let text = (evt.details === INC_RANGE) ? "Vision range increased." : "Hint frequency increased.";
-    let marker = L.marker(evt.geo, {icon: questionIcon}).bindPopup(`<p>${text}</p>`);
+    let marker = L.marker(evt.geo, { icon: questionIcon }).bindPopup(`<p>${text}</p>`);
     marker.once('click', callback);
     marker.once('click', () => {
         setTimeout(() => {
@@ -121,7 +134,7 @@ function makePowerUpMarker(evt) {
 
 
 function makeEmptyMarker(evt) {
-    let marker = L.marker(evt.geo, {icon: questionIcon}).bindPopup("<p>Sorry nothing here...</p>");
+    let marker = L.marker(evt.geo, { icon: questionIcon }).bindPopup("<p>Sorry nothing here...</p>");
     marker.once('click', () => {
         setTimeout(() => {
             map.removeLayer(marker)
@@ -183,7 +196,7 @@ function updateVisable(limit) {
         let event = hiddenEvents[eventIdx];
         for (var pointIdx = visited.length - 1; pointIdx >= limit; pointIdx--) { // Start at most recent data
             let point = visited[pointIdx];
-            let dist = geodist(point.point, event.geo, {exact: true, unit: 'meters'});
+            let dist = geodist(point.point, event.geo, { exact: true, unit: 'meters' });
             if (dist <= point.range * 1.1) {
                 findEvent(event, eventIdx);
                 break;
