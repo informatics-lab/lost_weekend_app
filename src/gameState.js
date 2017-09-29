@@ -91,6 +91,8 @@ let state = {
     getMode: () => storedGameState.mode,
     setMode: setMode,
     getPoints: getPoints,
+    setZoom: (zoom) => storedGameState.zoom = zoom,
+    getZoom: () => storedGameState.zoom,
     recordPoint: recordPoint,
     isRecovered: () => storedGameState.recovered,
     setFoundEvent: (event) => storedGameState.foundEvents.push(event.id),
