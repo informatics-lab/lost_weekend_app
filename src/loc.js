@@ -9,7 +9,13 @@ let lat_lon = [50.7184, -3.5339];
 let map; // Must call init before can be accessed.
 let stream; // Must call init before can be accessed.
 let translate_by = [0, 0];
-// let lat_lon = [ 50.719, -3.539];
+let locationSubject = new Rx.Subject();
+// let streamObserver = null
+// let facadeStream = Rx.Observable.create(observer => {
+//     // Yield a single value and complete
+//     console.log(observer);
+//     streamObserver = observer;
+// }).publish().refCount();
 
 
 
@@ -70,12 +76,14 @@ function translate(latLon) {
 }
 
 function getLocationStream(map) {
-    return stream;
+    return locationSubject;
 }
+
 
 function setMap(gameMap) {
     map = gameMap;
     stream = (query.wsda) ? wdsaStream() : locStream(map);
+    stream.subscribe(locationSubject.next);
 }
 
 export { setMap, getLocationStream, lat_lon };

@@ -1,6 +1,6 @@
 import { addFog } from './fog'
 import { addEvents, allEvents } from './events'
-import { setMap, lat_lon } from './loc';
+import { setMap } from './loc';
 import { monitor } from './inArea';
 import { showHints } from './locationHints';
 import { addFullScreen } from './fullscreen';
@@ -37,4 +37,6 @@ createAchievements(allEvents);
 
 
 
-onLoadComplete();
+onLoadComplete(() => {
+
+});

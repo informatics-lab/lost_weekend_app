@@ -1,7 +1,11 @@
 import { setView } from './view';
 import { state } from './gameState';
 
-function onLoadComplete() {
+
+let onStartCallback = null;
+
+function onLoadComplete(startCallback) {
+    onStartCallback = startCallback;
     let buttons = document.querySelectorAll('#welcome .buttons button');
     for (var i = 0; i < buttons.length; i++) {
         var button = buttons[i];
@@ -17,8 +21,12 @@ function onLoadComplete() {
 }
 
 function startAppInMode(mode) {
+    if (onStartCallback) {
+        onStartCallback();
+    }
     setView('app');
     state.setMode(mode);
+
 
 }
 
