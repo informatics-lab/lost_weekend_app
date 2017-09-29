@@ -1,4 +1,13 @@
-import Rx from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/first';
+
+
+
+
 import { bounds } from './inArea';
 
 const query = require('query-string').parse(location.search);
@@ -14,7 +23,7 @@ let translate_by = [0, 0];
 
 
 function wdsaStream() {
-    let keyPress = Rx.Observable.fromEvent(document, 'keydown')
+    let keyPress = Observable.fromEvent(document, 'keydown')
         .map(evt => String.fromCharCode(evt.keyCode || evt.which))
 
 
@@ -23,7 +32,7 @@ function wdsaStream() {
     let goEast = keyPress.filter(key => key == 'D').map(() => [0, STEP]);
     let goWest = keyPress.filter(key => key == 'A').map(() => [0, -STEP]);
 
-    let locationStream = Rx.Observable.merge(goNorth, goSouth, goEast, goWest).map((diff) => {
+    let locationStream = goNorth.merge(goSouth, goEast, goWest).map((diff) => {
         lat_lon = [lat_lon[0] + diff[0], lat_lon[1] + diff[1]];
         return lat_lon;
     });
@@ -31,7 +40,7 @@ function wdsaStream() {
 }
 
 function locStream() {
-    let geoStream = Rx.Observable.fromEvent(map, 'locationfound');
+    let geoStream = Observable.fromEvent(map, 'locationfound');
     var locator = L.Mapzen.locator({
         position: 'bottomright',
         drawCircle: (!query.translate) ? true : false,

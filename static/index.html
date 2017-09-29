@@ -13,7 +13,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60337429-6"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)};
+
+        function gtag() {
+            dataLayer.push(arguments)
+        };
         gtag('js', new Date());
 
         gtag('config', 'UA-60337429-6');
@@ -29,9 +32,11 @@
         <!-- this is our loading splash screen -->
         <section id="welcome">
             <img class="logo" src="assets/circle_graphic.png" alt="Lost Weekend"></img>
+
             <div>
-                <img class="title" src="./assets/title.svg" alt="Lost in art. Which events would you like to view?" />
-                <div class="buttons">
+                <h1 id="loading">Loading...</h1>
+                <img id="startMessage" style="visibility:hidden;" class="title" src="./assets/title.svg" alt="Lost in art. Which events would you like to view?" />
+                <div id="buttonWrapper" class="buttons" style="visibility:hidden;">
                     <button id="enow" class="button" value="now">Events<br/>now</button>
                     <!-- <button id="etoday" class="button" value="today">Events<br/>today</button> -->
                     <button id="alle" class="button" value="all">All<br/>events</button>

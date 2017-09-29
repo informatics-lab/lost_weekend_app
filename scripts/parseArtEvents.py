@@ -4,6 +4,9 @@ import json
 import csv
 import random
 from uuid import uuid4
+import datetime
+import pprint 
+pp = pprint.PrettyPrinter(indent=4)
 
 TITLE = 0
 LINK = 2
@@ -19,6 +22,13 @@ events = {}
 POWER_UP_TYPES = ( "inc-range", "inc-hint", "nothing")
 POWER_UP_EVENT_TYPE = 'gameevent'
 
+
+def nudgetimes(times, by_days):
+    FORMAT = "%Y-%m-%dT%H:%M:%S"
+    def nudge(t):
+        return (datetime.datetime.strptime(t, FORMAT) - datetime.timedelta(days=by_days)).strftime(FORMAT)
+    return [{"start":nudge(t['start']), 'end':nudge(t['end'])} for t in times]
+        
 def randomGeo():
     lon = (-3.5414834194, -3.5217404366)
     lat = ( 50.7160938261, 50.7262963402)
@@ -47,10 +57,17 @@ with open(os.path.join(os.path.dirname(__file__),'art.csv')) as csvfile:
         
         times = event.get('times', [])
         times.append({'start':row[START], 'end':row[END]})
-        event['times'] = times 
+        event['times'] = times
         events.update({row[TITLE]:event})     
 
 eventList = list(events.values())
+
+# # Set all the dates a week earlier for testting
+# for event in eventList:
+#     event['times'] =nudgetimes( event['times'], 7)
+
+pp.pprint(eventList)
+
 eventDetails = {"eventList":eventList}
 
 for i in range(len(eventList)* 1):

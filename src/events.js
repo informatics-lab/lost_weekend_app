@@ -1,5 +1,3 @@
-const markerSvg = require('./question.svg');
-const doneMarkerSvg = require('./done.svg');
 const events = require('./eventDetailsAuto');
 const pickRandom = require('pick-random');
 import { randomColour } from './colours';

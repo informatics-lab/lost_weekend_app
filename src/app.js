@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { addFog } from './fog'
 import { addEvents, allEvents } from './events'
 import { setMap, lat_lon } from './loc';
