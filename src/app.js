@@ -35,7 +35,20 @@ activateMenus();
 createAchievements(allEvents);
 
 
+// Analytics for menus etc
+let attr = 'data-click-analytic';
 
+function recordClickAnalytic(e) {
+    let val = e.currentTarget.getAttribute(attr);
+    gtag('event', 'click', {
+        'value': val,
+    });
+}
+let elements = document.querySelectorAll(`[${attr}]`);
+for (var i = 0; i < elements.length; i++) {
+    var ele = elements[i];
+    ele.addEventListener('click', recordClickAnalytic);
+}
 
 
 onLoadComplete();
