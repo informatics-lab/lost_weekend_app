@@ -37,9 +37,8 @@
                 <h1 id="loading">Loading...</h1>
                 <img id="startMessage" style="visibility:hidden;" class="title" src="./assets/title.svg" alt="Lost in art. Which events would you like to view?" />
                 <div id="buttonWrapper" class="buttons" style="visibility:hidden;">
-                    <button id="enow" class="button" value="now">Events<br/>now</button>
-                    <!-- <button id="etoday" class="button" value="today">Events<br/>today</button> -->
-                    <button id="alle" class="button" value="all">All<br/>events</button>
+                    <button id="enow" data-click-analytic="start-events-now" class="button" value="now">Events<br/>now</button>
+                    <button id="alle" data-click-analytic="start-events-all" class="button" value="all">All<br/>events</button>
                 </div>
             </div>
         </section>
@@ -48,23 +47,23 @@
         <section id="app" style="visibility:hidden;">
             <nav id="menuBar">
                 <div>
-                    <img class="hamburger" title="Menu" alt="Menu" width="24" src="./assets/hamburger.svg"></img>
+                    <img data-click-analytic="menu-toggle" class="hamburger" title="Menu" alt="Menu" width="24" src="./assets/hamburger.svg"></img>
                 </div>
                 <ul class="links">
-                    <li class="boxed filter-link" data-eventtypes="now">
+                    <li class="boxed filter-link" data-click-analytic="menu-events-now" data-eventtypes="now">
                         <h3>Events Now</h3>
                     </li>
-                    <li class="boxed filter-link" data-eventtypes="all">
+                    <li class="boxed filter-link" data-click-analytic="menu-events-allEvents" data-eventtypes="all">
 
                         <hr>
                         <h3>All events</h3>
                     </li>
-                    <li class="boxed filter-link" data-eventtypes="reveal">
+                    <li class="boxed filter-link" data-click-analytic="menu-revealMap" data-eventtypes="reveal">
 
                         <hr>
                         <h3>reveal map</h3>
                     </li>
-                    <li class="boxed" id="achivementslink">
+                    <li class="boxed" id="achivementslink" data-click-analytic="menu-achivements">
 
                         <hr>
                         <h3>Show found</h3>
@@ -92,7 +91,7 @@
             <div class="buttons">
                 <!-- <button class="button" value="event_achievements">Events<br/>now</button>
                 <button class="button" value="other_achievements">All<br/>events</button> -->
-                <button id="backtomap" class="button" value="back">Back</button>
+                <button id="backtomap" class="button" value="back" data-click-analytic="achivements-back">Back</button>
             </div>
             <h2>Events</h2>
             <div id="event_achievements"></div>

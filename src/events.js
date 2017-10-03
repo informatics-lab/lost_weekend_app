@@ -152,6 +152,11 @@ function markerToMap(evt) {
         marker.addTo(markerLayer);
         if (!visited) {
             let markAsClicked = () => {
+                gtag('event', 'interacted-event', {
+                    'event_id': evt.id,
+                    'event_type': evt.type,
+                    'event_label': (evt.summary || evt.details)
+                });
                 marker.setIcon(tickIcon);
                 state.setInteractedEvent(evt);
                 awardAchievement(evt);
@@ -211,7 +216,9 @@ function findEvent(event, eventIdx) {
     state.setFoundEvent(event);
     // register google analytics event
     gtag('event', 'found-event', {
-        'event_label': event.id
+        'event_id': event.id,
+        'event_type': event.type,
+        'event_label': (event.summary || event.details)
     });
     event.found = true;
     if (eventCurrentlyActive(event)) {
