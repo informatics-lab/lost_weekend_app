@@ -27,7 +27,7 @@ function onLoadComplete() {
 
 function startAppInMode(mode) {
     setView('app');
-    state.setMode(mode);
+    state.setMode(mode, true);
 
 }
 
