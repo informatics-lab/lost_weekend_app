@@ -22,6 +22,13 @@ function onLoadComplete() {
     }
     if (state.isRecovered() === true) {
         startAppInMode(state.getMode());
+    } else {
+        let vidEle = document.getElementById('vid');
+        let imgWrapper = document.getElementById('imgWrapper');
+        let img = document.getElementById('welcomeSpinner');
+        img.style.animationPlayState = "paused";
+        imgWrapper.style.width = "10%";
+        vidEle.style.display = "block";
     }
 }
 

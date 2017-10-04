@@ -50,5 +50,4 @@ for (var i = 0; i < elements.length; i++) {
     ele.addEventListener('click', recordClickAnalytic);
 }
 
-
-onLoadComplete();
+setTimeout(onLoadComplete(), 3000);
