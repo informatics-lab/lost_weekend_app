@@ -31,19 +31,6 @@ body {
 }
 
 
-/* achivemetns */
-
-#achivements {
-    background-color: #201C40;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto;
-}
-
-
 /* Welcome and loading screen */
 
 #loading {
@@ -406,49 +393,116 @@ button.button:focus {
 
 /* achivements */
 
+
+/* achivemetns */
+
+#achivements {
+    color: black;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    text-align: center;
+}
+
 .achievement {
-    opacity: 0.5;
-    width: 46%;
-    margin: 1%;
+    color: black;
+    width: 12em;
+    margin: 1em;
     display: inline-block;
-    border: 0.1em solid #714494;
+    position: relative;
+}
+
+.achievement .wrapper {
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
     border-radius: 1em;
-    background-color: #4D4D4D;
+    box-shadow: 0.1em 0.1em 0.1em 0.03em rgba(70, 0, 56, 0.5);
 }
 
-.achievement.got {
-    opacity: 1;
-}
-
-.achievement .mystery {
+.achievement img.done {
     display: none;
 }
 
-.achievement.mystery .mystery {
+.achievement.got img.done {
     display: block;
-}
-
-.achievement.mystery .known {
-    display: none;
-}
-
-.achievement.got.mystery .known {
-    display: block;
-}
-
-.achievement.got.mystery .mystery {
-    display: none;
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    right: -1em;
+    top: -1em;
+    z-index: 1;
 }
 
 .achievement.mystry .achievement p,
-.achievement h3,
-.achievement img {
+.achievement h3 {
     padding: 0.2em;
-    margin: 0;
 }
 
-.achievement h3 {
+.achievement .img {
+    display: block;
+    width: 10em;
+    height: 10em;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.achievement a {
+    color: black;
+    text-decoration: none;
+}
+
+.achievement hr {
+    margin: 0;
+    border: none;
+    padding: 0;
+    height: 1em;
     background-color: #f7a754;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #f7a754 0%, #d85297 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #f7a754 0%, #d85297 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #f7a754 0%, #d85297 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.achievement .found {
+    display: none;
+}
+
+.achievement .notfound {
+    display: block;
+}
+
+.achievement.got .found {
+    display: block;
+}
+
+.achievement.got .notfound {
+    display: none;
+}
+
+#achivements .buttons {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+#achivements .buttons button {
+    margin: 0;
+    margin-top: 0;
+    border-radius: 0.5em 4em 0.5em 0.5em;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7a754+0,d85297+100 */
+    background: #f7a754;
     /* Old browsers */
     background: -moz-linear-gradient(-45deg, #f7a754 0%, #d85297 100%);
     /* FF3.6-15 */

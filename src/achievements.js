@@ -19,9 +19,10 @@ function createAchievements(events) {
     renderAchievements();
 }
 
-function createAchievement(summary, desc, mystery, img, points) {
+function createAchievement(summary, desc, mystery, img, points, url) {
     let achievement = {
         id: summary,
+        url: url,
         summary: summary,
         mystery: mystery,
         desc: desc,
@@ -37,20 +38,20 @@ function createAchievement(summary, desc, mystery, img, points) {
 
 function createEventAchievement(event) {
     achievements.events.push(createAchievement(event.summary, "Find the event " + event.summary,
-        false, event.img, 1000));
+        false, event.img, 1000, event.url));
 }
 "inc-range", "inc-hint", "nothing"
 
 function createGameAchievement(event) {
     if (event.details === 'nothing' && !achievements.nothing) {
         achievements.nothing = createAchievement("Disappointed", "Find something that turns out to be nothing.",
-            true, null, 5000);
+            true, 'assets/star.svg', 5000);
     } else if (event.details === "inc-range" && !achievements.incRange) {
         achievements.incRange = createAchievement("Binoculars", "Increase your vision range.",
-            true, null, 5000);
+            true, 'assets/star.svg', 5000);
     } else if (event.details === "inc-hint" && !achievements.incHint) {
         achievements.incHint = createAchievement("Radar upgrade", "Increase your number of active long range hints.",
-            true, null, 5000);
+            true, 'assets/star.svg', 5000);
     }
 }
 
@@ -94,15 +95,20 @@ function renderAchievements() {
 function createDOMElement(achievement) {
     let div = document.createElement('div');
     let classes = "achievement";
-    classes += (achievement.mystery) ? " mystery" : "";
     classes += (achievement.got) ? " got" : "";
     div.className = classes;
     div.id = achievement.id;
     div.innerHTML = `
-        <h3 class="known">${achievement.summary}</h3>
-        <h3 class="mystery">???</h3>
-        <p class="known">${achievement.desc}</p>
-        <p class="mystery">???</p>
+        <img class="done" src="assets/tick.svg"/>
+        <div class="wrapper">
+            ${ (achievement.url)? "<a target='_blank' href='" + achievement.url + "'>" : "" }
+                <div class="found img" style="background-image:url('${achievement.img}');"></div>
+                <h3 class="found ">${achievement.summary}</h3>
+            ${ (achievement.url)? "</a>" : "" }
+            <div class="notfound img" style="background-image:url('assets/question.svg');"></div>
+            <h3 class="notfound ">???</h3>
+            <hr />
+        </wrapper>
     `;
     return div;
 }
