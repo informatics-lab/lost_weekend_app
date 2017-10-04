@@ -75,11 +75,14 @@ function redrawEvents() {
     }
     toShowEvents.map(markerToMap);
     markerLayer.addTo(map);
-    map.invalidateSize();
-    setTimeout(() => {
-        map.invalidateSize();
-        map._onResize()
-    }, 3);
+    // Fudge to force redraw.
+    if (state.getMode() !== MODE_REVEAL) {
+        if (state.getMode() === MODE_ALL) {
+            map.zoomIn(0.1)
+        } else {
+            map.zoomOut(0.11);
+        }
+    }
 }
 
 

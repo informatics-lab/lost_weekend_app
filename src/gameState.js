@@ -50,13 +50,19 @@ try {
 // TODO: Map should be in game state, not all over the place.
 
 function setMode(newMode, force) {
-    gtag('event', 'mode-change', {
-        'mode': newMode
-    });
+
+    let oldMode = storedGameState.mode;
 
     if ((newMode === storedGameState.mode) && !force) {
         return;
     }
+
+    gtag('event', 'mode-change', {
+        'mode': newMode,
+        'oldMode': oldMode
+    });
+
+
     storedGameState.mode = newMode;
 
     if (newMode == MODE_REVEAL) {
