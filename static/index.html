@@ -34,9 +34,18 @@
     <main>
         <!-- this is our loading splash screen -->
         <section id="welcome">
-            <img class="logo" src="assets/circle_graphic.png" alt="Lost Weekend"></img>
+            <div id="imgSection">
+                <div id="imgWrapper">
+                    <img id="welcomeSpinner" class="logo" src="assets/circle_graphic.png" alt="Lost Weekend"></img>
+                </div>
+            </div>
+            <div class="videoWrapperLimmiter">
+                <div id="vid" class="videoWrapper">
+                    <iframe id="video" src="https://www.youtube.com/embed/4WhgdJvBFVo?autoplay=1&amp;rel=0&amp;showinfo=0?ecver=1" frameborder="0" allowfullscreen></iframe>
+                </div>
 
-            <div>
+            </div>
+            <div class="controlls">
                 <h1 id="loading">Loading...</h1>
                 <img id="startMessage" style="visibility:hidden;" class="title" src="./assets/title.svg" alt="Lost in art. Which events would you like to view?" />
                 <div id="buttonWrapper" class="buttons" style="visibility:hidden;">
