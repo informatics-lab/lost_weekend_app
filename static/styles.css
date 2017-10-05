@@ -261,7 +261,7 @@ ul.links li h3 {
 
 #menuBar .hamburger {
     border: none;
-    margin: 0 0.1em 0.1em 0.1em;
+    margin: 0.6em 0.6em 0.4em 0.6em;
     padding: 0;
     font-size: 130%;
     background: none;
@@ -406,7 +406,9 @@ button.button:focus {
     bottom: 0;
     overflow-y: auto;
     text-align: center;
+    padding-top: 4em;
 }
+
 
 .achievement {
     color: gray;
@@ -416,13 +418,14 @@ button.button:focus {
     position: relative;
 }
 
+
 .achievement .wrapper {
     overflow: hidden;
     background-color: white;
     position: relative;
     overflow: hidden;
     border-radius: 1em;
-    box-shadow: 0.1em 0.1em 0.1em 0.03em rgba(70, 0, 56, 0.5);
+    box-shadow: 0.1em 0.1em 0.1em 0.03em rgba(70, 0, 56, 0.3);
     padding-top: 1.5em;
 }
 
@@ -448,8 +451,8 @@ button.button:focus {
 
 .achievement .img {
     display: block;
-    width: 3em;
-    height: 3em;
+    width: 4em;
+    height: 4em;
     padding-top: 2em;
     margin: auto;
     background-repeat: no-repeat;
@@ -465,7 +468,7 @@ button.button:focus {
     margin: 0;
     border: none;
     padding: 0;
-    height: 1em;
+    height: 0.6em;
     background-color: #f7a754;
     /* Old browsers */
     background: -moz-linear-gradient(-45deg, #f7a754 0%, #d85297 100%);
