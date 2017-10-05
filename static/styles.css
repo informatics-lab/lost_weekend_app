@@ -479,6 +479,10 @@ button.button:focus {
 
 /* achivemetns */
 
+#achivements h2 {
+    font-weight: 400;
+}
+
 #achivements {
     color: white;
     background-color: #201C40;
