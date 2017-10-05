@@ -34,7 +34,7 @@ body {
 /* Welcome and loading screen */
 
 #loading {
-    color: black;
+    color: gray;
 }
 
 #welcome {
@@ -397,7 +397,7 @@ button.button:focus {
 /* achivemetns */
 
 #achivements {
-    color: black;
+    color: gray;
     background-color: white;
     position: absolute;
     top: 0;
@@ -409,7 +409,7 @@ button.button:focus {
 }
 
 .achievement {
-    color: black;
+    color: gray;
     width: 12em;
     margin: 1em;
     display: inline-block;
@@ -437,6 +437,7 @@ button.button:focus {
     right: -1em;
     top: -1em;
     z-index: 1;
+    margin-top: 2em;
 }
 
 .achievement.mystry .achievement p,
@@ -454,7 +455,7 @@ button.button:focus {
 }
 
 .achievement a {
-    color: black;
+    color: gray;
     text-decoration: none;
 }
 
