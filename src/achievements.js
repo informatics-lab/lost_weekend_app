@@ -101,12 +101,10 @@ function createDOMElement(achievement) {
     div.innerHTML = `
         <img class="done" src="assets/tick.svg"/>
         <div class="wrapper">
-            ${ (achievement.url)? "<a target='_blank' href='" + achievement.url + "'>" : "" }
                 <div class="found img" style="background-image:url('${achievement.img}');"></div>
                 <h3 class="found ">${achievement.summary}</h3>
-            ${ (achievement.url)? "</a>" : "" }
-            <div class="notfound img" style="background-image:url('assets/question.svg');"></div>
-            <h3 class="notfound ">???</h3>
+            <div class="notfound img" style="background-image:url('assets/question-alt.svg');"></div>
+            <h3 class="notfound ">?</h3>
             <hr />
         </wrapper>
     `;
