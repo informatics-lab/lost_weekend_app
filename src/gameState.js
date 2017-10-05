@@ -57,6 +57,16 @@ function setMode(newMode, force) {
         return;
     }
 
+    if ((newMode !== MODE_REVEAL) || (force === true)) {
+        changeMode(oldMode, newMode);
+    } else {
+        if (confirm('Are you sure? Revealing the map somewhat spoils the game.')) {
+            changeMode(oldMode, newMode);
+        }
+    }
+}
+
+function changeMode(oldMode, newMode) {
     gtag('event', 'mode-change', {
         'mode': newMode,
         'oldMode': oldMode
