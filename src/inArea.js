@@ -1,6 +1,6 @@
 import { getLocationStream } from './loc';
 import { hideTiles, showTiles } from './fog';
-let isShown = false;
+let isShown;
 let container;
 
 const bbox = {
@@ -27,16 +27,20 @@ function randomInside() {
 }
 
 function show() {
-    if (!isShown) {
+    if (isShown !== true) {
         container.style.display = 'block';
+        container.className += "not_in_area";
+        not_in_area
         hideTiles();
         isShown = true;
     }
 }
 
 function hide() {
-    if (isShown) {
+    if (isShown !== false) {
         container.style.display = 'none';
+        container.className = container.className.replace(/not_in_area/g, "");
+        not_in_area
         showTiles();
         isShown = false;
     }
@@ -52,10 +56,8 @@ function showHideInAreaBanner(point) {
 }
 
 function monitor() {
-    container = document.getElementById("notInAreaBanner");
-    isShown = container.style.display === 'none';
-    show()
-    getLocationStream().subscribe(showHideInAreaBanner) // TODO: check every so often not constantly on move?
+    container = document.getElementById("mapInfoBanner");
+    getLocationStream().subscribe(showHideInAreaBanner); // TODO: check every so often not constantly on move?
 }
 
 export { monitor, DIAGONAL_SIZE, randomInside, bounds }

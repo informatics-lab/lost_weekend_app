@@ -18,6 +18,8 @@ let lat_lon = [50.7184, -3.5339];
 let map; // Must call init before can be accessed.
 let stream; // Must call init before can be accessed.
 let translate_by = [0, 0];
+let locator = null;
+
 // let lat_lon = [ 50.719, -3.539];
 
 
@@ -41,7 +43,7 @@ function wdsaStream() {
 
 function locStream() {
     let geoStream = Observable.fromEvent(map, 'locationfound');
-    var locator = L.Mapzen.locator({
+    locator = L.Mapzen.locator({
         position: 'bottomright',
         drawCircle: (!query.translate) ? true : false,
         setView: (!query.translate) ? 'untilPan' : false,
@@ -56,7 +58,6 @@ function locStream() {
             opacity: 0.8
         }
     });
-    locator.addTo(map).start();
     geoStream = geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng]);
     geoStream.map(geo => [geo.latlng.lat, geo.latlng.lng])
     if (query.translate) {
@@ -87,4 +88,10 @@ function setMap(gameMap) {
     stream = (query.wsda) ? wdsaStream() : locStream(map);
 }
 
-export { setMap, getLocationStream, lat_lon };
+function askForGeo() {
+    if (locator) {
+        locator.addTo(map).start();
+    }
+}
+
+export { setMap, getLocationStream, lat_lon, askForGeo };

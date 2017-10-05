@@ -1,5 +1,6 @@
 import { setView } from './view';
 import { state } from './gameState';
+import { askForGeo } from './loc';
 
 function onLoadComplete() {
     let buttons = document.querySelectorAll('#welcome .buttons button');
@@ -37,6 +38,7 @@ function onLoadComplete() {
 function startAppInMode(mode) {
     setView('app');
     state.setMode(mode, true);
+    setTimeout(askForGeo, 1000);
 
 }
 
