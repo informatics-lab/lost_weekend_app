@@ -1,5 +1,6 @@
 const events = require('./eventDetailsAuto');
 const pickRandom = require('pick-random');
+var dateFormat = require('dateformat');
 import { randomColour } from './colours';
 
 const geodist = require('geodist'); // TODO: Use built in leflet?
@@ -109,6 +110,16 @@ function makeEventMarker(evt, visited) {
     if (description.length > maxlen) {
         description = description.substring(0, maxlen);
         description += `<a target="_blank" href="${evt.url}" title="Read more">...</a>`;
+    }
+    if (evt.times) {
+        let timeStr = '<p>Times:</p><ul>'
+        for (let i = 0; i < evt.times.length; i++) {
+            let time = evt.times[i];
+            timeStr += "<li>" + dateFormat(time.start, "dddd dS h:MMTT") + " - " + dateFormat(time.end, "h:MMTT") + "</li>";
+        }
+
+        timeStr += '</p>';
+        description += timeStr;
     }
 
     let icon = (visited) ? tickIcon : questionIcon;
