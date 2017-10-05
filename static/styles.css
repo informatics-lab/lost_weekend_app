@@ -118,10 +118,10 @@ body {
     border-radius: 0.5em 0.5em 2em 0.5em;
     padding-right: 7em;
     padding-left: 2em;
-    padding-top:1em;
-    padding-bottom:1em;
-    font-weight:400;
-    font-size:small;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-weight: 400;
+    font-size: small;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6ec6d9+0,2c4a9a+51,714494+99 */
     background: #6ec6d9;
     /* Old browsers */
@@ -156,10 +156,10 @@ body {
     border-radius: 2em 0.5em 0.5em 0.5em;
     padding-right: 7em;
     padding-left: 2em;
-    padding-top:1em;
-    padding-bottom:1em;
-    font-weight:400;
-    font-size:small;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-weight: 400;
+    font-size: small;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7a754+0,d85297+100 */
     background: #f7a754;
     /* Old browsers */
@@ -167,7 +167,7 @@ body {
     /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, #714494 0%, #d85297 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg,#714494 0%, #d85297 100%);
+    background: linear-gradient(135deg, #714494 0%, #d85297 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
@@ -236,17 +236,19 @@ body {
 
 .bannerTitle {
     background-color: #f7a754;
-   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7a754+0,48357a+69,d85297+100 */
-    background: #f7a754; /* Old browsers */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7a754+0,48357a+69,d85297+100 */
+    background: #f7a754;
+    /* Old browsers */
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3c2975+1,5f4cdb+51,d85297+100 */
-    background: #3c2975; /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #201C40 1%, #5f4cdb 51%, #d85297 100%); 
+    background: #3c2975;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #201C40 1%, #5f4cdb 51%, #d85297 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #201C40 1%,#5f4cdb 51%,#d85297 100%); 
+    background: -webkit-linear-gradient(-45deg, #201C40 1%, #5f4cdb 51%, #d85297 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #201C40 1%,#5f4cdb 51%,#d85297 100%); 
+    background: linear-gradient(135deg, #201C40 1%, #5f4cdb 51%, #d85297 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c2975', endColorstr='#d85297',GradientType=1 ); 
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3c2975', endColorstr='#d85297', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
     box-shadow: 0.2em 0.2em 0.2em 0.04em rgba(70, 0, 56, 0.2);
     padding-top: 1em;
@@ -259,10 +261,10 @@ body {
     color: white;
     padding-right: 0.8em;
     font-size: 100%;
-    font-weight:300;
+    font-weight: 300;
 }
 
-#bannerTitle h2 { 
+.bannerTitle h2 {
     font-weight: 500;
     text-transform: uppercase;
     font-size: small;
@@ -345,7 +347,7 @@ ul.links li h3 {
     margin: 0.6em 0.6em 0.4em 0.6em;
     padding: 0;
     font-size: 110%;
-    font-weight:300;
+    font-weight: 300;
     background: none;
     color: white;
     width: 2.3em;
@@ -491,10 +493,9 @@ button.button:focus {
     padding-top: 4em;
 }
 
-#backtomap{
+#backtomap {
     width: 3em;
 }
-
 
 .achievement {
     color: gray;
@@ -503,7 +504,6 @@ button.button:focus {
     display: inline-block;
     position: relative;
 }
-
 
 .achievement .wrapper {
     overflow: hidden;
