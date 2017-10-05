@@ -423,6 +423,7 @@ button.button:focus {
     overflow: hidden;
     border-radius: 1em;
     box-shadow: 0.1em 0.1em 0.1em 0.03em rgba(70, 0, 56, 0.5);
+    padding-top: 1.5em;
 }
 
 .achievement img.done {
@@ -447,8 +448,9 @@ button.button:focus {
 
 .achievement .img {
     display: block;
-    width: 10em;
-    height: 10em;
+    width: 3em;
+    height: 3em;
+    padding-top: 2em;
     margin: auto;
     background-repeat: no-repeat;
     background-size: cover;
