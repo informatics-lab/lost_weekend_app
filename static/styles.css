@@ -48,6 +48,7 @@ body {
 .videoWrapper {
     position: relative;
     padding-bottom: 0%;
+    margin-top:2em;
     transition: padding 1s;
     /* 16:9 
     padding-bottom:56.25%
@@ -297,16 +298,7 @@ nav#menuBar {
     top: 0;
     text-align: right;
     border-bottom-left-radius: 3em;
-    background-color: #f7a754;
-    /* Old browsers */
-    background: -moz-linear-gradient(90deg, #f7a754 0%, #d85297 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(90deg, #f7a754 0%, #d85297 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(90deg, #f7a754 0%, #d85297 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */
+    background-color: #ffffff ;
     ;
     box-shadow: 0.2em 0.2em 0.2em 0.04em rgba(70, 0, 56, 0.3);
 }
@@ -338,13 +330,12 @@ ul.links li h3 {
     padding-right: 3em;
     padding-left: 2em;
     padding-bottom: 1em;
-    padding-top: 1em;
     font-weight: 400;
 }
 
 #menuBar .hamburger {
     border: none;
-    margin: 0.6em 0.6em 0.4em 0.6em;
+    margin: 0.8em 0.6em 0.2em 0.6em;
     padding: 0;
     font-size: 110%;
     font-weight: 300;
@@ -442,16 +433,18 @@ button.button:focus {
     box-shadow: 0.1em 0.1em 0.1em 0.03em rgba(70, 0, 56, 0.5);
     border-radius: 0.5em 0.5em 0em 0em;
     line-height: 1.2em;
-    padding-top: 1.5em;
+    padding-top: 1em;
     padding-left: 1em;
     padding-right: 1em;
-    padding-bottom: 1em;
+    padding-bottom: 0.8em;
 }
 
 .leaflet-popup h3 a {
     color: white;
     text-decoration: none;
     line-height: 30%;
+    font-weight: 400;
+    font-size: small;
 }
 
 .leaflet-popup-tip-container {
@@ -465,7 +458,9 @@ button.button:focus {
 
 .leaflet-popup-content p {
     margin: 0 0;
-    padding: 0 2% 0.005em 2%;
+    padding: 0 1em 1em 1.5em;
+    text-transform: none;
+    color: gray;
 }
 
 
@@ -482,7 +477,7 @@ button.button:focus {
 
 #achivements {
     color: gray;
-    background-color: white;
+    background-color: #201C40;
     position: absolute;
     top: 0;
     left: 0;
@@ -498,11 +493,12 @@ button.button:focus {
 }
 
 .achievement {
-    color: gray;
+    color: #ffffff;
     width: 12em;
     margin: 1em;
     display: inline-block;
     position: relative;
+    font-weight: 400;
 }
 
 .achievement .wrapper {
@@ -533,6 +529,12 @@ button.button:focus {
 .achievement.mystry .achievement p,
 .achievement h3 {
     padding: 0.2em;
+}
+
+.acheivement h2 {
+    font-weight: 400;
+    color: white;
+    font-size: small;
 }
 
 .achievement .img {
@@ -577,6 +579,8 @@ button.button:focus {
 
 .achievement.got .found {
     display: block;
+    font-weight: 400;
+    font-size: small;
 }
 
 .achievement.got .notfound {
