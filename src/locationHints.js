@@ -30,7 +30,7 @@ let locationEcho = {
             let grd = ctx.createRadialGradient(dot.x, dot.y, radius, dot.x, dot.y, 0);
             if (hint.isClose) {
                 grd.addColorStop(0, 'rgba(0,85,152,0.60)');
-                grd.addColorStop(0.125, 'rgba(251,192,0,0.45)');
+                grd.addColorStop(0.125, 'rgba(68,173,227,0.45)');
                 grd.addColorStop(0.50, 'rgba(111,0,217,0)');
             } else {
 

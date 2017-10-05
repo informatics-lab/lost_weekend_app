@@ -104,7 +104,7 @@ function createDOMElement(achievement) {
                 <div class="found img" style="background-image:url('${achievement.img}');"></div>
                 <h3 class="found ">${achievement.summary}</h3>
             <div class="notfound img" style="background-image:url('assets/question-alt.svg');"></div>
-            <h3 class="notfound ">?</h3>
+            <h3 class="notfound ">&nbsp;</h3>
             <hr />
         </wrapper>
     `;
