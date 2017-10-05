@@ -15,7 +15,7 @@ const HINT_AT_RANGE = 100;
 const GAME_EVENT = 'gameevent';
 const EVENT_EVENT = 'event';
 let allEvents = events.eventList;
-let hiddenEvents = allEvents.slice();
+let hiddenEvents = [];
 let map;
 let markerLayer = L.layerGroup();
 
@@ -75,11 +75,14 @@ function redrawEvents() {
     }
     toShowEvents.map(markerToMap);
     markerLayer.addTo(map);
-    map.invalidateSize();
-    setTimeout(() => {
-        map.invalidateSize();
-        map._onResize()
-    }, 3);
+    // Fudge to force redraw.
+    if (state.getMode() !== MODE_REVEAL) {
+        if (state.getMode() === MODE_ALL) {
+            map.zoomIn(0.1)
+        } else {
+            map.zoomOut(0.11);
+        }
+    }
 }
 
 
@@ -178,8 +181,8 @@ function randomGameEvent() {
 
 function addEvents(eventMap) {
     map = eventMap;
+    hiddenEvents = allEvents.filter(event => !state.isFoundEvent(event));
     markerLayer.addTo(map);
-    let count = hiddenEvents.length;
     setInterval(updateRecentlyVisable, 333);
     setInterval(updateVisable, 5000); //TODO: Batch in to 'sets' of 50-300 points so don't inturup UI?
 }
