@@ -210,7 +210,7 @@ module.exports = {
             "url": "http://www.lostweekend.co.uk/event/come-battle-the-screenless-playstation-game/"
         },
         {
-            "description": "A playful sound sculpture: make some moves and hear the bells chime! First floor, Rougement Lounge in Exeter Library.",
+            "description": "A playful sound sculpture: make some moves and hear the bells chime! First floor, Rougemont Lounge in Exeter Library.",
             "geo": {
                 "lat": 50.72511527,
                 "lon": -3.530341275
