@@ -454,6 +454,8 @@ button.button:focus {
 .leaflet-popup img {
     margin: 2%;
     width: 96%;
+    height: 12em;
+    object-fit: cover;
 }
 
 .leaflet-popup-content p,
