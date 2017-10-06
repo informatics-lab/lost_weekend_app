@@ -501,7 +501,7 @@ button.button:focus {
 }
 
 .achievement {
-    color: #ffffff;
+    color: gray;
     width: 12em;
     margin: 1em;
     display: inline-block;
@@ -616,4 +616,8 @@ button.button:focus {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7a754', endColorstr='#d85297', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
+}
+
+#other_achievements .achievement.got .img {
+    width: 6em;
 }
